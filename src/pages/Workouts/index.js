@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Header} from 'semantic-ui-react';
 
 class Workouts extends Component {
   render() {
@@ -6,7 +7,7 @@ class Workouts extends Component {
     
     return (
       <div>
-        Workouts
+        <Header as="h1">Workouts</Header>
       </div>
     );
   }

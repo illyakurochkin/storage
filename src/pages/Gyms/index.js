@@ -6,9 +6,6 @@ import {connect} from 'react-redux';
 import GymCard from './components/GymCard';
 import {Item, Header} from 'semantic-ui-react';
 
-const Container = styled.div`
-`;
-
 const List = styled(Item.Group)`
   width: 700px;
 `;
@@ -23,7 +20,7 @@ class Gyms extends Component {
     console.log('gyms', gyms);
     
     return (
-      <Container>
+      <div>
         <Header as="h1">Gyms</Header>
         <List divided>
           {gyms && gyms.map(gym => (
@@ -34,7 +31,7 @@ class Gyms extends Component {
             />
           ))}
         </List>
-      </Container>
+      </div>
     );
   }
 }

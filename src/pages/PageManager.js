@@ -8,6 +8,7 @@ import Coaches from './Coaches';
 import Gyms from './Gyms';
 import Gym from './Gym';
 import Clients from './Clients';
+import Coach from './Coach';
 
 const Container = styled.div`
   width: 700px;
@@ -44,6 +45,8 @@ const mapStateToProps = state => {
       return {page: <Clients/>};
     case 'gym':
       return {page: <Gym gym={state.page.gym}/>};
+    case 'coach':
+      return {page: <Coach coach={state.page.coach}/>};
   }
 };
 
