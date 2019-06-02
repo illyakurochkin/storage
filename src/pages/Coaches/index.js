@@ -5,29 +5,54 @@ import CoachCard from './components/CoachCard';
 import styled from 'styled-components';
 import {setPage} from '../../redux/actions/pageActions';
 import {fetchCoaches} from '../../redux/actions/coachesActions';
+import Search from '../components/Search';
+import _ from 'lodash';
 
 const List = styled(Item.Group)`
   width: 700px;
 `;
 
+const search = (coach, query) => {
+  const q = query.toLowerCase().trim();
+ 
+  return coach &&  _.get(coach, 'name', '').toLowerCase().includes(q) ||
+    _.get(coach, 'phone', '').toLowerCase().includes(q) ||
+    _.get(coach, 'email', '').toLowerCase().includes(q) ||
+    _.get(coach, 'sportRang', '').toLowerCase().includes(q) ||
+    ('' + _.get(coach, 'age', '')).toLowerCase().includes(q);
+};
+
 class Coaches extends Component {
+  state = {query: ''};
+  
   componentDidMount() {
-    this.props.fetchCoaches();
+    this.props.fetchCoaches({});
   }
-  render() {
+  
+  renderCards() {
     const {coaches, setPage} = this.props;
+    const {query} = this.state;
+    
+    return coaches && coaches
+    .filter(coach => search(coach, query))
+    .map(coach => (
+      <CoachCard
+        key={coach.coachId}
+        coach={coach}
+        onClick={() => setPage({name: 'coach', coach})}
+      />
+    ))
+  }
+  
+  render() {
+    const {query} = this.state;
     
     return (
       <div>
         <Header as="h1">Coaches</Header>
+        <Search query={query} onChange={query => this.setState({query})}/>
         <List divided>
-          {coaches && coaches.map(coach => (
-            <CoachCard
-              key={coach.coachId}
-              coach={coach}
-              onClick={() => setPage({name: 'coach', coach})}
-            />
-          ))}
+          {this.renderCards()}
         </List>
       </div>
     );

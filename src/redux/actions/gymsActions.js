@@ -1,6 +1,6 @@
 import {FETCH_GYMS} from './actionsTypes';
 
-const fakeGetGyms = () => new Promise(resolve => setTimeout(() => resolve([
+const fakeGetGyms = ({clientId, coachId}) => new Promise(resolve => setTimeout(() => resolve([
   {
     gymId: 32312323,
     address: 'Ukraine, Kyiv, Kontractova street 14',
@@ -49,7 +49,7 @@ const fakeGetGyms = () => new Promise(resolve => setTimeout(() => resolve([
       'fjlk  lkj lkjlkjsdlfkj lksjdflkjsdlkjl sldkfj'
   },
   {
-    gymId: 56456546,
+    gymId: 564564546,
     address: 'Ukraine, Kyiv, Shevchenka street 14',
     country: 'Ukraine',
     town: 'Kyiv',
@@ -68,7 +68,7 @@ const fakeGetGyms = () => new Promise(resolve => setTimeout(() => resolve([
   }
 ]), 500));
 
-export const fetchGyms = () => dispatch => fakeGetGyms()
+export const fetchGyms = ({coachId, clientId}) => dispatch => fakeGetGyms({coachId, clientId})
   .then(gyms => dispatch({
     type: FETCH_GYMS,
     gyms

@@ -68,7 +68,7 @@ class Menu extends Component {
           />
           <SemanticMenu.Item
             name="workouts"
-            active={page.name === 'workouts'}
+            active={page.name === 'workouts' || page.name === 'createWorkout'}
             onClick={() => setPage({name: 'workouts'})}
           />
           <SemanticMenu.Item

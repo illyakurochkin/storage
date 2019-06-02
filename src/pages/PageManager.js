@@ -9,6 +9,7 @@ import Gyms from './Gyms';
 import Gym from './Gym';
 import Clients from './Clients';
 import Coach from './Coach';
+import CreateWorkout from './CreateWorkout';
 
 const Container = styled.div`
   width: 700px;
@@ -47,6 +48,15 @@ const mapStateToProps = state => {
       return {page: <Gym gym={state.page.gym}/>};
     case 'coach':
       return {page: <Coach coach={state.page.coach}/>};
+    case 'createWorkout':
+      return {
+        page: <CreateWorkout
+          coach={state.page.coach}
+          client={state.page.client}
+          gym={state.page.gym}
+        />
+      };
+      console.log('lfkjsdlfkjsdflksdjflksdjflksdjflsdkfjdsflsjdflkdsjflksj #$')
   }
 };
 

@@ -12,7 +12,7 @@ const fakeGetCoaches = () => new Promise(resolve => setTimeout(() => resolve([
   },
   {
     coachId: 34234232343,
-    name: 'Sydorenko Ivan Olegovych',
+    name: 'Myronych Olegovych',
     phone: '+42389042384',
     age: 24,
     sportRang: 'super sportsman',
@@ -21,26 +21,26 @@ const fakeGetCoaches = () => new Promise(resolve => setTimeout(() => resolve([
   },
   {
     coachId: 3434,
-    name: 'Sydorenko Ivan Olegovych',
-    phone: '+42389042384',
+    name: 'Olena Ivan Olegovych',
+    phone: '+423422384',
     age: 24,
-    sportRang: 'super sportsman',
+    sportRang: 'strong sportsman',
     payment: 20,
     photo: 'https://talksport.com/wp-content/uploads/sites/5/2018/12/GettyImages-10673991241.jpg?strip=all&w=960&quality=100'
   },
   {
     coachId: 22222222,
-    name: 'Sydorenko Ivan Olegovych',
+    name: 'Valentina Ivan Olegovych',
     phone: '+42389042384',
-    age: 24,
-    sportRang: 'super sportsman',
+    age: 21,
+    sportRang: 'super sportwoman',
     payment: 20,
-    photo: 'https://talksport.com/wp-content/uploads/sites/5/2018/12/GettyImages-10673991241.jpg?strip=all&w=960&quality=100'
+    photo: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80'
   },
 
 ]), 500));
 
-export const fetchCoaches = () => dispatch => fakeGetCoaches()
+export const fetchCoaches = ({gymId, clientId}) => dispatch => fakeGetCoaches({gymId, clientId})
 .then(coaches => dispatch({
   type: FETCH_COACHES,
   coaches
