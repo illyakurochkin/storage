@@ -1,26 +1,38 @@
-import React, {Component} from 'react';
+import React, {Component, Fragment} from 'react';
 import styled from 'styled-components';
+import {connect} from 'react-redux';
 import Menu from './pages/components/Menu';
 import PageManager from './pages/PageManager';
+import Signin from './pages/Signin';
 
 const Container = styled.div`
-  position: absolute;
-  width: 100%;
-  height: 100%;
   display: flex;
   flex-direction: row;
 `;
 
 class App extends Component {
   render() {
+    const {user} = this.props;
+    
     return (
       <Container>
-        <Menu/>
-        <PageManager/>
+        {user && (
+          <Fragment>
+            <Menu/>
+            <PageManager/>
+          </Fragment>
+        )}
+        {!user && (
+          <Signin/>
+        )}
       </Container>
     );
   }
 }
 
 
-export default App;
+const mapStateToProps = state => {
+  return {user: state.user};
+};
+
+export default connect(mapStateToProps)(App);

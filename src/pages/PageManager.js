@@ -6,10 +6,12 @@ import Home from './Home';
 import Workouts from './Workouts';
 import Coaches from './Coaches';
 import Gyms from './Gyms';
+import Gym from './Gym';
 import Clients from './Clients';
 
 const Container = styled.div`
-  padding: 50px;
+  width: 700px;
+  margin: 50px auto;
 `;
 
 class PageManager extends Component {
@@ -27,9 +29,9 @@ class PageManager extends Component {
 const mapStateToProps = state => {
   const pageName = state.page.name;
   
-  console.log('mapStateToProos', pageName)
+  console.log('mapStateToProps', pageName);
   
-  switch(pageName) {
+  switch (pageName) {
     case 'home':
       return {page: <Home/>};
     case 'workouts':
@@ -40,6 +42,8 @@ const mapStateToProps = state => {
       return {page: <Gyms/>};
     case 'clients':
       return {page: <Clients/>};
+    case 'gym':
+      return {page: <Gym gym={state.page.gym}/>};
   }
 };
 

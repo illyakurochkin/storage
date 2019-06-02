@@ -6,11 +6,16 @@ import {signin, signout} from '../../redux/actions/userActions';
 import {setPage} from '../../redux/actions/pageActions';
 
 const Container = styled.div`
-  position: relative;
+  left: 50px;
+  position: fixed;
   width: 250px;
   display: flex;
   flex-direction: column;
-  border: 1px solid red;
+  padding-bottom: 50px;
+  border-radius: 10px;
+  border-left: 1px solid gray;
+  border-right: 1px solid gray;
+  margin-top: 100px;
 `;
 
 const AuthContainer = styled.div`
@@ -19,8 +24,8 @@ const AuthContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 20px;
-  border-bottom: 1px solid black;
   width: 100%;
+  height: 100px;
 `;
 
 const AuthInfo = styled.div`
@@ -41,12 +46,12 @@ const AuthButton = styled(Button).attrs({primary: true})`
 
 const SemanticMenuContainer = styled.div`
   padding: 20px;
+  padding-bottom: 50px;
   display: flex;
   justify-content: center;
 `;
 
 class Menu extends Component {
-  
   onSignin = () => this.props.signin('username', 'password');
   onSignout = () => this.props.signout();
   
@@ -55,7 +60,7 @@ class Menu extends Component {
     
     return (
       <SemanticMenuContainer>
-        <SemanticMenu secondary vertical style={{paddingTop: 100}}>
+        <SemanticMenu secondary vertical>
           <SemanticMenu.Item
             name="home"
             active={page.name === 'home'}
@@ -73,7 +78,7 @@ class Menu extends Component {
           />
           <SemanticMenu.Item
             name="gyms"
-            active={page.name === 'gyms'}
+            active={page.name === 'gyms' || page.name === 'gym'}
             onClick={() => setPage({name: 'gyms'})}
           />
           <SemanticMenu.Item
