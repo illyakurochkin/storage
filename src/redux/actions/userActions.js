@@ -29,8 +29,10 @@ export const signin = (username, password) => async dispatch => {
   
   return dispatch({
     type: SIGNIN,
-    userType,
-    userData
+    user: {
+      userType,
+      userData
+    }
   });
 };
 

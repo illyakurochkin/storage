@@ -125,10 +125,7 @@ class Menu extends Component {
 const mapStateToProps = state => {
   console.log('redux state', state);
   return {
-    user: state.user && {
-      userType: state.user.userType,
-      userData: state.user.userData
-    },
+    user: state.user,
     page: state.page
   };
 };
