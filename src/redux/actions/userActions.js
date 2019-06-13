@@ -26,7 +26,7 @@ export const signin = (username, password) => async dispatch => {
   localStorage.setItem('authToken', token);
   api.defaults.headers.common.Authorization = token;
   
-  const {date: {userType, userData}} = api.get('/auth');
+  const {data: {userType, userData}} = api.get('/auth');
   
   return dispatch({
     type: SIGNIN,
