@@ -22,17 +22,12 @@ class App extends Component {
             <PageManager/>
           </Fragment>
         )}
-        {!user && (
-          <Signin/>
-        )}
+        {!user && <Signin/>}
       </Container>
     );
   }
 }
 
-
-const mapStateToProps = state => {
-  return {user: state.user};
-};
+const mapStateToProps = state => ({user: state.user});
 
 export default connect(mapStateToProps)(App);

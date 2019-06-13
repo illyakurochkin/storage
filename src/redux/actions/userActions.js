@@ -21,9 +21,9 @@ const fakeGetGym = (gymId) =>
 export const signin = (username, password) => async dispatch => {
   const token = `${username}+${sha256(password)}`;
   localStorage.setItem('authToken', token);
-  api.defaults.headers.common.Authorization = token;
+  //api.defaults.headers.common.Authorization = token;
   
-  const {date: {userType, userData}} = api.get('/auth');
+  const {date: {userType, userData}} = api.get('/auth', {headers: {Authorization: token}});
   
   return dispatch({
     type: SIGNIN,
