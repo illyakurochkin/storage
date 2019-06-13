@@ -21,23 +21,26 @@ const fakeGetGym = (gymId) =>
   new Promise((resolve, reject) =>
     setTimeout(() => resolve({gymId: 3534342324, name: 'Kyiv, Kontraktova street, 5'}), 500));*/
 
-export const signin = (username, password) => async dispatch => {
-  const token = `${username}+${password}`;
-  localStorage.setItem('authToken', token);
+export const fetchUser = () => async dispatch => {
+  const token = localStorage.get('authToken');
   api.defaults.headers.common.Authorization = token;
-  const {data: {userType, userData}} = await api.get('/auth');
+  const {data} = await api.get('/auth');
   
   return dispatch({
     type: SIGNIN,
-    user: {
-      userType,
-      userData
-    }
+    user: data
   });
+};
+
+export const signin = (username, password) => async dispatch => {
+  const token = `${username}+${password}`;
+  localStorage.setItem('authToken', token);
+  dispatch(fetchUser());
 };
 
 export const signout = () => {
   console.log('signout');
   api.defaults.headers.common.Authorization = null;
+  localStorage.setItem('authToken', null);
   return ({type: SIGNOUT});
 };

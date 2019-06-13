@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import Menu from './pages/components/Menu';
 import PageManager from './pages/PageManager';
 import Signin from './pages/Signin';
+import {fetchUser} from './redux/actions/userActions';
 
 const Container = styled.div`
   display: flex;
@@ -11,6 +12,10 @@ const Container = styled.div`
 `;
 
 class App extends Component {
+  componentDidMount() {
+    this.props.fetchUser();
+  }
+  
   render() {
     const {user} = this.props;
     
@@ -30,4 +35,4 @@ class App extends Component {
 
 const mapStateToProps = state => ({user: state.user});
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps, {fetchUser})(App);
