@@ -1,4 +1,5 @@
-import {FETCH_COACHES, FETCH_GYMS} from './actionsTypes';
+import {FETCH_COACHES} from './actionsTypes';
+import api from '../../utils/api';
 
 const fakeGetCoaches = () => new Promise(resolve => setTimeout(() => resolve([
   {
@@ -36,12 +37,20 @@ const fakeGetCoaches = () => new Promise(resolve => setTimeout(() => resolve([
     sportRang: 'super sportwoman',
     payment: 20,
     photo: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80'
-  },
+  }
 
 ]), 500));
 
-export const fetchCoaches = ({gymId, clientId}) => dispatch => fakeGetCoaches({gymId, clientId})
-.then(coaches => dispatch({
-  type: FETCH_COACHES,
-  coaches
-}));
+// SELECT * FROM Clients WHERE EXISTS (
+//   SELECT * FROM Workouts Where Workouts.clientId = Clients.clientId
+// )
+
+export const fetchCoaches = ({gymId, clientId}) => async dispatch => {
+  const body = gymId ? `gymId=${gymId}` : `clientId=${clientId}`;
+  const {data} = await api.get(`/coaches?${body}`);
+  dispatch({
+    type: FETCH_COACHES,
+    coaches: data
+  });
+};
+

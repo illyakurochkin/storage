@@ -8,3 +8,4 @@ export const FETCH_COACHES = 'sport/coaches/fetchCoaches';
 
 export const FETCH_WORKOUTS = 'sport/workouts/fetchWorkouts';
 
+export const FETCH_CLIENTS = 'sport/clients/fetchClients';

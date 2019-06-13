@@ -1,4 +1,5 @@
 import {FETCH_GYMS} from './actionsTypes';
+import api from '../../utils/api';
 
 const fakeGetGyms = ({clientId, coachId}) => new Promise(resolve => setTimeout(() => resolve([
   {
@@ -68,8 +69,10 @@ const fakeGetGyms = ({clientId, coachId}) => new Promise(resolve => setTimeout((
   }
 ]), 500));
 
-export const fetchGyms = ({coachId, clientId}) => dispatch => fakeGetGyms({coachId, clientId})
-  .then(gyms => dispatch({
+export const fetchGyms = () => async dispatch => {
+  const {data} = api.get('/gyms');
+  dispatch({
     type: FETCH_GYMS,
-    gyms
-  }));
+    gyms: data
+  });
+};
