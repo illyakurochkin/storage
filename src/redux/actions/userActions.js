@@ -22,7 +22,7 @@ const fakeGetGym = (gymId) =>
     setTimeout(() => resolve({gymId: 3534342324, name: 'Kyiv, Kontraktova street, 5'}), 500));*/
 
 export const fetchUser = () => async dispatch => {
-  const token = localStorage.get('authToken');
+  const token = localStorage.getItem('authToken');
   api.defaults.headers.common.Authorization = token;
   const {data} = await api.get('/auth');
   

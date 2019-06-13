@@ -41,12 +41,8 @@ const fakeGetCoaches = () => new Promise(resolve => setTimeout(() => resolve([
 
 ]), 500));
 
-// SELECT * FROM Clients WHERE EXISTS (
-//   SELECT * FROM Workouts Where Workouts.clientId = Clients.clientId
-// )
-
 export const fetchCoaches = ({gymId, clientId}) => async dispatch => {
-  const body = gymId ? `gymId=${gymId}` : `clientId=${clientId}`;
+  const body = gymId ? `gymId=${gymId}` : clientId ? `clientId=${clientId}` : '';
   const {data} = await api.get(`/coaches?${body}`);
   dispatch({
     type: FETCH_COACHES,
