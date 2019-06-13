@@ -4,7 +4,10 @@ import api from '../../utils/api';
 
 const fakeSignin = (username, password) =>
   new Promise((resolve, reject) =>
-    setTimeout(() => resolve({userType: 'client', userData: {clientId: 123123, name: 'Gonchar Galyna Romanivna'}}), 500));
+    setTimeout(() => resolve({
+      userType: 'client',
+      userData: {clientId: 123123, name: 'Gonchar Galyna Romanivna'}
+    }), 500));
 
 /*const fakeGetCoach = (coachId) =>
   new Promise((resolve, reject) =>
@@ -21,9 +24,13 @@ const fakeGetGym = (gymId) =>
 export const signin = (username, password) => async dispatch => {
   const token = `${username}+${sha256(password)}`;
   localStorage.setItem('authToken', token);
-  //api.defaults.headers.common.Authorization = token;
+  api.defaults.headers.common.Authorization = token;
   
-  const {date: {userType, userData}} = api.get('/auth', {headers: {"Authorization": token}});
+  const {date: {userType, userData}} = api.get('/auth', {
+    headers: {
+      'SportAuthorization': token
+    }
+  });
   
   return dispatch({
     type: SIGNIN,
