@@ -26,6 +26,7 @@ export const signin = (username, password) => async dispatch => {
   localStorage.setItem('authToken', token);
   api.defaults.headers.common.Authorization = token;
   const {data} = await api.get('/auth');
+  console.log('data', data);
   const jsonData = JSON.parse(data);
   
   const {userType, userData} = jsonData;
