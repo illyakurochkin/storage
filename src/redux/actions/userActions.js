@@ -22,15 +22,11 @@ const fakeGetGym = (gymId) =>
     setTimeout(() => resolve({gymId: 3534342324, name: 'Kyiv, Kontraktova street, 5'}), 500));*/
 
 export const signin = (username, password) => async dispatch => {
-  const token = `${username}+${sha256(password)}`;
+  const token = `${username}+${password}`;
   localStorage.setItem('authToken', token);
   api.defaults.headers.common.Authorization = token;
   
-  const {date: {userType, userData}} = api.get('/auth', {
-    headers: {
-      'SportAuthorization': token
-    }
-  });
+  const {date: {userType, userData}} = api.get('/auth');
   
   return dispatch({
     type: SIGNIN,
