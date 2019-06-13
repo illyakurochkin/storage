@@ -11,6 +11,10 @@ const StyledImage = styled(Image)`
 `;
 
 const Content = styled.div`
+
+`;
+
+const FlexContainer = styled.div`
   display: flex;
   flex-direction: row;
 `;
@@ -21,16 +25,23 @@ class Gym extends Component {
     
     return (
       <Content>
-        <div>
-          <StyledImage size="medium" src={coach.photo}/>
-        </div>
-        <div>
-          <StyledHeader as="h1">{coach.name}</StyledHeader>
-          {coach.age && <p><Icon color="blue" name="star outline"/> {coach.age} years</p>}
-          {coach.sportRang && <p><Icon color="blue" name="trophy"/> {coach.sportRang}</p>}
-          {coach.email && <p><Icon color="blue" name="mail"/> {coach.email}</p>}
-          {coach.phone && <p><Icon color="blue" name="phone"/> {coach.phone}</p>}
-        </div>
+        <FlexContainer>
+          <div>
+            <StyledImage size="medium" src={coach.photo}/>
+          </div>
+          <div>
+            <StyledHeader as="h1">{coach.name}</StyledHeader>
+            {coach.age && <p><Icon color="blue" name="star outline"/> {coach.age} years</p>}
+            {coach.sportRang && <p><Icon color="blue" name="trophy"/> {coach.sportRang}</p>}
+            {coach.email && <p><Icon color="blue" name="mail"/> {coach.email}</p>}
+            {coach.phone && <p><Icon color="blue" name="phone"/> {coach.phone}</p>}
+          </div>
+        </FlexContainer>
+        <Header as="h3">Common Clients</Header>
+        <p><a>Bykov Arsen Danylovych</a> - 3</p>
+        <p><a>Berezniuk Olena Ivanivna</a> - 2</p>
+        <p><a>Zadonceva Vasylyna Petrivna</a> - 5</p>
+        <p><a>Tkachuk Marko Tarasovych</a> - 4</p>
       </Content>
     
     );

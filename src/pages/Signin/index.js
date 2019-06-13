@@ -36,7 +36,7 @@ class Signin extends Component {
     const {username, password} = this.state;
     
     signin(username, password)
-     .then(user => setPage({name: 'home', user}))
+     .then(user => setPage({name: 'home', user}));
   };
   
   render() {
@@ -72,9 +72,5 @@ class Signin extends Component {
     );
   }
 }
-
-const mapStateToProps = state => {
-
-};
 
 export default connect(null, {signin, setPage})(Signin);

@@ -1,8 +1,10 @@
 import {SIGNIN, SIGNOUT} from './actionsTypes';
+import sha256 from '../../utils/sha256';
+import api from '../../utils/api';
 
 const fakeSignin = (username, password) =>
   new Promise((resolve, reject) =>
-    setTimeout(() => resolve({userType: 'coach', userData: {coachId: 123123, name: 'Semonenko Petro Stepanovych'}}), 500));
+    setTimeout(() => resolve({userType: 'client', userData: {clientId: 123123, name: 'Gonchar Galyna Romanivna'}}), 500));
 
 /*const fakeGetCoach = (coachId) =>
   new Promise((resolve, reject) =>
@@ -17,7 +19,11 @@ const fakeGetGym = (gymId) =>
     setTimeout(() => resolve({gymId: 3534342324, name: 'Kyiv, Kontraktova street, 5'}), 500));*/
 
 export const signin = (username, password) => async dispatch => {
-  const {userType, userData} = await fakeSignin(username, password);
+  const token = `${username}+${sha256(password)}`;
+  localStorage.setItem('authToken', token);
+  api.defaults.headers.common.Authorization = token;
+  
+  const {date: {userType, userData}} = api.get('/auth');
   
   return dispatch({
     type: SIGNIN,
@@ -28,5 +34,6 @@ export const signin = (username, password) => async dispatch => {
 
 export const signout = () => {
   console.log('signout');
+  api.defaults.headers.common.Authorization = null;
   return ({type: SIGNOUT});
 };

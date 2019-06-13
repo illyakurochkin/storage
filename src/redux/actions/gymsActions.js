@@ -32,7 +32,7 @@ const fakeGetGyms = ({clientId, coachId}) => new Promise(resolve => setTimeout((
   },
   {
     gymId: 56456546,
-    address: 'Ukraine, Kyiv, Shevchenka street 14',
+    address: 'Ukraine, Kyiv, Shevchenka stret 14',
     country: 'Ukraine',
     town: 'Kyiv',
     email: 'doSportLife@gmail.com',
@@ -50,7 +50,7 @@ const fakeGetGyms = ({clientId, coachId}) => new Promise(resolve => setTimeout((
   },
   {
     gymId: 564564546,
-    address: 'Ukraine, Kyiv, Shevchenka street 14',
+    address: 'Ukraine, Kyiv, Shevchenka treet 14',
     country: 'Ukraine',
     town: 'Kyiv',
     email: 'doSportLife@gmail.com',

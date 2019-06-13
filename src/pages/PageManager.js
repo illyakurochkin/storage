@@ -56,7 +56,6 @@ const mapStateToProps = state => {
           gym={state.page.gym}
         />
       };
-      console.log('lfkjsdlfkjsdflksdjflksdjflksdjflsdkfjdsflsjdflkdsjflksj #$')
   }
 };
 

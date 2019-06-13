@@ -16,7 +16,7 @@ const search = (gym, query) => {
   const q = query.toLowerCase().trim();
   
   return _.get(gym, 'address', '').toLowerCase().includes(q) ||
-   _.get(gym, 'description', '').toLowerCase().includes(q) ||
+    _.get(gym, 'description', '').toLowerCase().includes(q) ||
     _.get(gym, 'phone', '').toLowerCase().includes(q) ||
     _.get(gym, 'email', '').toLocaleString().includes(q);
 };
@@ -29,7 +29,7 @@ class Gyms extends Component {
   }
   
   renderCards() {
-    const {gyms} = this.props;
+    const {gyms, setPage} = this.props;
     const {query} = this.state;
     
     return gyms && gyms.filter(gym => search(gym, query))

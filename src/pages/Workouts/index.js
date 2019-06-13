@@ -1,9 +1,36 @@
 import React, {Component} from 'react';
-import {Header, Button} from 'semantic-ui-react';
+import {Button, Header} from 'semantic-ui-react';
 import {connect} from 'react-redux';
 import {setPage} from '../../redux/actions/pageActions';
+import {fetchWorkouts} from '../../redux/actions/workoutActions';
+
+import WorkoutCard from './components/WorkoutCard';
 
 class Workouts extends Component {
+  componentDidMount() {
+    const {user: {userType, userData}} = this.props;
+    
+    const filter = {};
+    
+    if (userType === 'client') {
+      filter.clientId = userData.clientId
+    } else if (userType === 'admin') {
+      filter.gymId = userData.gymId;
+    } else if (userType === 'coach') {
+      filter.coachId = userData.coachId;
+    }
+    
+    this.props.fetchWorkouts(filter);
+  }
+  
+  renderWorkouts() {
+    const {workouts} = this.props;
+    
+    return workouts && workouts.map(workout => (
+      <WorkoutCard key={JSON.stringify(workout)} workout={workout}/>
+    ));
+  }
+  
   render() {
     const {setPage} = this.props;
     
@@ -11,13 +38,18 @@ class Workouts extends Component {
       <div>
         <Header as="h1">Workouts</Header>
         <Button primary onClick={() => setPage({name: 'createWorkout'})}>Create Workout</Button>
+        {this.renderWorkouts()}
       </div>
     );
   }
 }
 
 const mapStateToProps = state => {
-
+  console.log('workouts', state);
+  return ({
+    workouts: state.workouts,
+    user: state.user
+  });
 };
 
-export default connect(null, {setPage})(Workouts);
+export default connect(mapStateToProps, {setPage, fetchWorkouts})(Workouts);

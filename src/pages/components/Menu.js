@@ -56,7 +56,7 @@ class Menu extends Component {
   onSignout = () => this.props.signout();
   
   renderMenuItems() {
-    const {page, setPage} = this.props;
+    const {page, setPage, user: {userType}} = this.props;
     
     return (
       <SemanticMenuContainer>
@@ -81,11 +81,13 @@ class Menu extends Component {
             active={page.name === 'gyms' || page.name === 'gym'}
             onClick={() => setPage({name: 'gyms'})}
           />
-          <SemanticMenu.Item
-            name="clients"
-            active={page.name === 'clients' || page.name === 'client'}
-            onClick={() => setPage({name: 'clients'})}
-          />
+          {(userType === 'admin' || userType === 'coach') && (
+            <SemanticMenu.Item
+              name="clients"
+              active={page.name === 'clients' || page.name === 'client'}
+              onClick={() => setPage({name: 'clients'})}
+            />
+          )}
         </SemanticMenu>
       </SemanticMenuContainer>
     )
@@ -99,7 +101,7 @@ class Menu extends Component {
         {user && (
           <AuthInfo>
             <UserType>{user.userType}</UserType>
-            <p>{user.name}</p>
+            <p>{user.userData.name ? user.userData.name : user.userData.address}</p>
           </AuthInfo>
         )}
         <AuthButton
@@ -125,7 +127,7 @@ const mapStateToProps = state => {
   return {
     user: state.user && {
       userType: state.user.userType,
-      ...state.user.userData
+      userData: state.user.userData
     },
     page: state.page
   };
