@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 import styled from 'styled-components';
+import {connect} from 'react-redux';
+import {Header, Item} from 'semantic-ui-react';
+import GymCard from './components/GymCard';
+import Search from '../components/Search';
 import {fetchGyms} from '../../redux/actions/gymsActions';
 import {setPage} from '../../redux/actions/pageActions';
-import {connect} from 'react-redux';
-import GymCard from './components/GymCard';
-import {Header, Item} from 'semantic-ui-react';
-import Search from '../components/Search';
 import _ from 'lodash';
 
 const List = styled(Item.Group)`
@@ -15,10 +15,10 @@ const List = styled(Item.Group)`
 const search = (gym, query) => {
   const q = query.toLowerCase().trim();
   
-  return _.get(gym, 'address', '').toLowerCase().includes(q) ||
+  return gym && (_.get(gym, 'address', '').toLowerCase().includes(q) ||
     _.get(gym, 'description', '').toLowerCase().includes(q) ||
     _.get(gym, 'phone', '').toLowerCase().includes(q) ||
-    _.get(gym, 'email', '').toLocaleString().includes(q);
+    _.get(gym, 'email', '').toLocaleString().includes(q));
 };
 
 class Gyms extends Component {

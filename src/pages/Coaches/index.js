@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import styled from 'styled-components';
 import {Header, Item} from 'semantic-ui-react';
 import CoachCard from './components/CoachCard';
-import styled from 'styled-components';
+import Search from '../components/Search';
 import {setPage} from '../../redux/actions/pageActions';
 import {fetchCoaches} from '../../redux/actions/coachesActions';
-import Search from '../components/Search';
 import _ from 'lodash';
 
 const List = styled(Item.Group)`
