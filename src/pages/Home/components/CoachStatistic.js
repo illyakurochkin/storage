@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import {Header} from 'semantic-ui-react';
+import {connect} from 'react-redux';
+import {setPage} from '../../../redux/actions/pageActions';
 
 const Container = styled.div``;
 
@@ -62,4 +64,4 @@ CoachStatistic.propTypes = {
   statistic: PropTypes.object.isRequired
 };
 
-export default CoachStatistic;
+export default connect(null, {setPage})(CoachStatistic);
