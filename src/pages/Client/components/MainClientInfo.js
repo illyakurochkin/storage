@@ -23,7 +23,9 @@ class MainClientInfo extends Component {
     
     return (
       <Container>
-        <Image size="medium" src={client.photo}/>
+        <div>
+          <Image size="medium" src={client.photo}/>
+        </div>
         <div>
           <StyledHeader as="h1">{client.name}</StyledHeader>
           {client.email && <p><Icon color="blue" name="mail"/> {client.email}</p>}
