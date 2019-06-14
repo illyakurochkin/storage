@@ -5,7 +5,7 @@ import {Button, Header, Icon} from 'semantic-ui-react';
 import SearchDropdown from './components/SearchDropdown';
 import CoachCard from '../Coaches/components/CoachCard';
 import GymCard from '../Gyms/components/GymCard';
-
+import TimeRangePicker from '@wojtekmaj/react-timerange-picker';
 import Datepicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
@@ -29,15 +29,17 @@ const StyledDatepicker = styled(Datepicker)`
   border-radius: 20px;
   padding: 18px;
   width: 200px;
+  margin-bottom: 20px;
   margin-vertical: 20px;
 `;
 
-const StyledSearchDropdown = styled(SearchDropdown)`
-  width: 200px;
+const SearchContainer = styled.div`
+  margin-bottom: 20px;
 `;
 
-const InlineBlock = styled.div`
-  display: inline-block;
+const Column = styled.div`
+  display: flex;
+  flex-direction: column;
 `;
 
 const ButtonContainer = styled.div`
@@ -45,7 +47,6 @@ const ButtonContainer = styled.div`
   padding: 20px;
   display: flex;
   align-items: center;
-  justify-content: center;
 `;
 
 const Row = styled.div`
@@ -55,40 +56,46 @@ const Row = styled.div`
   align-items: center;
 `;
 
+const CoachName = styled.h4.attrs({className: 'blue'})`
+  cursor: pointer;
+`;
+
 const CloseButton = styled(Button).attrs({
   circular: true,
   basic: true,
-  size:'mini',
-  icon:'close',
-  color:'red'
+  size: 'mini',
+  icon: 'close',
+  color: 'red'
 })``;
 
 class CreateWorkout extends Component {
   state = {
-    coach: this.props.coach,
+    coach: null,
     gym: this.props.gym,
     date: null,
+    time: ['10:00', '11:00'],
+    coaches: [],
+    loading: false,
+    withCoach: false
   };
   
-  renderCoachStep() {
-    const {coach} = this.state;
-    
+  renderCoachStep(n) {
+    const {coach, coaches, loading} = this.state;
+    console.log('coach', this.state);
     return (
       <StepContainer>
         <Row>
           <Header as="h3">
             {coach && <Icon name="check circle outline" color="green"/>}
-            {'1. Choose coach you like'}
+            {`${n}. Choose available coach`}
           </Header>
           <CloseButton onClick={() => this.setState({coach: null})}/>
         </Row>
         <FlexContainer>
-          <StyledSearchDropdown
-            style={{flex: 1}}
-            value={coach}
-            onSelect={coach => this.setState({coach})}
-            type="coach"
-          />
+          {!coaches.length && !loading ?
+            <p>There are no coaches available coaches. Please, try another time or gym.</p> :
+            <ul>{coaches.map(coach => <CoachName color="primary">{coach.name}</CoachName>)}</ul>
+          }
           {coach && (
             <CoachCard coach={coach}/>
           )}
@@ -97,7 +104,7 @@ class CreateWorkout extends Component {
     )
   }
   
-  renderGymStep() {
+  renderGymStep(n) {
     const {gym} = this.state;
     
     return (
@@ -105,53 +112,98 @@ class CreateWorkout extends Component {
         <Row>
           <Header as="h3">
             {gym && <Icon name="check circle outline" color="green"/>}
-            {'2. Choose gym'}
+            {`${n}. Choose gym`}
           </Header>
-          <CloseButton onClick={() => this.setState({gym: null})}/>
+          <CloseButton onClick={() => this.setState({gym: null, coaches: []})}/>
         </Row>
         <FlexContainer>
-          <StyledSearchDropdown
-            style={{flex: 1}}
-            value={gym}
-            onSelect={gym => this.setState({gym})}
-            type="gym"
-          />
+          <SearchContainer>
+            <SearchDropdown
+              style={{flex: 1}}
+              value={gym}
+              onSelect={gym => this.setState({gym, coaches: []})}
+              type="gym"
+            />
+          </SearchContainer>
           {gym && <GymCard gym={gym}/>}
         </FlexContainer>
       </StepContainer>
     )
   }
   
-  renderDateStep() {
-    const {date} = this.state;
+  renderDateStep(n) {
+    const {date, time} = this.state;
     
     return (
       <StepContainer>
         <Row>
           <Header as="h3">
-            {date && <Icon name="check circle outline" color="green"/>}
-            {'3. Choose date'}
+            {date && time && <Icon name="check circle outline" color="green"/>}
+            {`${n}. Choose date and time range`}
           </Header>
-          <CloseButton onClick={() => this.setState({date: null})}/>
+          <CloseButton onClick={() => this.setState({date: null, time: null})}/>
         </Row>
-        <InlineBlock>
+        <Column>
           <StyledDatepicker
+            placeholder={'date'}
             selected={date}
-            onChange={date => this.setState({date})}
+            onChange={date => this.setState({date, coaches: []})}
           />
-        </InlineBlock>
+          <TimeRangePicker
+            value={time}
+            onChange={time => this.setState({time, coaches: []})}
+            clearIcon={null}
+            disableClock
+          />
+        </Column>
       </StepContainer>
     );
   }
   
+  onWithCoachClick = () => {
+    
+    const {gym, date, time} = this.state;
+    
+    if (!(date && time && gym)) {
+      console.log('data', date, 'time', time, 'gym', gym);
+      return;
+    }
+    
+    const withCoach = !this.state.withCoach;
+    const day = date.getDay() || 7;
+    
+    this.setState({withCoach});
+    console.log(this.state);
+    
+    if (false && withCoach) {
+      const {start, end} = {};
+      
+      this.setState({loading: true});
+      //api.get(`/availableCoaches`, {params: {gymId: gym.gymId, day, start, end}})
+      new Promise(resolve => {
+        setTimeout(() => resolve([{name: 'first'}, {name: 'second'}, {name: 'third'}]), 100);
+      })
+      .then(coaches => console.log('---@@@___;', coaches) || coaches)
+      .then(response => this.setState({loading: false, coaches: response}));
+    }
+  };
+  
   render() {
+    const {withCoach} = this.state;
+    
     return (
       <div>
         <Header as="h1">Create Workout</Header>
         <Card>
-          {this.renderCoachStep()}
-          {this.renderGymStep()}
-          {this.renderDateStep()}
+          {this.renderGymStep(1)}
+          {this.renderDateStep(2)}
+          <ButtonContainer>
+            <Button
+              color={withCoach && 'green'}
+              onClick={() => console.log('hello world') || this.onWithCoachClick()}
+            >With Coach</Button>
+          </ButtonContainer>
+          {withCoach && this.renderCoachStep(3)}
           <ButtonContainer>
             <Button size="big" primary><Icon name="add"/>Create Workout</Button>
           </ButtonContainer>

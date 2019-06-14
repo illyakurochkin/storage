@@ -1,8 +1,7 @@
 import {SIGNIN, SIGNOUT} from './actionsTypes';
-import sha256 from '../../utils/sha256';
 import api from '../../utils/api';
 
-const fakeSignin = (username, password) =>
+const fakeSignIn = () =>
   new Promise((resolve, reject) =>
     setTimeout(() => resolve({
       userType: 'client',
@@ -24,7 +23,8 @@ const fakeGetGym = (gymId) =>
 export const fetchUser = () => async dispatch => {
   const token = localStorage.getItem('authToken');
   api.defaults.headers.common.Authorization = token;
-  const {data} = await api.get('/auth');
+  //const {data} = await api.get('/auth');
+  const data = await fakeSignIn();
   
   return dispatch({
     type: SIGNIN,

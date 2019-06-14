@@ -26,7 +26,7 @@ class Coaches extends Component {
   state = {query: ''};
   
   componentDidMount() {
-    this.props.fetchCoaches({});
+    this.props.fetchCoaches();
   }
   
   renderCards() {
@@ -39,7 +39,7 @@ class Coaches extends Component {
       <CoachCard
         key={coach.coachId}
         coach={coach}
-        onClick={() => setPage({name: 'coach', coach})}
+        onClick={() => setPage({name: 'coach', coachId: coach.coachId})}
       />
     ))
   }
@@ -59,9 +59,8 @@ class Coaches extends Component {
   }
 }
 
-
-const mapStateToProps = state => {
-  return {coaches: state.coaches};
-};
+const mapStateToProps = state => ({
+  coaches: state.coaches
+});
 
 export default connect(mapStateToProps, {setPage, fetchCoaches})(Coaches);

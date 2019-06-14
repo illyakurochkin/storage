@@ -25,7 +25,7 @@ class Gyms extends Component {
   state = {query: ''};
   
   componentDidMount() {
-    this.props.fetchGyms({});
+    this.props.fetchGyms();
   }
   
   renderCards() {
@@ -37,7 +37,7 @@ class Gyms extends Component {
       <GymCard
         key={gym.gymId}
         gym={gym}
-        onClick={() => setPage({name: 'gym', gym})}
+        onClick={() => setPage({name: 'gym', gymId: gym.gymId})}
       />
     ));
   }

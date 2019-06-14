@@ -1,7 +1,7 @@
 import {FETCH_GYMS} from './actionsTypes';
 import api from '../../utils/api';
 
-const fakeGetGyms = ({clientId, coachId}) => new Promise(resolve => setTimeout(() => resolve([
+const fakeGetGyms = () => new Promise(resolve => setTimeout(() => resolve([
   {
     gymId: 32312323,
     address: 'Ukraine, Kyiv, Kontractova street 14',
@@ -70,7 +70,9 @@ const fakeGetGyms = ({clientId, coachId}) => new Promise(resolve => setTimeout((
 ]), 500));
 
 export const fetchGyms = () => async dispatch => {
-  const {data} = api.get('/gyms');
+  //const {data} = await api.get('/gyms');
+  const data = await fakeGetGyms();
+  
   dispatch({
     type: FETCH_GYMS,
     gyms: data
