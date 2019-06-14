@@ -32,6 +32,7 @@ class MainGymInfo extends Component {
         <p>{gym.description}</p>
         {gym.phone && <p align="right"><Icon color="blue" name="phone"/> {gym.phone}</p>}
         {gym.email && <p align="right"><Icon color="blue" name="mail"/> {gym.email}</p>}
+        {gym.fine && <p align="right"><Icon color="blue" name="start"/> {gym.fine}</p>}
       </Container>
     );
   }
