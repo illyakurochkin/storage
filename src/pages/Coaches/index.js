@@ -14,12 +14,12 @@ const List = styled(Item.Group)`
 
 const search = (coach, query) => {
   const q = query.toLowerCase().trim();
- 
-  return coach &&  _.get(coach, 'name', '').toLowerCase().includes(q) ||
+  
+  return coach && (_.get(coach, 'name', '').toLowerCase().includes(q) ||
     _.get(coach, 'phone', '').toLowerCase().includes(q) ||
     _.get(coach, 'email', '').toLowerCase().includes(q) ||
     _.get(coach, 'sportRang', '').toLowerCase().includes(q) ||
-    ('' + _.get(coach, 'age', '')).toLowerCase().includes(q);
+    ('' + _.get(coach, 'age', '')).toLowerCase().includes(q));
 };
 
 class Coaches extends Component {
