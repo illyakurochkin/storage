@@ -41,10 +41,10 @@ const fakeGetCoaches = () => new Promise(resolve => setTimeout(() => resolve([
 
 ]), 500));
 
-export const fetchCoaches = ({gymId, clientId}) => async dispatch => {
-  const body = gymId ? `gymId=${gymId}` : clientId ? `clientId=${clientId}` : '';
-  //const {data} = await api.get(`/coaches?${body}`);
-  const data = await fakeGetCoaches();
+export const fetchCoaches = () => async dispatch => {
+  // const body = gymId ? `gymId=${gymId}` : clientId ? `clientId=${clientId}` : '';
+  const {data} = await api.get(`/coaches`);
+  //const data = await fakeGetCoaches();
   
   dispatch({
     type: FETCH_COACHES,
