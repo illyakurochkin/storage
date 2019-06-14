@@ -12,7 +12,7 @@ class ClientHome extends Component {
   
   componentDidMount() {
     api.get('/homeStat')
-      .then(response => this.setState({statistic: response.body}));
+      .then(response => this.setState({statistic: response.data}));
   }
   
   render() {
