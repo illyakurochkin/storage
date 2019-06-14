@@ -17,7 +17,7 @@ class ClientHome extends Component {
   
   render() {
     const {client} = this.props;
-    const {statistic} = this.props;
+    const {statistic} = this.state;
     
     console.log('statistic', statistic);
     
