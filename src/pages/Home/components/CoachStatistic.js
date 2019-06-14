@@ -47,7 +47,7 @@ class CoachStatistic extends Component {
           </div>
           <div>
             <ScrollContainer>
-              {statistic.coaches.map(client => (
+              {statistic.clients.map(client => (
                 <p><a onClick={() => this.goToClient(client.clientId)}>{client.name}</a></p>
               ))}
             </ScrollContainer>
