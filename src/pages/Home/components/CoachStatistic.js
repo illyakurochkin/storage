@@ -28,6 +28,8 @@ class CoachStatistic extends Component {
   render() {
     const {statistic} = this.props;
     
+    console.log('statistic', statistic);
+    
     return (
       <Container>
         <Header as="h2">Statistic</Header>

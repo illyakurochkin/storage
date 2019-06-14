@@ -22,6 +22,7 @@ class CoachHome extends Component {
     const {coach} = this.props;
     const {statistic} = this.state;
     
+    console.log(coach, statistic, 'CoachHome');
     return (
       <Container>
         <MainCoachInfo coach={coach}/>

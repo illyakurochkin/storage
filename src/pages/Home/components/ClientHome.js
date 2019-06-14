@@ -19,6 +19,8 @@ class ClientHome extends Component {
     const {client} = this.props;
     const {statistic} = this.props;
     
+    console.log('statistic', statistic);
+    
     return (
       <Container>
         <MainClientInfo client={client}/>
