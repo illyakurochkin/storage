@@ -12,6 +12,10 @@ const Container = styled.div`
   }
 `;
 
+const StyledImage = styled(Image)`
+  margin-right: 20px;
+`;
+
 const StyledHeader = styled(Header)`
   margin: 0;
   padding: 0;
@@ -24,7 +28,7 @@ class MainClientInfo extends Component {
     return (
       <Container>
         <div>
-          <Image size="medium" src={client.photo}/>
+          <StyledImage size="medium" src={client.photo}/>
         </div>
         <div>
           <StyledHeader as="h1">{client.name}</StyledHeader>
