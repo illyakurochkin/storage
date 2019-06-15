@@ -68,7 +68,7 @@ class WorkoutCard extends Component {
   
   render() {
     const {workout} = this.props;
-    const {client, coach, gym, start_time, end_time, payment} = workout;
+    const {client, coach, gym, startTime, endTime, payment, date} = workout;
     
     return (
       <Container>
@@ -77,8 +77,9 @@ class WorkoutCard extends Component {
           <StyledHeader onPress={this.goToGym} as="h3">Gym: <a>{gym.address}</a></StyledHeader>
           <StyledHeader onPress={this.goToClient} as="h3">Client: <a>{client.name}</a></StyledHeader>
         </LinksContainer>
-        <StyledHeader as="h4">Start: {start_time}</StyledHeader>
-        <StyledHeader as="h4">End: {end_time}</StyledHeader>
+        <StyledHeader as="h4">Date: {date}</StyledHeader>
+        <StyledHeader as="h4">Start: {startTime}</StyledHeader>
+        <StyledHeader as="h4">End: {endTime}</StyledHeader>
         <StyledHeader as="h4">Payment: {payment}</StyledHeader>
       </Container>
     );
