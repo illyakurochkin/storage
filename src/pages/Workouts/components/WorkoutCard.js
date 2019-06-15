@@ -15,7 +15,7 @@ const Container = styled.div`
   margin: 20px 0;
   
   &:before {
-    content: 'x';
+    content: '';
     position: absolute;
     top: 20px;
     right: 20px;
@@ -93,7 +93,6 @@ class WorkoutCard extends Component {
           <Header as="h2" color="primary">{price} UAH</Header>
         </Row>
       </Container>
-    
     );
   }
 }
