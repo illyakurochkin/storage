@@ -18,10 +18,18 @@ const search = (coach, query) => {
   console.log('search', coach, query);
   const q = (query && query.toLowerCase().trim()) || '';
   
+  console.log(q);
+  console.log('name', _.get(coach, 'name', ''));
+  console.log('phone', _.get(coach, 'phone', ''));
+  console.log('email', _.get(coach, 'email', ''));
+  console.log('sportRang', _.get(coach, 'sportRang', ''));
+  console.log('age', _.get(coach, 'age', ''));
+  
+  
   return coach && (_.get(coach, 'name', '').toLowerCase().includes(q) ||
     _.get(coach, 'phone', '').toLowerCase().includes(q) ||
     _.get(coach, 'email', '').toLowerCase().includes(q) ||
-    _.get(coach, 'sportRang', ' ').toLowerCase().includes(q) ||
+    _.get(coach, 'sportRang', '').toLowerCase().includes(q) ||
     _.get(coach, 'age', '').toLowerCase().includes(q));
 };
 
