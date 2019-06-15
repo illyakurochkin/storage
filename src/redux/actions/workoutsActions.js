@@ -61,6 +61,6 @@ export const fetchWorkouts = () => async dispatch => {
   
   dispatch({
     type: FETCH_WORKOUTS,
-    workouts: response.data
+    workouts: response.data.workouts
   });
 };
