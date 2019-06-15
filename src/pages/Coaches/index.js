@@ -21,7 +21,7 @@ const search = (coach, query) => {
     _.get(coach, 'phone', '').toLowerCase().includes(q) ||
     _.get(coach, 'email', '').toLowerCase().includes(q) ||
     _.get(coach, 'sportRang', '').toLowerCase().includes(q) ||
-    ('' + _.get(coach, 'age', '')).toLowerCase().includes(q));
+    _.get(coach, 'age', '').toLowerCase().includes(q));
 };
 
 class Coaches extends Component {
