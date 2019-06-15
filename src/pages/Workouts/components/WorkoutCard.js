@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import {Header} from 'semantic-ui-react';
 import {connect} from 'react-redux';
 import {setPage} from '../../../redux/actions/pageActions';
-import {Label} from 'semantic-ui-react';
 
 const Container = styled.div`
   position: relative;
@@ -35,6 +34,13 @@ const LinksContainer = styled.div`
 const StyledHeader = styled(Header)`
   margin: 0;
   padding: 0;
+`;
+
+const Row = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 `;
 
 class WorkoutCard extends Component {
@@ -74,16 +80,20 @@ class WorkoutCard extends Component {
     return (
       <Container>
         <LinksContainer>
-          <StyledHeader onPress={this.goToCoach} as="h3">Coach: <a>{(coach && coach.name) || '-'}</a></StyledHeader>
-          <StyledHeader onPress={this.goToGym} as="h3">Gym: <a>{gym.address}</a></StyledHeader>
-          <StyledHeader onPress={this.goToClient} as="h3">Client: <a>{client.name}</a></StyledHeader>
+          <StyledHeader onClick={this.goToCoach} as="h3">Coach: <a>{(coach && coach.name) || '-'}</a></StyledHeader>
+          <StyledHeader onClick={this.goToGym} as="h3">Gym: <a>{gym.address}</a></StyledHeader>
+          <StyledHeader onClick={this.goToClient} as="h3">Client: <a>{client.name}</a></StyledHeader>
         </LinksContainer>
-        <StyledHeader as="h4">Date: {date}</StyledHeader>
-        <StyledHeader as="h4">Start: {startTime}</StyledHeader>
-        <StyledHeader as="h4">End: {endTime}</StyledHeader>
-        <Label color="primary">{price} UAH</Label>
+        <Row>
+          <div>
+            <StyledHeader as="h4">Date: {date}</StyledHeader>
+            <StyledHeader as="h4">Start: {startTime}</StyledHeader>
+            <StyledHeader as="h4">End: {endTime}</StyledHeader>
+          </div>
+          <Header as="h2" color="primary">{price} UAH</Header>
+        </Row>
       </Container>
-      
+    
     );
   }
 }
