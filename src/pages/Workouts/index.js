@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Button, Header} from 'semantic-ui-react';
 import {connect} from 'react-redux';
 import {setPage} from '../../redux/actions/pageActions';
-import {fetchWorkouts} from '../../redux/actions/workoutActions';
+import {fetchWorkouts} from '../../redux/actions/workoutsActions';
 
 import WorkoutCard from './components/WorkoutCard';
 

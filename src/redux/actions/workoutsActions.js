@@ -1,4 +1,5 @@
 import {FETCH_WORKOUTS} from './actionsTypes';
+import api from '../../utils/api';
 
 const fakeGetWorkouts = () => new Promise(resolve => setTimeout(() => resolve([
   {
@@ -54,11 +55,12 @@ const fakeGetWorkouts = () => new Promise(resolve => setTimeout(() => resolve([
   }
 ]), 100));
 
-export const fetchWorkouts = filter => async dispatch => {
-  const workouts = await fakeGetWorkouts(filter);
+export const fetchWorkouts = () => async dispatch => {
+  //const workouts = await fakeGetWorkouts(filter);
+  const response = await api.get('/workouts');
   
   dispatch({
     type: FETCH_WORKOUTS,
-    workouts
-  })
+    workouts: response.data
+  });
 };

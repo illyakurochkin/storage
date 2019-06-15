@@ -10,6 +10,8 @@ import _ from 'lodash';
 
 const List = styled(Item.Group)`
   width: 700px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 `;
 
 const search = (coach, query) => {
