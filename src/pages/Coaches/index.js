@@ -53,7 +53,7 @@ class Coaches extends Component {
       <div>
         <Header as="h1">Coaches</Header>
         <Search query={query} onChange={query => this.setState({query})}/>
-        <List divided>
+        <List>
           {this.renderCards()}
         </List>
       </div>
