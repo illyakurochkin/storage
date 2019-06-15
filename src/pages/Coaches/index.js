@@ -15,6 +15,7 @@ const List = styled(Item.Group)`
 `;
 
 const search = (coach, query) => {
+  console.log('search', coach, query);
   const q = (query && query.toLowerCase().trim()) || '';
   
   return coach && (_.get(coach, 'name', '').toLowerCase().includes(q) ||
