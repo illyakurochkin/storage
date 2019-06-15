@@ -16,6 +16,9 @@ const Container = styled.div`
   border-left: 1px solid gray;
   border-right: 1px solid gray;
   margin-top: 100px;
+  
+  background-image: url("https://imgur.com/Z6gtAgS.png");
+  background-size: cover;
 `;
 
 const AuthContainer = styled.div`
