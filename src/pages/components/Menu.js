@@ -13,13 +13,14 @@ const Container = styled.div`
   flex-direction: column;
   padding-bottom: 50px;
   border-radius: 10px;
-  border-left: 1px solid gray;
-  border-right: 1px solid gray;
+  
   margin-top: 100px;
   
   background-color: #EEF6FB;
   
 `;
+//   border-left: 1px solid gray;
+//   border-right: 1px solid gray;
 
 const AuthContainer = styled.div`
   display: flex;

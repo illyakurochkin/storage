@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import {Header} from 'semantic-ui-react';
 import {connect} from 'react-redux';
 import {setPage} from '../../../redux/actions/pageActions';
+import {Label} from 'semantic-ui-react';
 
 const Container = styled.div`
   position: relative;
@@ -80,8 +81,9 @@ class WorkoutCard extends Component {
         <StyledHeader as="h4">Date: {date}</StyledHeader>
         <StyledHeader as="h4">Start: {startTime}</StyledHeader>
         <StyledHeader as="h4">End: {endTime}</StyledHeader>
-        <StyledHeader as="h4">Payment: {price}</StyledHeader>
+        <Label color="primary">{price} UAH</Label>
       </Container>
+      
     );
   }
 }
