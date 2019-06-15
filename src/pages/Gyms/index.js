@@ -13,7 +13,7 @@ const List = styled(Item.Group)`
 `;
 
 const search = (gym, query) => {
-  const q = query.toLowerCase().trim();
+  const q = (query && query.toLowerCase().trim()) || '';
   
   return gym && (_.get(gym, 'address', '').toLowerCase().includes(q) ||
     _.get(gym, 'description', '').toLowerCase().includes(q) ||
