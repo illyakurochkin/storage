@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import {Header} from 'semantic-ui-react';
+import {connect} from 'react-redux';
+import {setPage} from '../../../redux/actions/pageActions';
 
 const Container = styled.div`
   position: relative;
@@ -35,26 +37,61 @@ const StyledHeader = styled(Header)`
 `;
 
 class WorkoutCard extends Component {
+  goToCoach = () => {
+    const {workout, userType, setPage} = this.props;
+    
+    if (!workout.coach) {
+      return;
+    }
+    
+    if (userType === 'coach') {
+      return setPage('home');
+    }
+    setPage('coach', workout.coach.coachId);
+  };
+  
+  goToGym = () => {
+    const {workout, userType, setPage} = this.props;
+    if (userType === 'admin') {
+      return setPage('home');
+    }
+    setPage('gym', workout.gym.gymId);
+  };
+  
+  goToClient = () => {
+    const {workout, userType, setPage} = this.props;
+    if (userType === 'client') {
+      return setPage('home');
+    }
+    setPage('client', workout.client.clientId);
+  };
+  
   render() {
     const {workout} = this.props;
-    const {coach, gym, start_time, end_time, payment} = workout;
+    const {client, coach, gym, start_time, end_time, payment} = workout;
     
     return (
       <Container>
         <LinksContainer>
-          <StyledHeader as="h2">Coach: <a>{coach.name}</a></StyledHeader>
-          <StyledHeader as="h2">Gym: <a>{gym.address}</a></StyledHeader>
+          <StyledHeader onPress={this.goToCoach} as="h3">Coach: <a>{(coach && coach.name) || '-'}</a></StyledHeader>
+          <StyledHeader onPress={this.goToGym} as="h3">Gym: <a>{gym.address}</a></StyledHeader>
+          <StyledHeader onPress={this.goToClient} as="h3">Client: <a>{client.name}</a></StyledHeader>
         </LinksContainer>
-        <StyledHeader as="h3">Start: {start_time}</StyledHeader>
-        <StyledHeader as="h3">End: {end_time}</StyledHeader>
-        <StyledHeader as="h3">Payment: {payment}</StyledHeader>
+        <StyledHeader as="h4">Start: {start_time}</StyledHeader>
+        <StyledHeader as="h4">End: {end_time}</StyledHeader>
+        <StyledHeader as="h4">Payment: {payment}</StyledHeader>
       </Container>
     );
   }
 }
 
 WorkoutCard.propTypes = {
-  workout: PropTypes.object.isRequired
+  workout: PropTypes.object.isRequired,
+  userType: PropTypes.string.isRequired
 };
 
-export default WorkoutCard;
+const mapStateToProps = state => ({
+  userType: state.user.userType
+});
+
+export default connect(mapStateToProps, {setPage})(WorkoutCard);
