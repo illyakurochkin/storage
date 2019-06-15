@@ -27,7 +27,7 @@ class GymHome extends Component {
 }
 
 GymHome.propTypes = {
-  client: PropTypes.object.isRequired
+  gym: PropTypes.object.isRequired
 };
 
 export default GymHome;
