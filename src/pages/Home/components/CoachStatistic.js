@@ -5,8 +5,6 @@ import {Header} from 'semantic-ui-react';
 import {connect} from 'react-redux';
 import {setPage} from '../../../redux/actions/pageActions';
 
-const Container = styled.div``;
-
 const Row = styled.div`
   display: flex;
   flex-direction: row;
@@ -30,10 +28,8 @@ class CoachStatistic extends Component {
   render() {
     const {statistic} = this.props;
     
-    console.log('statistic', statistic);
-    
     return (
-      <Container>
+      <div>
         <Header as="h2">Statistic</Header>
         <p>
           <a onClick={this.goToWorkouts}>Workouts:</a>
@@ -55,7 +51,7 @@ class CoachStatistic extends Component {
             </ScrollContainer>
           </div>
         </Row>
-      </Container>
+      </div>
     );
   }
 }

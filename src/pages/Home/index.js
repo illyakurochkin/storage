@@ -13,7 +13,7 @@ class Home extends Component {
       case 'coach':
         return <CoachHome coach={user.userData}/>;
       case 'admin':
-      //return <GymHome gym={user.userData}/>;
+        return <GymHome gym={user.userData}/>;
       default:
         return null;
     }

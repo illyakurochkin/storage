@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {Header, Icon, Image} from 'semantic-ui-react';
 import styled from 'styled-components';
+import {Label} from 'semantic-ui-react';
+import moment from 'moment';
 
 const Container = styled.div`
   display: flex;
@@ -24,6 +26,13 @@ const StyledHeader = styled(Header)`
 class MainClientInfo extends Component {
   render() {
     const {client} = this.props;
+  
+    const subscription = !!client.subscriptions.find(a => {
+      const start = moment(a.startDate);
+      const end = moment(a.endDate);
+    
+      return moment().isBetween(start, end);
+    });
     
     return (
       <Container>
@@ -32,6 +41,10 @@ class MainClientInfo extends Component {
         </div>
         <div>
           <StyledHeader as="h1">{client.name}</StyledHeader>
+          {subscription !== undefined && (
+            <Label as='a' color={subscription ? 'green' : 'gray'} ribbon='right'>
+              {subscription ? 'has active subscription' : 'had not active subscription'}
+            </Label>)}
           {client.email && <p><Icon color="blue" name="mail"/> {client.email}</p>}
           {client.phone && <p><Icon color="blue" name="phone"/> {client.phone}</p>}
           {client.age && <p><Icon color="blue" name="star outline"/> {client.age} years</p>}

@@ -4,7 +4,7 @@ import api from '../../../utils/api';
 import MainClientInfo from '../../Client/components/MainClientInfo';
 import ClientStatistic from './ClientStatistic';
 
-class ClientHome extends Component {
+class GymHome extends Component {
   state = {statistic: null};
   
   componentDidMount() {
@@ -26,8 +26,8 @@ class ClientHome extends Component {
   }
 }
 
-ClientHome.propTypes = {
+GymHome.propTypes = {
   client: PropTypes.object.isRequired
 };
 
-export default ClientHome;
+export default GymHome;

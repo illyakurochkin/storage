@@ -16,13 +16,14 @@ class Client extends Component {
     .then(response => this.setState({client: response.data}));
   }
   
-  
   render() {
     const {client} = this.props;
     
     if(!client) {
       return null;
     }
+  
+    console.log('client', client);
     
     return (
       <Container>

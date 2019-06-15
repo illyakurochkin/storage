@@ -30,7 +30,6 @@ class ClientStatistic extends Component {
   render() {
     const {statistic} = this.props;
     
-    console.log('ClientStatistic', statistic);
     return (
       <Container>
         <Header as="h2">Statistic</Header>
