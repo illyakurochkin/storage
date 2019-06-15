@@ -42,7 +42,7 @@ class Clients extends Component {
   }
   
   componentDidMount() {
-    this.props.fetchCoaches();
+    this.props.fetchClients();
   }
   
   render() {
