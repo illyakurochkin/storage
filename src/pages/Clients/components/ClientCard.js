@@ -10,7 +10,7 @@ class ClientCard extends Component {
       <Item onClick={onClick}>
         <Item.Image onClick={onClick} size="small" src={client.photo}/>
         <Item.Content>
-          <Item.Header><a onClick={onClick}>{client.name}</a></Item.Header>
+          <Item.Header><a style={{cursor: 'pointer'}} onClick={onClick}>{client.name}</a></Item.Header>
           {client.age && (
             <Item.Extra>
               <Icon color="blue" name="star outline"/> {client.age} years

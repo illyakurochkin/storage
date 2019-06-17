@@ -9,7 +9,7 @@ class CoachCard extends Component {
       <Item onClick={onClick}>
         <Item.Image onClick={onClick} size="small" src={coach.photo}/>
         <Item.Content>
-          <Item.Header><a onClick={onClick}>{coach.name}</a></Item.Header>
+          <Item.Header><a style={{cursor: 'pointer'}} onClick={onClick}>{coach.name}</a></Item.Header>
           {coach.age && (
             <Item.Extra>
               <Icon color="blue" name="star outline"/> {coach.age} years

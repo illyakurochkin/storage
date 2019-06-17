@@ -9,7 +9,7 @@ class GymCard extends Component {
       <Item onClick={onClick}>
         <Item.Image onClick={onClick} size="medium" src={gym.photos[0]}/>
         <Item.Content>
-          <Item.Header><a onClick={onClick}>{gym.address}</a></Item.Header>
+          <Item.Header><a style={{cursor: 'pointer'}} onClick={onClick}>{gym.address}</a></Item.Header>
           <Item.Description>
             {gym.description || 'lksfjldfjs lsdkjfsd klskdjfsl ' +
             'kjlksjdf lskj sldkfj lsdkjf lsdkjfls dflksjd' +

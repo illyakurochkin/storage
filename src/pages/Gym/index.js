@@ -18,7 +18,6 @@ class Gym extends Component {
       timetables: response.data.coaches,
       statistic: response.data.statistic
     }));
-    
   }
   
   render() {
