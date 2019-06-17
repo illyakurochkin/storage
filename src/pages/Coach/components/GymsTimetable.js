@@ -14,12 +14,15 @@ const Content = styled.div`
 
 const ListContainer = styled.div`
   display: flex;
+  flex-direction: column;
   width: 400px;
   height: 400px;
+  overflow: auto;
 `;
 
 const TimetableContainer = styled.div`
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 `;
@@ -64,9 +67,11 @@ class GymsTimetable extends Component {
             <ListContainer>
               {this.renderList()}
             </ListContainer>
-            <TimetableContainer>
-              {this.renderTimetable()}
-            </TimetableContainer>
+            <div>
+              <TimetableContainer>
+                {this.renderTimetable()}
+              </TimetableContainer>
+            </div>
           </Content>
         </FlexContainer>
       </div>
