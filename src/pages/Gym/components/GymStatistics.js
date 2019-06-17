@@ -6,7 +6,7 @@ import CoachesTimetable from './CoachesTimetable';
 
 const Container = styled.div``;
 
-const BlueText = styled.span({color: 'primary'})``;
+//const BlueText = styled.span.attrs({color: 'primary'})``;
 
 class GymStatistics extends Component {
   
