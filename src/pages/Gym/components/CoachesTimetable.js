@@ -5,7 +5,9 @@ import _ from 'lodash';
 import Timetable from '../../../pages/components/Timetable';
 import {Header} from 'semantic-ui-react';
 
-const Container = styled.div``;
+const Container = styled.div`
+  margin-top: 100px;
+`;
 
 const Content = styled.div`
   display: flex;
