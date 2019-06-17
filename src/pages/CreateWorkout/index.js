@@ -59,6 +59,10 @@ const Row = styled.div`
 
 const CoachName = styled.h4.attrs({className: 'blue'})`
   cursor: pointer;
+  padding: 4px;
+  margin-vertical: 4px;
+  border-radius: 3px;
+  ${props => props.selected && 'background-color: #CCC;'}
 `;
 
 const CloseButton = styled(Button).attrs({
