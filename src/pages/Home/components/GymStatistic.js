@@ -18,7 +18,7 @@ const ScrollBox = styled.div`
 `;
 
 class GymStatistic extends Component {
-  goToClient = clientId => this.props.setPage({name:'client', clientId});
+  goToClient = clientId => this.props.setPage({name: 'client', clientId});
   
   render() {
     const {statistic} = this.props;
@@ -29,7 +29,11 @@ class GymStatistic extends Component {
         <ScrollBox>
           {statistic.clients.map(row => (
             <p key={row.clientId}>
-              <a color="primary" onClick={() => this.goToClient(row.clientId)}>
+              <a
+                style={{cursor: 'pointer'}}
+                color="primary"
+                onClick={() => this.goToClient(row.clientId)}
+              >
                 {row.clientName}
               </a>
               {' ' + row.amountOfWorkouts}
