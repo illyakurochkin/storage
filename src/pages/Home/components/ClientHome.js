@@ -22,6 +22,10 @@ class ClientHome extends Component {
     
     console.log('HOME CLIENT ___+++', client);
     
+    if(!client) {
+      return null;
+    }
+    
     return (
       <div>
         <MainClientInfo client={client}/>
