@@ -40,7 +40,7 @@ class MainCoachInfo extends Component {
             {coach.sportRang && <p><Icon color="blue" name="trophy"/> {coach.sportRang}</p>}
             {coach.email && <p><Icon color="blue" name="mail"/> {coach.email}</p>}
             {coach.phone && <p><Icon color="blue" name="phone"/> {coach.phone}</p>}
-            {coach.payment && <p align="right"><Icon color="blue" name="money bill alternate outline"/> {coach.payment}</p>}
+            {coach.payment && <p><Icon color="blue" name="money bill alternate outline"/> {coach.payment} UAH</p>}
           </div>
         </FlexContainer>
         <GymsTimetable timetables={timetables}/>

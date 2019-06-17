@@ -35,22 +35,13 @@ class CoachStatistic extends Component {
           <a onClick={this.goToWorkouts}>Workouts:</a>
           {` ${statistic.workouts}`}
         </p>
-        <Row>
-          <div>
-            <ScrollContainer>
-              {statistic.gyms.map(gym => (
-                <p><a onClick={() => this.goToGym(gym.gymId)}>{gym.address}</a></p>
-              ))}
-            </ScrollContainer>
-          </div>
-          <div>
-            <ScrollContainer>
-              {statistic.clients.map(client => (
-                <p><a onClick={() => this.goToClient(client.clientId)}>{client.name}</a></p>
-              ))}
-            </ScrollContainer>
-          </div>
-        </Row>
+        
+        <Header as="h3">Clients</Header>
+        <ScrollContainer>
+          {statistic.clients.map(client => (
+            <p><a onClick={() => this.goToClient(client.clientId)}>{client.name}</a></p>
+          ))}
+        </ScrollContainer>
       </div>
     );
   }

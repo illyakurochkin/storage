@@ -20,7 +20,6 @@ const ListContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 400px;
-  height: 400px;
   overflow: auto;
 `;
 
