@@ -198,14 +198,14 @@ class CreateWorkout extends Component {
     
     const dateString = `${d}.${m}.${year}`;
     
-    const startTime = time[0].toString().substring(0, 5);
-    const endTime = time[1].toString().substring(0, 5);
+    // const startTime = time[0].toString().substring(0, 5);
+    // const endTime = time[1].toString().substring(0, 5);
     
     api.post('/workout', {
       gymId: gym.gymId,
       date: dateString,
-      startTime,
-      endTime
+      startTime: time[0].toString(),
+      endTime: time[1].toString()
     }).then(response => console.log('create workout response', response));
   };
   
