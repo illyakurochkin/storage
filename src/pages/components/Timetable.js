@@ -15,8 +15,12 @@ const daysOfWeek = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'sat
 
 class Timetable extends Component {
   get timetableRows() {
+    const {timetable} = this.props;
+    
+    console.log('timetable', timetable);
+    
     return [1, 2, 3, 4, 5, 6, 7]
-    .map(num => this.props.timetable.find(row => row.day === num) || null)
+    .map(num => timetable.find(row => row.day === num) || null)
     .map(row => <p>{daysOfWeek[row.day + 1]} : {row.startTime} - {row.endTime}</p>);
   }
   
