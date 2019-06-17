@@ -28,11 +28,11 @@ class GymStatistic extends Component {
         <Header as="h3" color="primary">Clients</Header>
         <ScrollBox>
           {statistic.clients.map(row => (
-            <p key={row.client.clientId}>
-              <a color="primary" onClick={() => this.goToClient(row.client.clientId)}>
-                {row.client.name}
+            <p key={row.clientId}>
+              <a color="primary" onClick={() => this.goToClient(row.clientId)}>
+                {row.clientName}
               </a>
-              {' ' + row.count}
+              {' ' + row.amountOfWorkouts}
             </p>
           ))}
         </ScrollBox>
