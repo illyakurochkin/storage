@@ -8,6 +8,7 @@ import GymCard from '../Gyms/components/GymCard';
 import TimeRangePicker from '@wojtekmaj/react-timerange-picker';
 import Datepicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import api from '../../utils/api';
 
 const StepContainer = styled.div`
   padding: 30px;
@@ -173,22 +174,43 @@ class CreateWorkout extends Component {
     const day = date.getDay() || 7;
     
     this.setState({withCoach});
-    console.log(this.state);
     
     if (false && withCoach) {
       const {start, end} = {};
       
       this.setState({loading: true});
-      //api.get(`/availableCoaches`, {params: {gymId: gym.gymId, day, start, end}})
-      new Promise(resolve => {
-        setTimeout(() => resolve([{name: 'first'}, {name: 'second'}, {name: 'third'}]), 100);
-      })
+      
+      api.get(`/availableCoaches`, {params: {gymId: gym.gymId, day, start, end}})
       .then(response => this.setState({loading: false, coaches: response}));
     }
   };
   
+  onCreateWorkout = () => {
+    const {gym, date, time, withCoach, coach} = this.state;
+    
+    if(!gym || !date || !time || withCoach && !coach) {
+      return;
+    }
+  
+    const d = date.getDate() < 10 ? `0${date.getDate()}` : date.getDate();
+    const m = date.getMonth() + 1 < 10 ? `0${date.getMonth() + 1}` : (date.getMonth() + 1);
+    const year = date.getFullYear();
+    
+    const dateString = `${d}.${m}.${year}`;
+    
+    const startTime = time[0].toString().substring(0, 5);
+    const endTime = time[1].toString().substring(0, 5);
+    
+    api.post('/workout', {
+      gymId: gym.gymId,
+      date: dateString,
+      startTime,
+      endTime
+    }).then(response => console.log('create workout response', response));
+  };
+  
   render() {
-    const {withCoach} = this.state;
+    const {withCoach, loading, coaches} = this.state;
     
     return (
       <div>
@@ -202,9 +224,9 @@ class CreateWorkout extends Component {
               onClick={() => console.log('hello world') || this.onWithCoachClick()}
             >With Coach</Button>
           </ButtonContainer>
-          {withCoach && this.renderCoachStep(3)}
+          {withCoach && !loading && coaches && coaches.length && this.renderCoachStep(3)}
           <ButtonContainer>
-            <Button size="big" primary><Icon name="add"/>Create Workout</Button>
+            <Button size="big" primary onClick={this.onCreateWorkout}><Icon name="add"/>Create Workout</Button>
           </ButtonContainer>
         </Card>
       </div>
