@@ -83,6 +83,9 @@ class CreateWorkout extends Component {
   renderCoachStep(n) {
     const {coach, coaches, loading} = this.state;
     console.log('coach', this.state);
+    console.log('renderCoach step Q)(*#$)(#@*$(#@$*@#)$*#)@$*&#@');
+    console.log('state', this.state);
+    
     return (
       <StepContainer>
         <Row>
