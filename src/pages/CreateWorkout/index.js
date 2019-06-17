@@ -80,6 +80,19 @@ class CreateWorkout extends Component {
     withCoach: false
   };
   
+  renderCoachList(coaches) {
+    const {coach} = this.state;
+    
+    
+    return coaches.map(c => (
+      <CoachName
+        selected={coach.coachId === c.coachId}
+        color="primary"
+        onClick={() => this.setState({coach: c.coachId === coach.coachId ? null : c})}
+      >{c.name}</CoachName>
+    ));
+  }
+  
   renderCoachStep(n) {
     const {coach, coaches, loading} = this.state;
     console.log('coach', this.state);
@@ -98,7 +111,7 @@ class CreateWorkout extends Component {
         <FlexContainer>
           {!coaches.length && !loading ?
             <p>There are no coaches available coaches. Please, try another time or gym.</p> :
-            <ul>{coaches.map(coach => <CoachName color="primary">{coach.name}</CoachName>)}</ul>
+            <ul>{this.renderCoachList(coaches)}</ul>
           }
           {coach && (
             <CoachCard coach={coach}/>
@@ -178,10 +191,10 @@ class CreateWorkout extends Component {
     const d = date.getDate() < 10 ? `0${date.getDate()}` : date.getDate();
     const m = date.getMonth() + 1 < 10 ? `0${date.getMonth() + 1}` : (date.getMonth() + 1);
     const year = date.getFullYear();
-  
+    
     const dateString = `${d}.${m}.${year}`;
-  
-  
+    
+    
     this.setState({withCoach});
     
     if (withCoach) {

@@ -46,8 +46,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/pages/CreateWorkout/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="237">
-              <caret line="223" column="4" lean-forward="true" selection-start-line="223" selection-start-column="4" selection-end-line="223" selection-end-column="4" />
+            <state relative-caret-position="486">
+              <caret line="108" column="63" selection-start-line="108" selection-start-column="63" selection-end-line="108" selection-end-column="63" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -107,7 +107,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>CardContainer</find>
       <find>coach_id</find>
       <find>Search</find>
       <find>setState</find>
@@ -137,6 +136,7 @@
       <find>semantic-ui-react</find>
       <find>semantic-ui-react/</find>
       <find>Modal.</find>
+      <find>renderCoachStep</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -402,21 +402,7 @@
       <workItem from="1560804607194" duration="1780000" />
       <workItem from="1560806418572" duration="1741000" />
       <workItem from="1560808315225" duration="575000" />
-      <workItem from="1560810126030" duration="1135000" />
-    </task>
-    <task id="LOCAL-00086" summary="Lot's of fixes and improvements&#10;&#10;(cherry picked from commit a6b4c1f179eaba1e1e06936be5982b7daf96398c)">
-      <created>1560795425842</created>
-      <option name="number" value="00086" />
-      <option name="presentableId" value="LOCAL-00086" />
-      <option name="project" value="LOCAL" />
-      <updated>1560795425842</updated>
-    </task>
-    <task id="LOCAL-00087" summary="Lot's of fixes and improvements&#10;&#10;(cherry picked from commit a6b4c1f179eaba1e1e06936be5982b7daf96398c)">
-      <created>1560795707828</created>
-      <option name="number" value="00087" />
-      <option name="presentableId" value="LOCAL-00087" />
-      <option name="project" value="LOCAL" />
-      <updated>1560795707828</updated>
+      <workItem from="1560810126030" duration="1763000" />
     </task>
     <task id="LOCAL-00088" summary="Lot's of fixes and improvements&#10;&#10;(cherry picked from commit a6b4c1f179eaba1e1e06936be5982b7daf96398c)">
       <created>1560795892851</created>
@@ -747,11 +733,25 @@
       <option name="project" value="LOCAL" />
       <updated>1560811101181</updated>
     </task>
-    <option name="localTasksCounter" value="135" />
+    <task id="LOCAL-00135" summary="Fix some shit">
+      <created>1560811268255</created>
+      <option name="number" value="00135" />
+      <option name="presentableId" value="LOCAL-00135" />
+      <option name="project" value="LOCAL" />
+      <updated>1560811268255</updated>
+    </task>
+    <task id="LOCAL-00136" summary="Fix some shit">
+      <created>1560811389401</created>
+      <option name="number" value="00136" />
+      <option name="presentableId" value="LOCAL-00136" />
+      <option name="project" value="LOCAL" />
+      <updated>1560811389401</updated>
+    </task>
+    <option name="localTasksCounter" value="137" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="115397000" />
+    <option name="totallyTimeSpent" value="116025000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -1291,8 +1291,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/CreateWorkout/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
-          <caret line="223" column="4" lean-forward="true" selection-start-line="223" selection-start-column="4" selection-end-line="223" selection-end-column="4" />
+        <state relative-caret-position="486">
+          <caret line="108" column="63" selection-start-line="108" selection-start-column="63" selection-end-line="108" selection-end-column="63" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
