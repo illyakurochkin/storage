@@ -229,13 +229,13 @@ class CreateWorkout extends Component {
     const d = date.getDate() < 10 ? `0${date.getDate()}` : date.getDate();
     const m = date.getMonth() + 1 < 10 ? `0${date.getMonth() + 1}` : (date.getMonth() + 1);
     const year = date.getFullYear();
-    
-    const dateString = `${d}.${m}.${year}`;
+    //yyyy-MM-dd'T'HH:mm:ssZ
+    const dateString = `${year}.${m}.${d}T${time[0].toString()}:00Z`;
+    //const dateString = `${d}.${m}.${year}`;
     
     api.post('/workout', {
       gymId: gym.gymId,
-      date: dateString,
-      startTime: time[0].toString() + ':00',
+      dateStart: dateString,
       endTime: time[1].toString() + ':00',
       coachId: coach && coach.coachId
     }).then(response => console.log('create workout response', response));

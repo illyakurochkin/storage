@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
-import {Button, Form} from 'semantic-ui-react';
+import {Button, Form, Header} from 'semantic-ui-react';
 import styled from 'styled-components';
 import api from '../../utils/api';
+import PropTypes from 'prop-types';
 
 const Container = styled.div`
   margin: 60px auto;
@@ -26,6 +27,11 @@ const StyledButton = styled(Button)`
   margin: 0 auto;
 `;
 
+const Divider = styled.div`
+  height: 30px;
+  width: 100%;
+`;
+
 class Signup extends Component {
   state = {
     username: '',
@@ -40,10 +46,12 @@ class Signup extends Component {
   };
   
   onSubmit = () => {
+    const {goBack} = this.props;
     const {username, password, firstName, lastName, middleName, birthDate, photo, email, phone} = this.state;
   
     api.post('/createUser', this.state)
-  }
+    .then(goBack);
+  };
   
   render() {
     const {goBack} = this.props;
@@ -51,6 +59,7 @@ class Signup extends Component {
     
     return (
       <Container>
+        <Header as="h1">Sign Up</Header>
         <StyledForm onSubmit={this.onSubmit}>
           <Form.Field>
             <label>Username</label>
@@ -70,6 +79,8 @@ class Signup extends Component {
             />
           </Form.Field>
     
+          <Divider/>
+          <Header as="h3">Client Info</Header>
     
           <Form.Field>
             <label>First name</label>
@@ -143,5 +154,9 @@ class Signup extends Component {
     );
   }
 }
+
+Signup.propTypes = {
+  goBack: PropTypes.func.isRequired
+};
 
 export default Signup;
