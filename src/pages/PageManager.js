@@ -10,6 +10,7 @@ import Gym from './Gym';
 import Clients from './Clients';
 import Coach from './Coach';
 import Client from './Client';
+import EquipmentList from './EquipmentList';
 import CreateWorkout from './CreateWorkout';
 
 const Container = styled.div`
