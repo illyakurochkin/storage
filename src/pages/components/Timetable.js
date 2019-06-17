@@ -19,7 +19,7 @@ class Timetable extends Component {
     
     console.log('timetable', timetable);
     
-    return [0, 1, 2, 3, 4, 5, 6]
+    return [1, 2, 3, 4, 5, 6, 7]
     .map(num => {
       const t = timetable.find(row => row.day === num);
       if(!t) {
@@ -31,7 +31,7 @@ class Timetable extends Component {
         endTime: t.endTime
       }
     })
-    .map((row, id) => <p>{daysOfWeek[id + 1]} : {row ? `${row.startTime} - ${row.endTime}` : '-'}</p>);
+    .map((row, id) => <p>{daysOfWeek[id]} : {row ? `${row.startTime} - ${row.endTime}` : '-'}</p>);
   }
   
   render() {

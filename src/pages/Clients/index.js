@@ -36,7 +36,7 @@ class Clients extends Component {
       <ClientCard
         key={client.coachId}
         client={client}
-        onClick={() => setPage({name: 'client', coachId: client.clientId})}
+        onClick={() => setPage('client', {clientId: client.clientId})}
       />
     ));
   }

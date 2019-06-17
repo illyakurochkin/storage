@@ -69,6 +69,7 @@ class GymsTimetable extends Component {
         <FlexContainer>
           <Content>
             <ListContainer>
+              <Header as="h3">Gyms</Header>
               {this.renderList()}
             </ListContainer>
             <div>
