@@ -190,8 +190,8 @@ class CreateWorkout extends Component {
         params: {
           gymId: gym.gymId,
           date: dateString,
-          start: start + ':00',
-          end: end + ':00'
+          startTime: start + ':00',
+          endTime: end + ':00'
         }
       })
       .then(response => this.setState({loading: false, coaches: response}));
