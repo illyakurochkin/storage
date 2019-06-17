@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import {Header} from 'semantic-ui-react';
+import {setPage} from '../../../redux/actions/pageActions';
 
 const Container = styled.div`
   display: flex;
@@ -49,4 +50,4 @@ GymStatistic.propTypes = {
   statistic: PropTypes.object.isRequired
 };
 
-export default GymStatistic;
+export default connect(null, {setPage})(GymStatistic);
