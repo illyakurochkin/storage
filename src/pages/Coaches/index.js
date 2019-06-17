@@ -9,6 +9,7 @@ import {fetchCoaches} from '../../redux/actions/coachesActions';
 import _ from 'lodash';
 
 const List = styled.div`
+  margin-top: 30px;
   width: 700px;
   display: grid;
   grid-template-columns: 1fr 1fr;

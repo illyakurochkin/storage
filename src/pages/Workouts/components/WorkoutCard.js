@@ -34,6 +34,7 @@ const LinksContainer = styled.div`
 const StyledHeader = styled(Header)`
   margin: 0;
   padding: 0;
+  cursor: pointer;
 `;
 
 const Row = styled.div`
