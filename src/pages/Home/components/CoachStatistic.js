@@ -27,13 +27,13 @@ class CoachStatistic extends Component {
     return (
       <div>
         <Row>
-          <a onClick={this.goToWorkouts}><Header as="h3">{'Workouts - '}</Header></a>
+          <a style={{cursor: 'pointer'}} onClick={this.goToWorkouts}><Header as="h3">{'Workouts - '}</Header></a>
           <p>{` ${statistic.workouts}`}</p>
         </Row>
         <Header as="h3">Clients</Header>
         <ScrollContainer>
           {statistic.clients.map(client => (
-            <p><a onClick={() => this.goToClient(client.clientId)}>{client.name}</a></p>
+            <p><a style={{cursor: 'pointer'}} onClick={() => this.goToClient(client.clientId)}>{client.name}</a></p>
           ))}
         </ScrollContainer>
       </div>

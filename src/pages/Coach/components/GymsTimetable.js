@@ -46,7 +46,7 @@ class GymsTimetable extends Component {
     return gyms.map(gym => (
       <a
         onClick={() => this.setState({currentGymId: gym.gymId})}
-        style={{display: 'inline-block', borderRadius: 2, padding: 2, marginRight: 20, backgroundColor: currentGymId === gym.gymId ? '#CCC' : 'white'}}
+        style={{display: 'inline-block', borderRadius: 2, padding: 2, cursor: 'pointer', marginRight: 20, backgroundColor: currentGymId === gym.gymId ? '#CCC' : 'white'}}
       >
         {gym.address}
       </a>

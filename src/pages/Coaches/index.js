@@ -8,7 +8,7 @@ import {setPage} from '../../redux/actions/pageActions';
 import {fetchCoaches} from '../../redux/actions/coachesActions';
 import _ from 'lodash';
 
-const List = styled(Item.Group)`
+const List = styled.div`
   width: 700px;
   display: grid;
   grid-template-columns: 1fr 1fr;
