@@ -18,7 +18,7 @@ const ScrollBox = styled.div`
 `;
 
 class GymStatistic extends Component {
-  goToClient = clientId => this.props.setPage('client', {clientId});
+  goToClient = clientId => this.props.setPage({name:'client', clientId});
   
   render() {
     const {statistic} = this.props;

@@ -53,28 +53,28 @@ class WorkoutCard extends Component {
     }
     
     if (userType === 'coach') {
-      return setPage('home');
+      return setPage({name: 'home'});
     }
-    setPage('coach', {coachId: workout.coach.coachId});
+    setPage({name: 'coach',coachId: workout.coach.coachId});
   };
   
   goToGym = () => {
     const {workout, userType, setPage} = this.props;
     if (userType === 'admin') {
-      return setPage('home');
+      return setPage({name: 'home'});
     }
-    setPage('gym', {gymId: workout.gym.gymId});
+    setPage({name: 'gym', gymId: workout.gym.gymId});
   };
   
   goToClient = () => {
     console.log('go to client');
     const {workout, userType, setPage} = this.props;
     if (userType === 'client') {
-      return setPage('home');
+      return setPage({name: 'home'});
     }
     
     console.log('clientId --- ', workout.client.clientId);
-    setPage('client', {clientId: workout.client.clientId});
+    setPage({name: 'client', clientId: workout.client.clientId});
   };
   
   render() {

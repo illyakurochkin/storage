@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import styled from 'styled-components';
-import {Header, Item} from 'semantic-ui-react';
+import {Header} from 'semantic-ui-react';
 import ClientCard from './components/ClientCard';
 import Search from '../components/Search';
 import {setPage} from '../../redux/actions/pageActions';
@@ -37,7 +37,7 @@ class Clients extends Component {
       <ClientCard
         key={client.coachId}
         client={client}
-        onClick={() => setPage('client', {clientId: client.clientId})}
+        onClick={() => setPage({name: 'client', clientId: client.clientId})}
       />
     ));
   }
