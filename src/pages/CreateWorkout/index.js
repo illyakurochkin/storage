@@ -236,7 +236,8 @@ class CreateWorkout extends Component {
       gymId: gym.gymId,
       date: dateString,
       startTime: time[0].toString() + ':00',
-      endTime: time[1].toString() + ':00'
+      endTime: time[1].toString() + ':00',
+      coachId: coach && coach.coachId
     }).then(response => console.log('create workout response', response));
   };
   
