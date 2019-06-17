@@ -8,7 +8,7 @@ import * as serviceWorker from './serviceWorker';
 import reducers from './redux/reducers';
 import Modal from 'react-modal';
 
-Modal.setAppElement('app');
+Modal.setAppElement('root');
 
 const store = createStore(reducers, applyMiddleware(thunk));
 
