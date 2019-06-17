@@ -67,10 +67,13 @@ class WorkoutCard extends Component {
   };
   
   goToClient = () => {
+    console.log('go to client');
     const {workout, userType, setPage} = this.props;
     if (userType === 'client') {
       return setPage('home');
     }
+    
+    console.log('clientId --- ', workout.client.clientId);
     setPage('client', {clientId: workout.client.clientId});
   };
   
