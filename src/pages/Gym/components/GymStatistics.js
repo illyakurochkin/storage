@@ -28,9 +28,9 @@ class GymStatistics extends Component {
   render() {
     const {statistic, timetables} = this.props;
     
+    console.log('timetables --+++--+++', timetables);
     return (
       <Container>
-        
         <CoachesTimetable timetables={timetables}/>
       </Container>
     );
