@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import {Image} from 'semantic-ui-react/index';
+import {Image} from 'semantic-ui-react';
 
 const Container = styled.div`
   padding: 10px;
