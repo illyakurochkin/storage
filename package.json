@@ -14,6 +14,7 @@
     "react": "^16.8.6",
     "react-datepicker": "^2.7.0",
     "react-dom": "^16.8.6",
+    "react-modal": "^3.8.1",
     "react-redux": "^7.0.3",
     "react-scripts": "3.0.1",
     "react-time-range": "^1.0.4",

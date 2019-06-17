@@ -4,12 +4,24 @@ import styled from 'styled-components';
 import {Header, Icon, Image} from 'semantic-ui-react';
 import Carousel from 'nuka-carousel';
 import GymStatistics from './GymStatistics';
+import {Button} from 'semantic-ui-react';
+import Modal from 'react-modal';
+import EquipmentCard from './EquipmentCard';
 
 const Container = styled.div``;
 
 const Images = styled(Carousel)`
   margin-top: 30px;
   margin-bottom: 20px;
+`;
+
+const FlexContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  
+  &>div {
+    flex: 1;
+  }
 `;
 
 const settings = {
@@ -21,6 +33,41 @@ const settings = {
 };
 
 class MainGymInfo extends Component {
+  state = {modalIsOpen: false};
+  
+  openModal = () => this.setState({modalIsOpen: true});
+  
+  closeModal = () => this.setState({modalIsOpen: false});
+  
+  afterOpenModal = () => this.subtitle.style.color = '#f00';
+  
+  renderModal() {
+    const {gym} = this.props;
+    const {modalIsOpen} = this.state;
+    
+    return (
+      <Modal
+        isOpen={modalIsOpen}
+        onAfterOpen={this.afterOpenModal}
+        onRequestClose={this.closeModal}
+        style={{
+          width: 500,
+          height: 500,
+          margin: 'auto',
+          backgroundColor: 'white',
+          borderWidth: 2,
+          borderColor: '#CCC',
+          padding: 20
+        }}
+        contentLabel="Example modal"
+      >
+        <Header as="h2">Equipment</Header>
+        {gym.equipment.map(e => <EquipmentCard equipment={e}/>)}
+      </Modal>
+    )
+  }
+  
+  
   render() {
     const {gym, timetables} = this.props;
     
@@ -31,9 +78,17 @@ class MainGymInfo extends Component {
           {gym.photos.map(photo => <div key={photo}><Image src={photo}/></div>)}
         </Images>
         <p>{gym.description}</p>
-        {gym.phone && <p align="right"><Icon color="blue" name="phone"/> {gym.phone}</p>}
-        {gym.email && <p align="right"><Icon color="blue" name="mail"/> {gym.email}</p>}
-        {gym.fine && <p align="right"><Icon color="blue" name="start"/> {gym.fine}</p>}
+        <FlexContainer>
+          <div>
+            <Button onClick={this.openModal}>Show Equipment</Button>
+            {this.renderModal()}
+          </div>
+          <div>
+            {gym.phone && <p align="right"><Icon color="blue" name="phone"/> {gym.phone}</p>}
+            {gym.email && <p align="right"><Icon color="blue" name="mail"/> {gym.email}</p>}
+            {gym.fine && <p align="right"><Icon color="blue" name="star"/> {gym.fine} UAH</p>}
+          </div>
+        </FlexContainer>
         <GymStatistics timetables={timetables}/>
       </Container>
     );
