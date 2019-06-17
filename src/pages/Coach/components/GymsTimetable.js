@@ -6,7 +6,7 @@ import Timetable from '../../../pages/components/Timetable';
 import {Header} from 'semantic-ui-react';
 
 const Container = styled.div`
-  margin-top: 50px;
+  margin-top: 100px;
 `;
 
 const FlexContainer = styled.div``;

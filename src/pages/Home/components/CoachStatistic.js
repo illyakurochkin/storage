@@ -27,11 +27,8 @@ class CoachStatistic extends Component {
     return (
       <div>
         <Row>
-          <Header as="h3">Workouts</Header>
-          <p>
-            <a onClick={this.goToWorkouts}>Workouts:</a>
-            {` ${statistic.workouts}`}
-          </p>
+          <a onClick={this.goToWorkouts}><Header as="h3">{'Workouts - '}</Header></a>
+          <p>{` ${statistic.workouts}`}</p>
         </Row>
         <Header as="h3">Clients</Header>
         <ScrollContainer>

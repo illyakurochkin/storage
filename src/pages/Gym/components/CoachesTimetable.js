@@ -14,8 +14,7 @@ const Content = styled.div`
 
 const ListContainer = styled.div`
   display: flex;
-  width: 400px;
-  height: 400px;
+  width: 100px;
 `;
 
 const TimetableContainer = styled.div`
