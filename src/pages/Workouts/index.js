@@ -32,12 +32,13 @@ class Workouts extends Component {
   }
   
   render() {
-    const {setPage} = this.props;
+    const {setPage, user} = this.props;
     
     return (
       <div>
         <Header as="h1">Workouts</Header>
-        <Button primary onClick={() => setPage({name: 'createWorkout'})}>Create Workout</Button>
+        {user.userType === 'client' &&
+        <Button primary onClick={() => setPage({name: 'createWorkout'})}>Create Workout</Button>}
         {this.renderWorkouts()}
       </div>
     );
