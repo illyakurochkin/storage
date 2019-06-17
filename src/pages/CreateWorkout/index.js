@@ -171,8 +171,14 @@ class CreateWorkout extends Component {
     }
     
     const withCoach = !this.state.withCoach;
-    const day = date.getDay() || 7;
     
+    const d = date.getDate() < 10 ? `0${date.getDate()}` : date.getDate();
+    const m = date.getMonth() + 1 < 10 ? `0${date.getMonth() + 1}` : (date.getMonth() + 1);
+    const year = date.getFullYear();
+  
+    const dateString = `${d}.${m}.${year}`;
+  
+  
     this.setState({withCoach});
     
     if (withCoach) {
@@ -180,7 +186,14 @@ class CreateWorkout extends Component {
       
       this.setState({loading: true});
       
-      api.get(`/availableCoaches`, {params: {gymId: gym.gymId, day, start, end}})
+      api.get(`/availableCoaches`, {
+        params: {
+          gymId: gym.gymId,
+          day: dateString,
+          start: start + ':00',
+          end: end + ':00'
+        }
+      })
       .then(response => this.setState({loading: false, coaches: response}));
     }
   };
@@ -188,10 +201,10 @@ class CreateWorkout extends Component {
   onCreateWorkout = () => {
     const {gym, date, time, withCoach, coach} = this.state;
     
-    if(!gym || !date || !time || (withCoach && !coach)) {
+    if (!gym || !date || !time || (withCoach && !coach)) {
       return;
     }
-  
+    
     const d = date.getDate() < 10 ? `0${date.getDate()}` : date.getDate();
     const m = date.getMonth() + 1 < 10 ? `0${date.getMonth() + 1}` : (date.getMonth() + 1);
     const year = date.getFullYear();
@@ -201,8 +214,8 @@ class CreateWorkout extends Component {
     api.post('/workout', {
       gymId: gym.gymId,
       date: dateString,
-      startTime: time[0].toString(),
-      endTime: time[1].toString()
+      startTime: time[0].toString() + ':00',
+      endTime: time[1].toString() + ':00'
     }).then(response => console.log('create workout response', response));
   };
   
