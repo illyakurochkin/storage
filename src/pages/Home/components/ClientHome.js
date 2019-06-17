@@ -10,7 +10,7 @@ class ClientHome extends Component {
   componentDidMount() {
     const {clientId} = this.props;
     
-    api.get('client', {params: {clientId}})
+    api.get('client', {params: {id: clientId}})
     .then(response => this.setState({client: response.data.client}))
     
     api.get('/homeStat')
