@@ -86,7 +86,7 @@ class CreateWorkout extends Component {
     
     return coaches.map(c => (
       <CoachName
-        selected={coach.coachId === c.coachId}
+        selected={coach && coach.coachId === c.coachId}
         color="primary"
         onClick={() => this.setState({coach: c.coachId === coach.coachId ? null : c})}
       >{c.name}</CoachName>
