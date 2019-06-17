@@ -26,6 +26,8 @@ const StyledHeader = styled(Header)`
 class MainClientInfo extends Component {
   render() {
     const {client} = this.props;
+    console.log('client', client);
+    console.log('client subscriptions', client.subscriptions);
     
     const subscription = !!client.subscriptions.find(a => {
       const start = moment(a.startDate);
