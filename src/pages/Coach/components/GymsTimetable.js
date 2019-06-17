@@ -36,7 +36,7 @@ class GymsTimetable extends Component {
     return gyms.map(gym => (
       <a
         onClick={() => this.setState({currentGymId: gym.gymId})}
-        style={{backgroundColor: currentGymId === gym.gymId ? '#CCC' : 'black'}}
+        style={{backgroundColor: currentGymId === gym.gymId ? '#CCC' : 'white'}}
       >
         {gym.address}
       </a>
