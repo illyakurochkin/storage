@@ -45,6 +45,8 @@ const mapStateToProps = state => {
       return {page: <Gyms/>};
     case 'clients':
       return {page: <Clients/>};
+    case 'equipment':
+      return {page: <EquipmentList/>};
     case 'gym':
       return {page: <Gym gymId={state.page.gymId}/>};
     case 'coach':

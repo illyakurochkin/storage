@@ -183,7 +183,6 @@ class CreateWorkout extends Component {
       new Promise(resolve => {
         setTimeout(() => resolve([{name: 'first'}, {name: 'second'}, {name: 'third'}]), 100);
       })
-      .then(coaches => console.log('---@@@___;', coaches) || coaches)
       .then(response => this.setState({loading: false, coaches: response}));
     }
   };

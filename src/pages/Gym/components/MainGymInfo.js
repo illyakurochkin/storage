@@ -6,7 +6,7 @@ import Carousel from 'nuka-carousel';
 import GymStatistics from './GymStatistics';
 import {Button} from 'semantic-ui-react';
 import Modal from 'react-modal';
-import EquipmentCard from './EquipmentCard';
+import EquipmentCard from '../../EquipmentList/components/EquipmentCard';
 
 const Container = styled.div``;
 

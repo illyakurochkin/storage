@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import {Image} from 'semantic-ui-react';
+import {Image} from 'semantic-ui-react/index';
 
 const Container = styled.div`
   padding: 10px;
@@ -31,6 +31,10 @@ class EquipmentCard extends Component {
           <p>
             {'type: '}
             <span color="primary">{equipment.type}</span>
+          </p>
+          <p>
+            {'condition: '}
+            <span color="primary">{equipment.condition}</span>
           </p>
         </div>
       </Container>

@@ -17,10 +17,7 @@ const Container = styled.div`
   margin-top: 100px;
   
   background-color: #EEF6FB;
-  
 `;
-//   border-left: 1px solid gray;
-//   border-right: 1px solid gray;
 
 const AuthContainer = styled.div`
   display: flex;
@@ -90,6 +87,13 @@ class Menu extends Component {
               name="clients"
               active={page.name === 'clients' || page.name === 'client'}
               onClick={() => setPage({name: 'clients'})}
+            />
+          )}
+          {userType === 'manager' && (
+            <SemanticMenu.Item
+              name="equipment"
+              active={page.name === 'equipment'}
+              onClick={() => setPage({name: 'equipment'})}
             />
           )}
         </SemanticMenu>
