@@ -9,6 +9,7 @@ import Gyms from './Gyms';
 import Gym from './Gym';
 import Clients from './Clients';
 import Coach from './Coach';
+import Client from './Client';
 import CreateWorkout from './CreateWorkout';
 
 const Container = styled.div`
@@ -45,9 +46,11 @@ const mapStateToProps = state => {
     case 'clients':
       return {page: <Clients/>};
     case 'gym':
-      return {page: <Gym gym={state.page.gym}/>};
+      return {page: <Gym gymId={state.page.gymId}/>};
     case 'coach':
-      return {page: <Coach coach={state.page.coach}/>};
+      return {page: <Coach coachId={state.page.coachId}/>};
+    case 'client':
+      return {page: <Client clientId={state.page.clientId}/>};
     case 'createWorkout':
       return {
         page: <CreateWorkout

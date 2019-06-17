@@ -54,7 +54,7 @@ class WorkoutCard extends Component {
     if (userType === 'coach') {
       return setPage('home');
     }
-    setPage('coach', workout.coach.coachId);
+    setPage('coach', {coachId: workout.coach.coachId});
   };
   
   goToGym = () => {
@@ -62,7 +62,7 @@ class WorkoutCard extends Component {
     if (userType === 'admin') {
       return setPage('home');
     }
-    setPage('gym', workout.gym.gymId);
+    setPage('gym', {gymId: workout.gym.gymId});
   };
   
   goToClient = () => {
@@ -70,7 +70,7 @@ class WorkoutCard extends Component {
     if (userType === 'client') {
       return setPage('home');
     }
-    setPage('client', workout.client.clientId);
+    setPage('client', {clientId: workout.client.clientId});
   };
   
   render() {
