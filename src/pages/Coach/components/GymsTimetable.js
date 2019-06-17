@@ -23,7 +23,7 @@ const Content = styled.div`
 const ListContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 50%;
+  width: 600px;
   overflow: auto;
 `;
 
@@ -46,7 +46,7 @@ class GymsTimetable extends Component {
     return gyms.map(gym => (
       <a
         onClick={() => this.setState({currentGymId: gym.gymId})}
-        style={{textDecoration: currentGymId === gym.gymId ? 'underline' : 'none'}}
+        style={{display: 'inline-block', borderRadius: 2, padding: 2, backgroundColor: currentGymId === gym.gymId ? '#CCC' : 'white'}}
       >
         {gym.address}
       </a>
