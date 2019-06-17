@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4db4f656-bb8c-4df8-b440-70fdf49550e8" name="Default Changelist" comment="">
+    <list default="true" id="4db4f656-bb8c-4df8-b440-70fdf49550e8" name="Default Changelist" comment="Message">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/CreateWorkout/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/CreateWorkout/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Gym/components/EquipmentCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/EquipmentList/components/EquipmentCard.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/Gym/components/MainGymInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Gym/components/MainGymInfo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/PageManager.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/PageManager.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/components/Menu.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/components/Menu.js" afterDir="false" />
     </list>
     <list id="34b93f37-f20f-42d6-9655-36c897e0170f" name="Lot's of fixes and improvements" comment="Lot's of fixes and improvements&#10;&#10;(cherry picked from commit a6b4c1f179eaba1e1e06936be5982b7daf96398c)">
       <changelist_data name="illyakurochkin" email="illya.kurochkin@gmail.com" date="1560540916000" />
@@ -37,11 +34,11 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/pages/Gym/components/MainGymInfo.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="421">
-                  <caret line="93" column="6" lean-forward="true" selection-start-line="93" selection-start-column="6" selection-end-line="93" selection-end-column="6" />
+                <state relative-caret-position="275">
+                  <caret line="48" column="18" selection-start-line="48" selection-start-column="18" selection-end-line="48" selection-end-column="18" />
                   <folding>
                     <element signature="e#0#39#0" expanded="true" />
                   </folding>
@@ -85,11 +82,11 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/pages/EquipmentList/components/EquipmentCard.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="241">
-                  <caret line="26" column="13" lean-forward="true" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
+                <state relative-caret-position="273">
+                  <caret line="20" column="22" selection-start-line="20" selection-start-column="22" selection-end-line="20" selection-end-column="22" />
                   <folding>
                     <element signature="e#0#39#0" expanded="true" />
                   </folding>
@@ -98,13 +95,10 @@
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/index.js">
+            <entry file="file://$PROJECT_DIR$/.gitignore">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="210">
-                  <caret line="22" column="24" selection-start-line="22" selection-start-column="24" selection-end-line="22" selection-end-column="24" />
-                  <folding>
-                    <element signature="e#0#26#0" expanded="true" />
-                  </folding>
+                <state relative-caret-position="345">
+                  <caret line="23" column="6" selection-start-line="23" selection-start-column="6" selection-end-line="23" selection-end-column="6" />
                 </state>
               </provider>
             </entry>
@@ -152,7 +146,7 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/pages/Coach/components/GymsTimetable.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="146">
+                <state relative-caret-position="348">
                   <caret line="77" selection-start-line="77" selection-end-line="78" />
                   <folding>
                     <element signature="e#0#39#0" expanded="true" />
@@ -167,8 +161,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>CoachCard</find>
-      <find>this.props.fetchGyms();</find>
       <find>fetchGyms(</find>
       <find>fetchCoaches()</find>
       <find>fe</find>
@@ -197,6 +189,8 @@
       <find>G</find>
       <find>admin</find>
       <find>equipment</find>
+      <find>this.sub</find>
+      <find>e</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -205,7 +199,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/pages/CreateWorkout/components/SearchDropdown.js" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/src/redux/reducers/workoutsReducer.js" />
         <option value="$PROJECT_DIR$/src/utils/sha256.js" />
@@ -250,12 +243,13 @@
         <option value="$PROJECT_DIR$/src/index.js" />
         <option value="$PROJECT_DIR$/src/App.js" />
         <option value="$PROJECT_DIR$/src/pages/Gym/components/EquipmentCard.js" />
-        <option value="$PROJECT_DIR$/src/pages/Gym/components/MainGymInfo.js" />
         <option value="$PROJECT_DIR$/src/pages/CreateWorkout/index.js" />
         <option value="$PROJECT_DIR$/src/pages/PageManager.js" />
         <option value="$PROJECT_DIR$/src/pages/EquipmentList/index.js" />
         <option value="$PROJECT_DIR$/src/pages/components/Menu.js" />
         <option value="$PROJECT_DIR$/src/pages/EquipmentList/components/EquipmentCard.js" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/src/pages/Gym/components/MainGymInfo.js" />
       </list>
     </option>
   </component>
@@ -487,14 +481,7 @@
       <workItem from="1560619046073" duration="5613000" />
       <workItem from="1560626862446" duration="2720000" />
       <workItem from="1560783203224" duration="15710000" />
-      <workItem from="1560804607194" duration="1559000" />
-    </task>
-    <task id="LOCAL-00070" summary="Lot's of fixes and improvements&#10;&#10;(cherry picked from commit a6b4c1f179eaba1e1e06936be5982b7daf96398c)">
-      <created>1560793369432</created>
-      <option name="number" value="00070" />
-      <option name="presentableId" value="LOCAL-00070" />
-      <option name="project" value="LOCAL" />
-      <updated>1560793369432</updated>
+      <workItem from="1560804607194" duration="1692000" />
     </task>
     <task id="LOCAL-00071" summary="Lot's of fixes and improvements&#10;&#10;(cherry picked from commit a6b4c1f179eaba1e1e06936be5982b7daf96398c)">
       <created>1560793452568</created>
@@ -832,18 +819,25 @@
       <option name="project" value="LOCAL" />
       <updated>1560805116628</updated>
     </task>
-    <option name="localTasksCounter" value="119" />
+    <task id="LOCAL-00119" summary="Message">
+      <created>1560806211769</created>
+      <option name="number" value="00119" />
+      <option name="presentableId" value="LOCAL-00119" />
+      <option name="project" value="LOCAL" />
+      <updated>1560806211769</updated>
+    </task>
+    <option name="localTasksCounter" value="120" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="111725000" />
+    <option name="totallyTimeSpent" value="111858000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.7866242" visible="true" weight="0.24524313" />
-      <window_info id="Structure" order="1" sideWeight="0.21337579" side_tool="true" visible="true" weight="0.24524313" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.7863555" visible="true" weight="0.24524313" />
+      <window_info id="Structure" order="1" sideWeight="0.21364452" side_tool="true" visible="true" weight="0.24524313" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -856,8 +850,8 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.3927711" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.2433735" />
-      <window_info anchor="bottom" id="Messages" order="11" weight="0.32891566" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.2433735" />
+      <window_info anchor="bottom" id="Messages" order="11" visible="true" weight="0.32891566" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -919,12 +913,10 @@
     <MESSAGE value="Add clients actions and reducer" />
     <MESSAGE value="Lot's of fixes and improvements" />
     <MESSAGE value="Lot's of fixes and improvements&#10;&#10;(cherry picked from commit a6b4c1f179eaba1e1e06936be5982b7daf96398c)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Lot's of fixes and improvements&#10;&#10;(cherry picked from commit a6b4c1f179eaba1e1e06936be5982b7daf96398c)" />
+    <MESSAGE value="Message" />
+    <option name="LAST_COMMIT_MESSAGE" value="Message" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/Signin/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
@@ -1313,18 +1305,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/Coach/components/GymsTimetable.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="146">
+        <state relative-caret-position="348">
           <caret line="77" selection-start-line="77" selection-end-line="78" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/Gym/components/MainGymInfo.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="421">
-          <caret line="93" column="6" lean-forward="true" selection-start-line="93" selection-start-column="6" selection-end-line="93" selection-end-column="6" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
@@ -1383,8 +1365,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/EquipmentList/components/EquipmentCard.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
-          <caret line="26" column="13" lean-forward="true" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
+        <state relative-caret-position="273">
+          <caret line="20" column="22" selection-start-line="20" selection-start-column="22" selection-end-line="20" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" column="6" selection-start-line="23" selection-start-column="6" selection-end-line="23" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/Gym/components/MainGymInfo.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="48" column="18" selection-start-line="48" selection-start-column="18" selection-end-line="48" selection-end-column="18" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>

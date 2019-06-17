@@ -39,8 +39,6 @@ class MainGymInfo extends Component {
   
   closeModal = () => this.setState({modalIsOpen: false});
   
-  afterOpenModal = () => this.subtitle.style.color = '#f00';
-  
   renderModal() {
     const {gym} = this.props;
     const {modalIsOpen} = this.state;
@@ -48,7 +46,6 @@ class MainGymInfo extends Component {
     return (
       <Modal
         isOpen={modalIsOpen}
-        onAfterOpen={this.afterOpenModal}
         onRequestClose={this.closeModal}
         style={{
           width: 500,
