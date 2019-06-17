@@ -8,14 +8,8 @@ const Container = styled.div``;
 
 //const BlueText = styled.span.attrs({color: 'primary'})``;
 
-class GymStatistics extends Component {
-  
-  render() {
-    const {statistic, timetables} = this.props;
-    
-    return (
-      <Container>
-        {{/*<Header as="h2">Statistic</Header>
+/*
+<Header as="h2">Statistic</Header>
         <Header as="h3">
           {'Total workouts: '}
           <BlueText>{statistic.totalWorkouts}</BlueText>
@@ -27,7 +21,16 @@ class GymStatistics extends Component {
         <Header as="h3">
           {'Total coaches: '}
           <BlueText>{statistic.totalCoaches}</BlueText>
-        </Header>*/}}
+        </Header>
+ */
+class GymStatistics extends Component {
+  
+  render() {
+    const {statistic, timetables} = this.props;
+    
+    return (
+      <Container>
+        
         <CoachesTimetable timetables={timetables}/>
       </Container>
     );
