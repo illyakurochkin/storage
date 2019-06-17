@@ -198,7 +198,7 @@ class CreateWorkout extends Component {
           endTime: end + ':00'
         }
       })
-      .then(response => this.setState({loading: false, coaches: response}));
+      .then(response => this.setState({loading: false, coaches: response.data}));
     }
   };
   
