@@ -189,7 +189,7 @@ class CreateWorkout extends Component {
       api.get(`/availableCoaches`, {
         params: {
           gymId: gym.gymId,
-          day: dateString,
+          date: dateString,
           start: start + ':00',
           end: end + ':00'
         }
