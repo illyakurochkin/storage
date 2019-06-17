@@ -5,9 +5,14 @@ import MainClientInfo from '../../Client/components/MainClientInfo';
 import ClientStatistic from './ClientStatistic';
 
 class ClientHome extends Component {
-  state = {statistic: null};
+  state = {client: null, statistic: null};
   
   componentDidMount() {
+    const {clientId} = this.props;
+    
+    api.get('client', {params: {clientId}})
+    .then(response => this.setState({client: response.data.client}))
+    
     api.get('/homeStat')
     .then(response => this.setState({statistic: response.data}));
   }
@@ -27,7 +32,7 @@ class ClientHome extends Component {
 }
 
 ClientHome.propTypes = {
-  client: PropTypes.object.isRequired
+  clientId: PropTypes.number.isRequired
 };
 
 export default ClientHome;

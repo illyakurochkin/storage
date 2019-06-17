@@ -10,11 +10,11 @@ class Home extends Component {
     
     switch (user.userType) {
       case 'client':
-        return <ClientHome client={user.userData}/>;
+        return <ClientHome clientId={user.userData.clientId}/>;
       case 'coach':
-        return <CoachHome coach={user.userData}/>;
+        return <CoachHome coachId={user.userData.coachId}/>;
       case 'admin':
-        return <GymHome gym={user.userData}/>;
+        return <GymHome gymId={user.userData.gymId}/>;
       default:
         return null;
     }

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import {Header, Icon, Image} from 'semantic-ui-react';
 import Carousel from 'nuka-carousel';
+import GymStatistics from './GymStatistics';
 
 const Container = styled.div``;
 
@@ -21,7 +22,7 @@ const settings = {
 
 class MainGymInfo extends Component {
   render() {
-    const {gym} = this.props;
+    const {gym, timetables} = this.props;
     
     return (
       <Container>
@@ -33,13 +34,15 @@ class MainGymInfo extends Component {
         {gym.phone && <p align="right"><Icon color="blue" name="phone"/> {gym.phone}</p>}
         {gym.email && <p align="right"><Icon color="blue" name="mail"/> {gym.email}</p>}
         {gym.fine && <p align="right"><Icon color="blue" name="start"/> {gym.fine}</p>}
+        <GymStatistics timetables={timetables}/>
       </Container>
     );
   }
 }
 
 MainGymInfo.propTypes = {
-  gym: PropTypes.object.isRequired
+  gym: PropTypes.object.isRequired,
+  timetables: PropTypes.array.isRequired
 };
 
 export default MainGymInfo;

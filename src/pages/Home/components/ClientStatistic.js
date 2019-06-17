@@ -39,6 +39,7 @@ class ClientStatistic extends Component {
         </p>
         <Row>
           <div>
+            <Header as="h3">Gyms</Header>
             <ScrollContainer>
               {statistic.gyms.map(gym => (
                 <p><a onClick={() => this.goToGym(gym.gym)}>{gym.address}</a></p>
@@ -46,6 +47,7 @@ class ClientStatistic extends Component {
             </ScrollContainer>
           </div>
           <div>
+            <Header as="h3">Coaches</Header>
             <ScrollContainer>
               {statistic.coaches.map(coach => (
                 <p><a onClick={() => this.goToCoach(coach.coachId)}>{coach.name}</a></p>

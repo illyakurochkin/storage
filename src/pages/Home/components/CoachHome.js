@@ -5,32 +5,38 @@ import CoachStatistic from './CoachStatistic';
 import api from '../../../utils/api';
 
 class CoachHome extends Component {
-  state = {statistic: null};
+  state = {coach: null, homeStatistic: null, timetables: null};
   
   componentDidMount() {
-    const {coach} = this.props;
+    const {coachId} = this.props;
     
-    api.get('/homeStat', {params: {coachId: coach.coachId}})
-    .then(response => this.setState({statistic: response.data}));
+    api.get('/coach', {params: {coachId}})
+    .then(response => this.setState({coach: response.data.coach, timetables: response.data.gyms}));
+    
+    api.get('/homeStat')
+    .then(response => this.setState({homeStatistic: response.data}));
   }
   
   
   render() {
-    const {coach} = this.props;
-    const {statistic} = this.state;
+    const {coach, homeStatistic, timetables} = this.state;
+    
+    if(!coach) {
+      return null;
+    }
     
     return (
       <div>
-        <MainCoachInfo coach={coach}/>
+        <MainCoachInfo coach={coach} timetables={timetables}/>
         <hr/>
-        {statistic && <CoachStatistic statistic={statistic}/>}
+        {homeStatistic && <CoachStatistic statistic={homeStatistic}/>}
       </div>
     );
   }
 }
 
 CoachHome.propTypes = {
-  coach: PropTypes.object.isRequired
+  coachId: PropTypes.object.isRequired,
 };
 
 export default CoachHome;

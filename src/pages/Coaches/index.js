@@ -44,7 +44,7 @@ class Coaches extends Component {
         coach={coach}
         onClick={() => setPage({name: 'coach', coachId: coach.coachId})}
       />
-    ))
+    ));
   }
   
   render() {

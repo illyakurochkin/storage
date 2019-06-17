@@ -1,33 +1,41 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import api from '../../../utils/api';
-import MainClientInfo from '../../Client/components/MainClientInfo';
-import ClientStatistic from './ClientStatistic';
+import MainGymInfo from '../../Gym/components/MainGymInfo';
+import GymStatistic from './GymStatistic';
 
 class GymHome extends Component {
-  state = {statistic: null};
+  state = {gym: null, homeStatistic: null, timetables: null};
   
   componentDidMount() {
+    const {gymId} = this.props;
+    
+    api.get('/gym', {params: {gymId}})
+    .then(response => this.setState({gym: response.data.gym, timetables: response.data.coaches}));
+    
     api.get('/homeStat')
-    .then(response => this.setState({statistic: response.data}));
+    .then(response => this.setState({homeStatistic: response.data}));
   }
   
   render() {
-    const {client} = this.props;
-    const {statistic} = this.state;
+    const {gym, homeStatistic, timetables} = this.state;
+    
+    if(!gym) {
+      return null;
+    }
     
     return (
       <div>
-        <MainClientInfo client={client}/>
+        <MainGymInfo gym={gym} timetables={timetables}/>
         <hr/>
-        {statistic && <ClientStatistic statistic={statistic}/>}
+        {homeStatistic && <GymStatistic statistic={homeStatistic}/>}
       </div>
     );
   }
 }
 
 GymHome.propTypes = {
-  gym: PropTypes.object.isRequired
+  gymId: PropTypes.object.isRequired,
 };
 
 export default GymHome;
