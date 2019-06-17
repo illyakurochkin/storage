@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import {Header} from 'semantic-ui-react';
 import {setPage} from '../../../redux/actions/pageActions';
+import {connect} from 'react-redux';
 
 const Container = styled.div`
   display: flex;
