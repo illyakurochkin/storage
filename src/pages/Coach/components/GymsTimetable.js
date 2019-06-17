@@ -17,6 +17,7 @@ const FlexContainer = styled.div`
 const Content = styled.div`
   display: flex;
   flex-direction: row;
+  justify-content: space-around;
 `;
 
 const ListContainer = styled.div`

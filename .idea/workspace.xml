@@ -4,6 +4,7 @@
     <list default="true" id="4db4f656-bb8c-4df8-b440-70fdf49550e8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/Coach/components/GymsTimetable.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Coach/components/GymsTimetable.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/components/Timetable.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/components/Timetable.js" afterDir="false" />
     </list>
     <list id="34b93f37-f20f-42d6-9655-36c897e0170f" name="Lot's of fixes and improvements" comment="Lot's of fixes and improvements&#10;&#10;(cherry picked from commit a6b4c1f179eaba1e1e06936be5982b7daf96398c)">
       <changelist_data name="illyakurochkin" email="illya.kurochkin@gmail.com" date="1560540916000" />
@@ -94,8 +95,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/pages/Coach/components/GymsTimetable.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="134">
-              <caret line="13" column="16" selection-start-line="13" selection-start-column="16" selection-end-line="13" selection-end-column="16" />
+            <state relative-caret-position="285">
+              <caret line="19" column="32" selection-start-line="19" selection-start-column="32" selection-end-line="19" selection-end-column="32" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -118,8 +119,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pages/components/Timetable.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="305">
-              <caret line="25" column="20" lean-forward="true" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="20" />
+            <state relative-caret-position="150">
+              <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -225,10 +226,10 @@
         <option value="$PROJECT_DIR$/src/pages/Client/components/MainClientInfo.js" />
         <option value="$PROJECT_DIR$/src/pages/Client/index.js" />
         <option value="$PROJECT_DIR$/src/pages/Clients/index.js" />
-        <option value="$PROJECT_DIR$/src/pages/components/Timetable.js" />
         <option value="$PROJECT_DIR$/src/pages/Coach/components/MainCoachInfo.js" />
         <option value="$PROJECT_DIR$/src/pages/Home/components/CoachStatistic.js" />
         <option value="$PROJECT_DIR$/src/pages/Gym/components/CoachesTimetable.js" />
+        <option value="$PROJECT_DIR$/src/pages/components/Timetable.js" />
         <option value="$PROJECT_DIR$/src/pages/Coach/components/GymsTimetable.js" />
       </list>
     </option>
@@ -507,21 +508,7 @@
       <workItem from="1560536231407" duration="4141000" />
       <workItem from="1560619046073" duration="5613000" />
       <workItem from="1560626862446" duration="2720000" />
-      <workItem from="1560783203224" duration="11282000" />
-    </task>
-    <task id="LOCAL-00043" summary="Lot's of fixes and improvements&#10;&#10;(cherry picked from commit a6b4c1f179eaba1e1e06936be5982b7daf96398c)">
-      <created>1560622659936</created>
-      <option name="number" value="00043" />
-      <option name="presentableId" value="LOCAL-00043" />
-      <option name="project" value="LOCAL" />
-      <updated>1560622659936</updated>
-    </task>
-    <task id="LOCAL-00044" summary="Lot's of fixes and improvements&#10;&#10;(cherry picked from commit a6b4c1f179eaba1e1e06936be5982b7daf96398c)">
-      <created>1560624061727</created>
-      <option name="number" value="00044" />
-      <option name="presentableId" value="LOCAL-00044" />
-      <option name="project" value="LOCAL" />
-      <updated>1560624061727</updated>
+      <workItem from="1560783203224" duration="11396000" />
     </task>
     <task id="LOCAL-00045" summary="Lot's of fixes and improvements&#10;&#10;(cherry picked from commit a6b4c1f179eaba1e1e06936be5982b7daf96398c)">
       <created>1560624915927</created>
@@ -852,11 +839,25 @@
       <option name="project" value="LOCAL" />
       <updated>1560796107950</updated>
     </task>
-    <option name="localTasksCounter" value="92" />
+    <task id="LOCAL-00092" summary="Lot's of fixes and improvements&#10;&#10;(cherry picked from commit a6b4c1f179eaba1e1e06936be5982b7daf96398c)">
+      <created>1560796217720</created>
+      <option name="number" value="00092" />
+      <option name="presentableId" value="LOCAL-00092" />
+      <option name="project" value="LOCAL" />
+      <updated>1560796217720</updated>
+    </task>
+    <task id="LOCAL-00093" summary="Lot's of fixes and improvements&#10;&#10;(cherry picked from commit a6b4c1f179eaba1e1e06936be5982b7daf96398c)">
+      <created>1560796235132</created>
+      <option name="number" value="00093" />
+      <option name="presentableId" value="LOCAL-00093" />
+      <option name="project" value="LOCAL" />
+      <updated>1560796235132</updated>
+    </task>
+    <option name="localTasksCounter" value="94" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="105738000" />
+    <option name="totallyTimeSpent" value="105852000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -1334,16 +1335,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/components/Timetable.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="305">
-          <caret line="25" column="20" lean-forward="true" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="20" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/Home/components/CoachHome.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="435">
@@ -1394,10 +1385,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/components/Timetable.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/Coach/components/GymsTimetable.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="134">
-          <caret line="13" column="16" selection-start-line="13" selection-start-column="16" selection-end-line="13" selection-end-column="16" />
+        <state relative-caret-position="285">
+          <caret line="19" column="32" selection-start-line="19" selection-start-column="32" selection-end-line="19" selection-end-column="32" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>

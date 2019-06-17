@@ -8,6 +8,7 @@ const Container = styled.div`
   height: 500px;
   display: flex;
   flex-direction: column;
+ 
 `;
 
 const daysOfWeek = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
