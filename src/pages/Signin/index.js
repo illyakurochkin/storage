@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import {Button, Form, Header} from 'semantic-ui-react';
 import {setPage} from '../../redux/actions/pageActions';
 import {signin} from '../../redux/actions/userActions';
+import Signup from './Signup';
 
 const Container = styled.div`
   margin: 60px auto;
@@ -29,19 +30,23 @@ const StyledButton = styled(Button)`
 `;
 
 class Signin extends Component {
-  state = {username: '', password: ''};
+  state = {username: '', password: '', showSignUp: false};
   
   onSubmit = () => {
     const {signin, setPage} = this.props;
     const {username, password} = this.state;
     
     signin(username, password)
-     .then(user => setPage({name: 'home', user}));
+    .then(user => setPage({name: 'home', user}));
   };
   
   render() {
     const {username, password} = this.state;
     console.log('state', this.state);
+    
+    if(this.state.showSignUp) {
+      return <Signup goBack={() => this.setState({showSignUp: false})}/>
+    }
     
     return (
       <Container>
@@ -67,6 +72,13 @@ class Signin extends Component {
           <ButtonContainer>
             <StyledButton primary type='submit'>Submit</StyledButton>
           </ButtonContainer>
+          <p>
+            {'Don\'t have an account? '}
+            <a
+              color="primary"
+              onClick={() => this.setState({showSignUp: true})}
+              style={{textDecoration: 'underline'}}
+            >Sign Up</a></p>
         </StyledForm>
       </Container>
     );
