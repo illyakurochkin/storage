@@ -17,7 +17,7 @@ class Client extends Component {
   }
   
   render() {
-    const {client} = this.props;
+    const {client} = this.state;
     
     if(!client) {
       return null;

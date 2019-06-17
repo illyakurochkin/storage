@@ -18,7 +18,7 @@ class Coach extends Component {
   }
   
   render() {
-    const {coach, timetables} = this.props;
+    const {coach, timetables} = this.state;
     
     console.log(this.props);
     
