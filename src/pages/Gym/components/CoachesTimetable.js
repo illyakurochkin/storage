@@ -46,6 +46,7 @@ class CoachesTimetable extends Component {
     const {timetables} = this.props;
     const {currentCoachId} = this.state;
     
+    console.log(timetables);
     const timetable = timetables.find(t => t.coach.coachId === currentCoachId).tables;
     
     return <Timetable timetable={timetable}/>
