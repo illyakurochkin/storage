@@ -88,7 +88,7 @@ class CreateWorkout extends Component {
       <CoachName
         selected={coach && coach.coachId === c.coachId}
         color="primary"
-        onClick={() => this.setState({coach: c.coachId === coach.coachId ? null : c})}
+        onClick={() => this.setState({coach: coach && c.coachId === coach.coachId ? null : c})}
       >{c.name}</CoachName>
     ));
   }
