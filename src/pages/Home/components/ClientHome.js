@@ -18,8 +18,9 @@ class ClientHome extends Component {
   }
   
   render() {
-    const {client} = this.props;
-    const {statistic} = this.state;
+    const {client, statistic} = this.state;
+    
+    console.log('HOME CLIENT ___+++', client);
     
     return (
       <div>
