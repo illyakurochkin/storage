@@ -185,6 +185,7 @@ class CreateWorkout extends Component {
     this.setState({withCoach});
     
     if (withCoach) {
+      console.log('with coach');
       const [start, end] = time;
       
       this.setState({loading: true});
@@ -224,6 +225,7 @@ class CreateWorkout extends Component {
   
   render() {
     const {withCoach, loading, coaches} = this.state;
+    console.log('---state---', this.state);
     
     return (
       <div>
