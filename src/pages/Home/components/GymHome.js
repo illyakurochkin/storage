@@ -10,7 +10,7 @@ class GymHome extends Component {
   componentDidMount() {
     const {gymId} = this.props;
     
-    api.get('/gym', {params: {gymId}})
+    api.get('/gym', {params: {id: gymId}})
     .then(response => this.setState({gym: response.data.gym, timetables: response.data.coaches}));
     
     api.get('/homeStat')

@@ -12,7 +12,7 @@ class Coach extends Component {
   componentDidMount() {
     const {coachId} = this.props;
     
-    api.get('/coach', {params: coachId})
+    api.get('/coach', {params: {id: coachId}})
     .then(response => this.setState({coach: response.data.coach, timetables: response.data.gyms}));
     
   }
