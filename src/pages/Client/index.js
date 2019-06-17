@@ -13,7 +13,7 @@ class Client extends Component {
     const {clientId} = this.props;
     
     api.get('/client', {params: {id: clientId}})
-    .then(response => this.setState({client: response.data}));
+    .then(response => this.setState({client: response.data.client}));
   }
   
   render() {
