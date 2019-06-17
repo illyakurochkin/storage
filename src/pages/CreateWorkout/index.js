@@ -236,6 +236,7 @@ class CreateWorkout extends Component {
     api.post('/workout', {
       gymId: gym.gymId,
       dateStart: dateString,
+      startTime: time[0].toString() + ':00',
       endTime: time[1].toString() + ':00',
       coachId: coach && coach.coachId
     }).then(response => console.log('create workout response', response));
