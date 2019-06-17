@@ -8,10 +8,6 @@ import {setPage} from '../../../redux/actions/pageActions';
 const Row = styled.div`
   display: flex;
   flex-direction: row;
-  
-  &>* {
-    flex: 1;
-  }
 `;
 
 const ScrollContainer = styled.div`
@@ -30,12 +26,13 @@ class CoachStatistic extends Component {
     
     return (
       <div>
-        <Header as="h2">Statistic</Header>
-        <p>
-          <a onClick={this.goToWorkouts}>Workouts:</a>
-          {` ${statistic.workouts}`}
-        </p>
-        
+        <Row>
+          <Header as="h3">Workouts</Header>
+          <p>
+            <a onClick={this.goToWorkouts}>Workouts:</a>
+            {` ${statistic.workouts}`}
+          </p>
+        </Row>
         <Header as="h3">Clients</Header>
         <ScrollContainer>
           {statistic.clients.map(client => (
