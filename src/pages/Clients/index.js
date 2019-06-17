@@ -8,7 +8,8 @@ import {setPage} from '../../redux/actions/pageActions';
 import {fetchClients} from '../../redux/actions/clientsActions';
 import _ from 'lodash';
 
-const List = styled(Item.Group)`
+const List = styled.div`
+  margin-top: 30px;
   width: 700px;
   display: grid;
   grid-template-columns: 1fr 1fr;

@@ -10,6 +10,7 @@ class Client extends Component {
   state = {client: null};
   
   componentDidMount() {
+    console.log('in client');
     const {clientId} = this.props;
     
     api.get('/client', {params: {id: clientId}})
