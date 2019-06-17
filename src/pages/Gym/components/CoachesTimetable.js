@@ -9,18 +9,27 @@ const Container = styled.div`
   margin-top: 100px;
 `;
 
+const FlexContainer = styled.div`
+  border: 1px solid #CCC;
+  padding: 20px;
+`;
+
 const Content = styled.div`
   display: flex;
   flex-direction: row;
+  justify-content: space-around;
 `;
 
 const ListContainer = styled.div`
   display: flex;
-  width: 100px;
+  flex-direction: column;
+  width: 600px;
+  overflow: auto;
 `;
 
 const TimetableContainer = styled.div`
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 `;
@@ -37,7 +46,14 @@ class CoachesTimetable extends Component {
     return coaches.map(coach => (
       <a
         onClick={() => this.setState({currentCoachId: coach.coachId})}
-        style={currentCoachId === coach.coachId && {backgroundColor: '#CCC'}}
+        style={{
+          display: 'inline-block',
+          borderRadius: 2,
+          padding: 2,
+          cursor: 'pointer',
+          marginRight: 20,
+          backgroundColor: currentCoachId === coach.coachId ? '#CCC' : 'white'
+        }}
       >
         {coach.name}
       </a>
@@ -57,15 +73,20 @@ class CoachesTimetable extends Component {
   render() {
     return (
       <Container>
-        <Content>
-          <ListContainer>
-            <Header as="h3">Coaches</Header>
-            {this.renderList()}
-          </ListContainer>
-          <TimetableContainer>
-            {this.renderTimetable()}
-          </TimetableContainer>
-        </Content>
+        <Header as="h2" align="center">Coaches timetables</Header>
+        <FlexContainer>
+          <Content>
+            <ListContainer>
+              <Header as="h3">Coaches</Header>
+              {this.renderList()}
+            </ListContainer>
+            <div>
+              <TimetableContainer>
+                {this.renderTimetable()}
+              </TimetableContainer>
+            </div>
+          </Content>
+        </FlexContainer>
       </Container>
     );
   }
