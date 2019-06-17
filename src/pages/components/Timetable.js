@@ -37,7 +37,7 @@ class Timetable extends Component {
   render() {
     return (
       <Container>
-        <Header as="h2">Timetable</Header>
+        <Header as="h3">Timetable</Header>
         {this.timetableRows}
       </Container>
     );

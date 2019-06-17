@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
 import Timetable from '../../../pages/components/Timetable';
+import {Header} from 'semantic-ui-react';
 
 const Container = styled.div``;
 
@@ -57,6 +58,7 @@ class CoachesTimetable extends Component {
       <Container>
         <Content>
           <ListContainer>
+            <Header as="h3">Coaches</Header>
             {this.renderList()}
           </ListContainer>
           <TimetableContainer>
