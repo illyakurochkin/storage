@@ -60,7 +60,7 @@ class WorkoutCard extends Component {
   
   goToGym = () => {
     const {workout, userType, setPage} = this.props;
-    if (userType === 'admin') {
+    if (userType === 'manager') {
       return setPage({name: 'home'});
     }
     setPage({name: 'gym', gymId: workout.gym.gymId});

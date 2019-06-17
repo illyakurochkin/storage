@@ -85,7 +85,7 @@ class Menu extends Component {
             active={page.name === 'gyms' || page.name === 'gym'}
             onClick={() => setPage({name: 'gyms'})}
           />
-          {(userType === 'admin' || userType === 'coach') && (
+          {(userType === 'manager' || userType === 'coach') && (
             <SemanticMenu.Item
               name="clients"
               active={page.name === 'clients' || page.name === 'client'}

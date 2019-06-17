@@ -13,7 +13,7 @@ class Home extends Component {
         return <ClientHome clientId={user.userData.clientId}/>;
       case 'coach':
         return <CoachHome coachId={user.userData.coachId}/>;
-      case 'admin':
+      case 'manager':
         return <GymHome gymId={user.userData.gymId}/>;
       default:
         return null;

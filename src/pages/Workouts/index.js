@@ -14,7 +14,7 @@ class Workouts extends Component {
     
     if (userType === 'client') {
       filter.clientId = userData.clientId
-    } else if (userType === 'admin') {
+    } else if (userType === 'manager') {
       filter.gymId = userData.gymId;
     } else if (userType === 'coach') {
       filter.coachId = userData.coachId;
