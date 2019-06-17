@@ -165,7 +165,7 @@ class CreateWorkout extends Component {
   }
   
   onWithCoachClick = () => {
-    
+    console.log('on with coach click');
     const {gym, date, time} = this.state;
     
     if (!(date && time && gym)) {
