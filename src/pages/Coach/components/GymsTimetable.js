@@ -9,7 +9,10 @@ const Container = styled.div`
   margin-top: 100px;
 `;
 
-const FlexContainer = styled.div``;
+const FlexContainer = styled.div`
+  border: 1px solid #CCC;
+  padding: 20px;
+`;
 
 const Content = styled.div`
   display: flex;
