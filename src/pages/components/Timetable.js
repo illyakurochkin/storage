@@ -19,7 +19,7 @@ class Timetable extends Component {
     
     console.log('timetable', timetable);
     
-    return [1, 2, 3, 4, 5, 6, 7]
+    return [0, 1, 2, 3, 4, 5, 6]
     .map(num => {
       const t = timetable.find(row => row.day === num);
       if(!t) {

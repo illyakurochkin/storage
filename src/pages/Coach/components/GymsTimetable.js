@@ -5,6 +5,10 @@ import _ from 'lodash';
 import Timetable from '../../../pages/components/Timetable';
 import {Header} from 'semantic-ui-react';
 
+const Container = styled.div`
+  margin-top: 50px;
+`;
+
 const FlexContainer = styled.div``;
 
 const Content = styled.div`
@@ -60,8 +64,8 @@ class GymsTimetable extends Component {
   
   render() {
     return (
-      <div>
-        <Header as="h2">Gyms timetables</Header>
+      <Container>
+        <Header as="h2" align="center">Gyms timetables</Header>
         <FlexContainer>
           <Content>
             <ListContainer>
@@ -74,7 +78,7 @@ class GymsTimetable extends Component {
             </div>
           </Content>
         </FlexContainer>
-      </div>
+      </Container>
     );
   }
 }
