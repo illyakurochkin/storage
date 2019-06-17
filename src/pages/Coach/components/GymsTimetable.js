@@ -47,7 +47,9 @@ class GymsTimetable extends Component {
     const {timetables} = this.props;
     const {currentGymId} = this.state;
     
+    console.log('currentGymId', currentGymId);
     console.log('timetables', timetables);
+    
     const timetable = timetables.find(t => t.gym.gymId === currentGymId).tables;
     
     return <Timetable timetable={timetable}/>
