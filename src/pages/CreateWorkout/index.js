@@ -175,8 +175,8 @@ class CreateWorkout extends Component {
     
     this.setState({withCoach});
     
-    if (false && withCoach) {
-      const {start, end} = {};
+    if (withCoach) {
+      const [start, end] = time;
       
       this.setState({loading: true});
       
@@ -188,7 +188,7 @@ class CreateWorkout extends Component {
   onCreateWorkout = () => {
     const {gym, date, time, withCoach, coach} = this.state;
     
-    if(!gym || !date || !time || withCoach && !coach) {
+    if(!gym || !date || !time || (withCoach && !coach)) {
       return;
     }
   
@@ -197,9 +197,6 @@ class CreateWorkout extends Component {
     const year = date.getFullYear();
     
     const dateString = `${d}.${m}.${year}`;
-    
-    // const startTime = time[0].toString().substring(0, 5);
-    // const endTime = time[1].toString().substring(0, 5);
     
     api.post('/workout', {
       gymId: gym.gymId,
