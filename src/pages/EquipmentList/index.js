@@ -17,7 +17,7 @@ class EquipmentList extends Component {
   componentDidMount() {
     api.get('/equipment')
     .then(response =>
-      this.setState({equipmentList: response.data}))
+      this.setState({equipmentList: response.data.equipment}))
   }
   
   render() {
