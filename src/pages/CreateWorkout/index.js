@@ -9,6 +9,7 @@ import TimeRangePicker from '@wojtekmaj/react-timerange-picker';
 import Datepicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import api from '../../utils/api';
+import {setPage} from '../../redux/actions/pageActions';
 
 const StepContainer = styled.div`
   padding: 30px;
@@ -220,6 +221,8 @@ class CreateWorkout extends Component {
   };
   
   onCreateWorkout = () => {
+    const {setPage} = this.props;
+    
     const {gym, date, time, withCoach, coach} = this.state;
     
     if (!gym || !date || !time || (withCoach && !coach)) {
@@ -239,7 +242,8 @@ class CreateWorkout extends Component {
       startTime: time[0].toString() + ':00',
       endTime: time[1].toString() + ':00',
       coachId: coach && coach.coachId
-    }}).then(response => console.log('create workout response', response));
+    }}).then(response => setPage({name: 'workouts'}));
+    
   };
   
   render() {
@@ -272,4 +276,4 @@ const mapStateToProps = state => {
   return {client: state.user.userData};
 };
 
-export default connect(mapStateToProps)(CreateWorkout);
+export default connect(mapStateToProps, {setPage})(CreateWorkout);
