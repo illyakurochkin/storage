@@ -133,7 +133,7 @@ class Signup extends Component {
               value={phone}
               onChange={e => this.setState({phone: e.target.value})}
               type="email"
-              placeholder='+380684452759'
+              placeholder='0684452759'
             />
           </Form.Field>
           <Form.Field>
