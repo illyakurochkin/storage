@@ -49,7 +49,7 @@ class Signup extends Component {
     const {goBack} = this.props;
     const {username, password, firstName, lastName, middleName, birthDate, photo, email, phone} = this.state;
   
-    api.post('/createUser', this.state)
+    api.post('/createClient', this.state)
     .then(goBack);
   };
   
@@ -112,10 +112,10 @@ class Signup extends Component {
           <Form.Field>
             <label>Birth date</label>
             <input
-              value={password}
-              onChange={e => this.setState({middleName: e.target.value})}
+              value={birthDate}
+              onChange={e => this.setState({birthDate: e.target.value})}
               type="text"
-              placeholder='12.02.1991'
+              placeholder='yyyy.mm.dd'
             />
           </Form.Field>
           <Form.Field>
