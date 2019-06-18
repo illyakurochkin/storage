@@ -230,7 +230,7 @@ class CreateWorkout extends Component {
     const m = date.getMonth() + 1 < 10 ? `0${date.getMonth() + 1}` : (date.getMonth() + 1);
     const year = date.getFullYear();
     //yyyy-MM-dd'T'HH:mm:ssZ
-    const dateString = `${year}.${m}.${d}T${time[0].toString()}:00Z`;
+    const dateString = `${year}.${m}.${d} ${time[0].toString()}:00`;
     //const dateString = `${d}.${m}.${year}`;
     
     api.post('/workout', {
