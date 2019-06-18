@@ -49,7 +49,7 @@ class Signup extends Component {
     const {goBack} = this.props;
     const {username, password, firstName, lastName, middleName, birthDate, photo, email, phone} = this.state;
   
-    api.post('/createClient', this.state)
+    api.get('/createClient', {params: this.state})
     .then(goBack);
   };
   
