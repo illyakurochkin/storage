@@ -132,7 +132,7 @@ class Signup extends Component {
             <input
               value={phone}
               onChange={e => this.setState({phone: e.target.value})}
-              type="email"
+              type="phone"
               placeholder='0684452759'
             />
           </Form.Field>
@@ -141,7 +141,7 @@ class Signup extends Component {
             <input
               value={photo}
               onChange={e => this.setState({photo: e.target.value})}
-              type="email"
+              type="text"
               placeholder='https://photos.com/image.jpg'
             />
           </Form.Field>
