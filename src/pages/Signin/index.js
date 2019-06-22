@@ -2,8 +2,6 @@ import React, {Component} from 'react';
 import styled from 'styled-components';
 import {connect} from 'react-redux';
 import {Button, Form, Header} from 'semantic-ui-react';
-import {setPage} from '../../redux/actions/pageActions';
-import {signin} from '../../redux/actions/userActions';
 import Signup from './Signup';
 
 const Container = styled.div`

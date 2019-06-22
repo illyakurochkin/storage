@@ -1,10 +1,7 @@
-import React, {Component, Fragment} from 'react';
+import React, {Component} from 'react';
 import styled from 'styled-components';
 import {connect} from 'react-redux';
-import Menu from './pages/components/Menu';
-import PageManager from './pages/PageManager';
-import Signin from './pages/Signin';
-import {fetchUser} from './redux/actions/userActions';
+import Page from './pages/Page';
 
 const Container = styled.div`
   display: flex;
@@ -12,27 +9,20 @@ const Container = styled.div`
 `;
 
 class App extends Component {
-  componentDidMount() {
-    this.props.fetchUser();
-  }
   
   render() {
-    const {user} = this.props;
+    const {token} = this.props;
     
     return (
       <Container>
-        {user && (
-          <Fragment>
-            <Menu/>
-            <PageManager/>
-          </Fragment>
-        )}
-        {!user && <Signin/>}
+        <Page/>
       </Container>
     );
   }
 }
 
-const mapStateToProps = state => ({user: state.user});
+const mapStateToProps = state => ({
+  token: state.auth
+});
 
-export default connect(mapStateToProps, {fetchUser})(App);
+export default connect(mapStateToProps)(App);

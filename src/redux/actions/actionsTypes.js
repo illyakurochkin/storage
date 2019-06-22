@@ -1,11 +1,4 @@
-export const SIGNIN = 'sport/user/SIGNIN';
-export const SIGNOUT = 'sport/user/SIGNOUT';
-
-export const SET_PAGE = 'sport/page/SET_PAGE';
-
-export const FETCH_GYMS = 'sport/gyms/fetchGyms';
-export const FETCH_COACHES = 'sport/coaches/fetchCoaches';
-
-export const FETCH_WORKOUTS = 'sport/workouts/fetchWorkouts';
-
-export const FETCH_CLIENTS = 'sport/clients/fetchClients';
+export const FETCH_CATEGORIES = 'store/categories/FETCH_CATEGORIES';
+export const FETCH_PRODUCTS = 'store/categories/FETCH_PRODUCTS';
+export const SIGN_IN = 'store/auth/SIGN_IN';
+export const SIGN_OUT = 'store/auth/SIGN_OUT';
