@@ -2,18 +2,26 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import styled from 'styled-components';
-import {Header, Menu} from 'semantic-ui-react';
-import {fetchProducts, fetchCategoryProducts} from '../../redux/actions/productsActions';
+import {Header, Icon, Input, Menu, Table} from 'semantic-ui-react';
+import {fetchCategoryProducts, fetchProducts} from '../../redux/actions/productsActions';
 import {fetchCategories} from '../../redux/actions/categoriesActions';
+import Category from './Category';
+import {setCurrentCategory} from '../../redux/actions/currenCategoryActions';
 
 const Container = styled.div`
+  width: 400px;
   display: flex;
   flex-direction: column;
   align-items: center;
 `;
 
+const searchCategory = (category, query) => {
+  const string = `${category.category_name}\n${category.category_description}`;
+  return !query || (category && string.toLowerCase().includes(query.toLowerCase()));
+};
+
 class Categories extends Component {
-  state = {categoryId: null};
+  state = {query: ''};
   
   componentDidMount() {
     this.props.fetchCategories();
@@ -21,21 +29,21 @@ class Categories extends Component {
   }
   
   renderCategories() {
-    const {categories} = this.props;
-    const {categoryId} = this.state;
+    const {categories, setCurrentCategory, currentCategoryId, fetchCategoryProducts, fetchProducts} = this.props;
+    const {query} = this.state;
     
-    return categories.map(category => (
-      <Menu.Item
-        key={category.category_id}
-        name={category.category_name}
-        active={categoryId === category.category_id}
+    const c = categories.filter(category => searchCategory(category, query));
+    
+    console.log('filter categories', c);
+    
+    return c.map(category => (
+      <Category
+        category={category}
         onClick={() => {
-          if(categoryId !== category.category_id) {
-            this.props.fetchCategoryProducts(category.category_id)
-            .then(() => this.setState({categoryId: category.category_id}))
+          if (currentCategoryId !== category.category_id) {
+            fetchCategoryProducts(category.category_id).then(() => setCurrentCategory(category.category_id));
           } else {
-            this.props.fetchProducts()
-            .then(() => this.setState({categoryId: null}));
+            fetchProducts().then(() => setCurrentCategory(null));
           }
         }}
       />
@@ -43,25 +51,46 @@ class Categories extends Component {
   }
   
   render() {
-    console.log('-categories-', this);
+    const {query} = this.state;
     
     return (
       <Container>
         <Header>Categories</Header>
-        <Menu secondary vertical>
-          {this.renderCategories()}
-        </Menu>
+        <Input style={{width: '100%'}} icon placeholder='Search...'>
+          <input value={query} onChange={e => this.setState({query: e.target.value})}/>
+          <Icon name='search'/>
+        </Input>
+        <Table fixed basic="very" celled padded>
+          <Table.Header>
+            <Table.Row>
+              <Table.HeaderCell>Name</Table.HeaderCell>
+              <Table.HeaderCell>Total price</Table.HeaderCell>
+              <Table.HeaderCell>Description</Table.HeaderCell>
+              <Table.HeaderCell>Actions</Table.HeaderCell>
+            </Table.Row>
+          </Table.Header>
+          
+          <Table.Body>
+            {this.renderCategories()}
+          </Table.Body>
+        </Table>
       </Container>
-    );
+    )
   }
 }
 
 Categories.propTypes = {
-  categories: PropTypes.array.isRequired
+  categories: PropTypes.array.isRequired,
+  currentCategoryId: PropTypes.any.isRequired,
+  setCurrentCategory: PropTypes.func.isRequired,
+  fetchProducts: PropTypes.func.isRequired,
+  fetchCategoryProducts: PropTypes.func.isRequired,
+  fetchCategories: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
-  categories: state.categories
+  categories: state.categories,
+  currentCategoryId: state.currentCategory
 });
 
-export default connect(mapStateToProps, {fetchCategories, fetchProducts, fetchCategoryProducts})(Categories);
+export default connect(mapStateToProps, {setCurrentCategory, fetchCategories, fetchProducts, fetchCategoryProducts})(Categories);
