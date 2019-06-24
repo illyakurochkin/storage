@@ -1,15 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4db4f656-bb8c-4df8-b440-70fdf49550e8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="4db4f656-bb8c-4df8-b440-70fdf49550e8" name="Default Changelist" comment="Auth">
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Signin/Signup.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Signin/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SignIn/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/actions/authActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/actions/authActions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/actions/categoriesActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/actions/categoriesActions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/actions/productsActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/actions/productsActions.js" afterDir="false" />
     </list>
     <list id="34b93f37-f20f-42d6-9655-36c897e0170f" name="Lot's of fixes and improvements" comment="Lot's of fixes and improvements&#10;&#10;(cherry picked from commit a6b4c1f179eaba1e1e06936be5982b7daf96398c)">
       <changelist_data name="illyakurochkin" email="illya.kurochkin@gmail.com" date="1560540916000" />
@@ -70,11 +63,14 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pages/Page.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-165">
-              <caret line="4" column="39" selection-start-line="4" selection-start-column="39" selection-end-line="4" selection-end-column="39" />
+            <state relative-caret-position="310">
+              <caret line="33" column="2" selection-start-line="33" selection-start-column="2" selection-end-line="33" selection-end-column="2" />
+              <folding>
+                <element signature="e#0#39#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -91,11 +87,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/App.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="225">
-              <caret line="15" column="16" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
+              <caret line="15" column="4" lean-forward="true" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="4" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -213,10 +209,10 @@
         <option value="$PROJECT_DIR$/src/redux/actions/categoriesActions.js" />
         <option value="$PROJECT_DIR$/src/redux/actions/productsActions.js" />
         <option value="$PROJECT_DIR$/src/redux/actions/authActions.js" />
-        <option value="$PROJECT_DIR$/src/App.js" />
         <option value="$PROJECT_DIR$/src/pages/Signin/index.js" />
         <option value="$PROJECT_DIR$/src/pages/SignIn/index.js" />
         <option value="$PROJECT_DIR$/src/pages/Page.js" />
+        <option value="$PROJECT_DIR$/src/App.js" />
       </list>
     </option>
   </component>
@@ -470,14 +466,7 @@
       <workItem from="1561312545706" duration="2996000" />
       <workItem from="1561364875571" duration="297000" />
       <workItem from="1561366711860" duration="514000" />
-      <workItem from="1561367267449" duration="446000" />
-    </task>
-    <task id="LOCAL-00103" summary="Lot's of fixes and improvements&#10;&#10;(cherry picked from commit a6b4c1f179eaba1e1e06936be5982b7daf96398c)">
-      <created>1560797362519</created>
-      <option name="number" value="00103" />
-      <option name="presentableId" value="LOCAL-00103" />
-      <option name="project" value="LOCAL" />
-      <updated>1560797362519</updated>
+      <workItem from="1561367267449" duration="616000" />
     </task>
     <task id="LOCAL-00104" summary="Lot's of fixes and improvements&#10;&#10;(cherry picked from commit a6b4c1f179eaba1e1e06936be5982b7daf96398c)">
       <created>1560797602803</created>
@@ -815,11 +804,18 @@
       <option name="project" value="LOCAL" />
       <updated>1560820551652</updated>
     </task>
-    <option name="localTasksCounter" value="152" />
+    <task id="LOCAL-00152" summary="Auth">
+      <created>1561367737345</created>
+      <option name="number" value="00152" />
+      <option name="presentableId" value="LOCAL-00152" />
+      <option name="project" value="LOCAL" />
+      <updated>1561367737346</updated>
+    </task>
+    <option name="localTasksCounter" value="153" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="151658000" />
+    <option name="totallyTimeSpent" value="151828000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="6" />
@@ -904,7 +900,8 @@
     <MESSAGE value="Lot's of fixes and improvements&#10;&#10;(cherry picked from commit a6b4c1f179eaba1e1e06936be5982b7daf96398c)" />
     <MESSAGE value="Message" />
     <MESSAGE value="Fix some shit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix some shit" />
+    <MESSAGE value="Auth" />
+    <option name="LAST_COMMIT_MESSAGE" value="Auth" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/pages/CreateWorkout/components/SearchDropdown.js" />
@@ -1105,16 +1102,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/App.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="16" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/redux/actions/authActions.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
@@ -1137,8 +1124,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/Page.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-165">
-          <caret line="4" column="39" selection-start-line="4" selection-start-column="39" selection-end-line="4" selection-end-column="39" />
+        <state relative-caret-position="310">
+          <caret line="33" column="2" selection-start-line="33" selection-start-column="2" selection-end-line="33" selection-end-column="2" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="4" lean-forward="true" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="4" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
