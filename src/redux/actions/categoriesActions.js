@@ -10,7 +10,8 @@ let categories = [
 const fakeFetchCategories = () => new Promise(resolve => setTimeout(() => resolve(categories), 500));
 
 export const fetchCategories = () => async dispatch => {
-  const categories = await api.get('/categories');  //await fakeFetchCategories();
+  const response = await api.get('/categories');  //await fakeFetchCategories();
+  const categories = response.data;
   
   dispatch({
     type: FETCH_CATEGORIES,
@@ -21,7 +22,7 @@ export const fetchCategories = () => async dispatch => {
 export const createCategory = category => {
   // await api.put('/categories', category);
   // categories = [...categories, category];
-  return api.put('/categories', category); //Promise.resolve();
+  return api.put('/categories', category).then(response => response.data); //Promise.resolve();
 };
 
 export const updateCategory = category => {

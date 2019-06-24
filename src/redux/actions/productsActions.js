@@ -65,7 +65,8 @@ const fakeFetchProducts = () => new Promise(resolve => setTimeout(() => {
 
 export const fetchProducts = () => async dispatch => {
   // const products = await fakeFetchProducts();//api.get('/products');
-  const products = await api.get('/products');
+  const response = await api.get('/products');
+  const products = response.data;
   
   console.log('fet p', {products});
   dispatch({
@@ -76,9 +77,9 @@ export const fetchProducts = () => async dispatch => {
 
 export const fetchCategoryProducts = categoryId => async dispatch => {
   // const products = (await fakeFetchProducts()).filter(product => product.category_id === categoryId);
-  const products = await api.get(`/categories/${categoryId}/products`);
+  const response = await api.get(`/categories/${categoryId}/products`);
+  const products = response.data;
   
-  console.log('fet pp');
   dispatch({
     type: FETCH_PRODUCTS,
     products
@@ -88,7 +89,7 @@ export const fetchCategoryProducts = categoryId => async dispatch => {
 export const createProduct = product => {
   //await api.put('/products', product);
   // products = [...products, product];
-  return api.put('/products', product); // Promise.resolve();
+  return api.put('/products', product).then(response => response.data); // Promise.resolve();
 };
 
 export const updateProduct = product => {
