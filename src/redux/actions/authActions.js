@@ -4,14 +4,14 @@ import sha256 from '../../utils/sha256';
 
 export const signIn = (login, password) => async dispatch => {
   const hashedPassword = password; //sha256(password);
-  const token = await api.post('/login', {login, password: hashedPassword});
+  const response = await api.post('/login', {login, password: hashedPassword});
   
-  localStorage.setItem('Authorization', token);
-  api.defaults.headers.common.Authorization = token;
+  localStorage.setItem('Authorization', response.data);
+  api.defaults.headers.common.Authorization = response.data;
   
   dispatch({
     type: SIGN_IN,
-    token
+    token: response.data
   });
 };
 
