@@ -12,6 +12,8 @@ const Container = styled.div`
 class App extends Component {
   
   render() {
+    const {token} = this.props;
+    
     if(!token) {
       return <Signin/>
     }
