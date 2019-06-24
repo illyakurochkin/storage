@@ -2,7 +2,9 @@ import React, {Component} from 'react';
 import styled from 'styled-components';
 import Products from './Products';
 import Categories from './Categories';
-import {Header as DefaultHeader} from 'semantic-ui-react';
+import {Header as DefaultHeader, Button} from 'semantic-ui-react';
+import {connect} from 'react-redux';
+import {signOut} from '../redux/actions/authActions';
 
 const Container = styled.div`
   width: 1140px;
@@ -28,9 +30,12 @@ const Content = styled.div`
 class Page extends Component {
   
   render() {
+    const {signOut} = this.props;
+    
     return (
       <Container>
         <Header as="h1">STORAGE</Header>
+        <Button onClick={signOut}>Sign Out</Button>
         
         <Content>
           <Categories/>
@@ -41,4 +46,4 @@ class Page extends Component {
   }
 }
 
-export default Page;
+export default connect(null, {signOut})(Page);

@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import styled from 'styled-components';
 import {connect} from 'react-redux';
 import {Button, Form, Header} from 'semantic-ui-react';
-import Signup from './Signup';
+import {signIn} from '../../redux/actions/authActions';
 
 const Container = styled.div`
   margin: 60px auto;
@@ -27,35 +27,30 @@ const StyledButton = styled(Button)`
   margin: 0 auto;
 `;
 
-class Signin extends Component {
-  state = {username: '', password: '', showSignUp: false};
+class SignIn extends Component {
+  state = {login: '', password: ''};
   
   onSubmit = () => {
-    const {signin, setPage} = this.props;
-    const {username, password} = this.state;
+    const {signIn} = this.props;
+    const {login, password} = this.state;
     
-    signin(username, password)
-    .then(user => setPage({name: 'home', user}));
+    signIn(login, password);
   };
   
   render() {
-    const {username, password} = this.state;
+    const {login, password} = this.state;
     console.log('state', this.state);
-    
-    if(this.state.showSignUp) {
-      return <Signup goBack={() => this.setState({showSignUp: false})}/>
-    }
     
     return (
       <Container>
         <Header as="h1">Sign In</Header>
         <StyledForm onSubmit={this.onSubmit}>
           <Form.Field>
-            <label>Username</label>
+            <label>Login</label>
             <input
-              value={username}
-              onChange={e => this.setState({username: e.target.value})}
-              placeholder='username'
+              value={login}
+              onChange={e => this.setState({login: e.target.value})}
+              placeholder='login'
             />
           </Form.Field>
           <Form.Field>
@@ -70,17 +65,10 @@ class Signin extends Component {
           <ButtonContainer>
             <StyledButton primary type='submit'>Submit</StyledButton>
           </ButtonContainer>
-          <p>
-            {'Don\'t have an account? '}
-            <a
-              color="primary"
-              onClick={() => this.setState({showSignUp: true})}
-              style={{textDecoration: 'underline'}}
-            >Sign Up</a></p>
         </StyledForm>
       </Container>
     );
   }
 }
 
-export default connect(null, {signin, setPage})(Signin);
+export default connect(null, {signIn})(SignIn);

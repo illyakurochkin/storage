@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import styled from 'styled-components';
 import {connect} from 'react-redux';
 import Page from './pages/Page';
+import Signin from './pages/SignIn';
 
 const Container = styled.div`
   display: flex;
@@ -11,7 +12,9 @@ const Container = styled.div`
 class App extends Component {
   
   render() {
-    const {token} = this.props;
+    if(!token) {
+      return <Signin/>
+    }
     
     return (
       <Container>

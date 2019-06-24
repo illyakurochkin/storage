@@ -64,7 +64,8 @@ const fakeFetchProducts = () => new Promise(resolve => setTimeout(() => {
 }, 500));
 
 export const fetchProducts = () => async dispatch => {
-  const products = await fakeFetchProducts();//api.get('/products');
+  // const products = await fakeFetchProducts();//api.get('/products');
+  const products = await api.get('/products');
   
   console.log('fet p', {products});
   dispatch({
@@ -74,8 +75,8 @@ export const fetchProducts = () => async dispatch => {
 };
 
 export const fetchCategoryProducts = categoryId => async dispatch => {
-  const products = (await fakeFetchProducts()).filter(product => product.category_id === categoryId);
-  //api.get(`/categories/${categoryId}/products`);
+  // const products = (await fakeFetchProducts()).filter(product => product.category_id === categoryId);
+  const products = await api.get(`/categories/${categoryId}/products`);
   
   console.log('fet pp');
   dispatch({
@@ -86,19 +87,18 @@ export const fetchCategoryProducts = categoryId => async dispatch => {
 
 export const createProduct = product => {
   //await api.put('/products', product);
-  products = [...products, product];
-  return Promise.resolve();
+  // products = [...products, product];
+  return api.put('/products', product); // Promise.resolve();
 };
 
 export const updateProduct = product => {
   //await api.post('/products', product);
-  products = products.map(p => p.product_id === product.product_id ? product : p);
-  console.log('updated products', products);
-  return Promise.resolve();
+  // products = products.map(p => p.product_id === product.product_id ? product : p);
+  return api.post('/products', product); //Promise.resolve();
 };
 
-export const deleteProduct = productId =>   {
+export const deleteProduct = product_id => {
   //await api.delete(`/products/${product.id}`);
-  products = products.filter(p => p.product_id !== productId);
-  return Promise.resolve();
+  // products = products.filter(p => p.product_id !== productId);
+  return api.delete(`/products/${product_id}`); //Promise.resolve();
 };
