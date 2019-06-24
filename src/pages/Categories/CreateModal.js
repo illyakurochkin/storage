@@ -28,7 +28,7 @@ class CreateModal extends Component {
   onCreate = () => {
     const {fetchCategoryProducts, category, close} = this.props;
     
-    createProduct({...this.state, category_id: category.category_id})
+    createProduct({...this.state, product_amount: +this.state.product_amount, category_id: category.category_id})
     .then(() => fetchCategoryProducts(category.category_id).then(() => close()));
   };
   
