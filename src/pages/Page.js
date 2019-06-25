@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import styled from 'styled-components';
 import Products from './Products';
 import Categories from './Categories';
-import {Header as DefaultHeader, Button} from 'semantic-ui-react';
+import {Header as DefaultHeader, Button as DefaultButton} from 'semantic-ui-react';
 import {connect} from 'react-redux';
 import {signOut} from '../redux/actions/authActions';
 
@@ -25,6 +25,12 @@ const Content = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+`;
+
+const Button = styled(DefaultButton)`
+  position: absolute;
+  top: 50px;
+  right: 50px;
 `;
 
 class Page extends Component {
