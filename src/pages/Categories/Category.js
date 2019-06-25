@@ -73,9 +73,10 @@ class Category extends Component {
   };
   
   onDelete = () => {
-    const {category, fetchCategories, currentCategoryId, fetchProducts, fetchCategoryProducts} = this.props;
+    const {category, fetchCategories, currentCategoryId, fetchProducts, setCurrentCategory, fetchCategoryProducts} = this.props;
     
     deleteCategory(category.category_id)
+    .then(() => currentCategoryId === category.category_id && setCurrentCategory(null))
     .then(() => currentCategoryId === category.category_id ? fetchCategoryProducts(currentCategoryId) : fetchProducts())
     .then(fetchCategories)
     .then(() => this.setState({open: false}));
