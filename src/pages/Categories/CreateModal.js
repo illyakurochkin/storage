@@ -38,7 +38,7 @@ class CreateModal extends Component {
       return alert('product price is empty');
     }
     
-    if (product_amount === null) {
+    if (product_amount === null || product_amount === '') {
       return alert('product amount is empty');
     }
     
