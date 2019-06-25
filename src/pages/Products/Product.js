@@ -23,6 +23,7 @@ class Product extends Component {
   state = {
     edit: false,
     editProduct: {...this.props.product},
+    recycle: false,
     editAmount: 0
   };
   
@@ -59,20 +60,10 @@ class Product extends Component {
   
   get recicleModal() {
     const {product, currentCategoryId} = this.props;
-    const {editAmount} = this.state;
+    const {editAmount, recycle} = this.state;
     
     return (
-      <Modal basic size="mini" trigger={(
-        <Label
-          as="a"
-          basic
-          color="green"
-          size="mini"
-          style={{width: 24}}
-        >
-          <Icon name="recycle"/>
-        </Label>
-      )}>
+      <Modal basic size="mini" open={recycle} onClose={() => this.setState({recycle: false})}>
         <Header icon='archive' content={`Change product '${product.product_name}' amount?`}/>
         <Modal.Content>
           <p>
@@ -84,13 +75,13 @@ class Product extends Component {
           <Button onClick={() => +product.product_amount - +editAmount >= 0 &&  updateProduct({...product, product_amount: +product.product_amount - +editAmount})
           .then(() => currentCategoryId ? fetchCategoryProducts(currentCategoryId) : fetchProducts())
           .then(fetchCategories)
-          .then(() => this.setState({edit: false}))} basic color='red' inverted>
+          .then(() => this.setState({recycle: false}))} basic color='red' inverted>
             <Icon name='minus'/>
           </Button>
           <Button onClick={() => +product.product_amount + +editAmount >= 0 &&  updateProduct({...product, product_amount: +product.product_amount + +editAmount})
           .then(() => currentCategoryId ? fetchCategoryProducts(currentCategoryId) : fetchProducts())
           .then(fetchCategories)
-          .then(() => this.setState({edit: false}))} basic color='green' inverted>
+          .then(() => this.setState({recycle: false}))} basic color='green' inverted>
             <Icon name='plus'/>
           </Button>
         </Modal.Actions>
@@ -185,7 +176,16 @@ class Product extends Component {
           {edit ? this.renderEditCells() : this.renderStaticCells()}
           <Table.Cell>
             <ActionsContainer>
-              {this.recicleModal}
+              <Label
+                as="a"
+                basic
+                color="green"
+                size="mini"
+                style={{width: 24}}
+                onClick={() => this.setState({recycle: true})}
+              >
+                <Icon name="recycle"/>
+              </Label>
               <Label
                 as="a"
                 basic={!edit}
