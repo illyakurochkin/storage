@@ -45,7 +45,7 @@ class Category extends Component {
       <Modal open={open} onClose={() => this.setState({open: false})} basic size='mini'>
         <Header icon='archive' content={`Delete category '${category.category_name}' and all products?`}/>
         <Modal.Content>
-          <p>Are you sure you want to delete this category??</p>
+          <p>Are you sure you want to delete this category?</p>
         </Modal.Content>
         <Modal.Actions>
           <Button onClick={() => this.setState({open: false})} basic color='red' inverted>
@@ -73,11 +73,11 @@ class Category extends Component {
   };
   
   onDelete = () => {
-    const {category, fetchCategories, currentCategoryId} = this.props;
+    const {category, fetchCategories, currentCategoryId, fetchProducts, fetchCategoryProducts} = this.props;
     
     deleteCategory(category.category_id)
-    .then(fetchCategories)
     .then(() => currentCategoryId === category.category_id ? fetchCategoryProducts(currentCategoryId) : fetchProducts())
+    .then(fetchCategories)
     .then(() => this.setState({open: false}));
   };
   
