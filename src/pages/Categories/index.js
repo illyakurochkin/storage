@@ -112,7 +112,7 @@ class Categories extends Component {
           </Table.Body>
         </Table>
         <Divider/>
-        <Sum>{categories.map(category => category.category_total_price).reduce(0, (a, b) => a + b)}</Sum>
+        <Sum>{categories.map(category => category.category_total_price).reduce((a, b) => a + b)}</Sum>
         {this.createModal}
       </Container>
     )
