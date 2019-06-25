@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import styled from 'styled-components';
-import {Header, Icon, Input, Table, Button} from 'semantic-ui-react';
+import {Header, Icon, Input, Table, Label} from 'semantic-ui-react';
 import {fetchCategoryProducts, fetchProducts} from '../../redux/actions/productsActions';
 import {fetchCategories} from '../../redux/actions/categoriesActions';
 import Category from './Category';
@@ -14,12 +14,19 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
 `;
 
 const searchCategory = (category, query) => {
   const string = `${category.category_name}\n${category.category_description}\n${category.category_total_price}`;
   return !query || (category && string.toLowerCase().includes(query.toLowerCase()));
 };
+
+const AddButton = styled.div`
+  position: absolute;
+  top: 10px;
+  right: 10px;
+`;
 
 class Categories extends Component {
   state = {query: '', create: false};
@@ -68,7 +75,18 @@ class Categories extends Component {
     return (
       <Container>
         <Header>Categories</Header>
-        <Button onClick={() => this.setState({create: true})} basic color="green">+</Button>
+        <AddButton>
+          <Label
+            as="a"
+            basic
+            color="green"
+            size="mini"
+            style={{width: 24}}
+            onClick={() => this.setState({create: true})}
+          >
+            <Icon name="add"/>
+          </Label>
+        </AddButton>
         <Input style={{width: '100%'}} icon placeholder='Search...'>
           <input value={query} onChange={e => this.setState({query: e.target.value})}/>
           <Icon name='search'/>

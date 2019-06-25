@@ -68,7 +68,6 @@ export const fetchProducts = () => async dispatch => {
   const response = await api.get('/products');
   const products = response.data;
   
-  console.log('fet p', {products});
   dispatch({
     type: FETCH_PRODUCTS,
     products
