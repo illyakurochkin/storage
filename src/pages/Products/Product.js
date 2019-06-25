@@ -80,13 +80,13 @@ class Product extends Component {
           .then(() => currentCategoryId ? fetchCategoryProducts(currentCategoryId) : fetchProducts())
           .then(fetchCategories)
           .then(() => this.setState({recycle: false}))} basic color='red' inverted>
-            <Icon name='minus'/>
+            <Icon name='minus circle'/> Subtract
           </Button>
           <Button onClick={() => +product.product_amount + +editAmount >= 0 &&  updateProduct({...product, product_amount: +product.product_amount + +editAmount})
           .then(() => currentCategoryId ? fetchCategoryProducts(currentCategoryId) : fetchProducts())
           .then(fetchCategories)
           .then(() => this.setState({recycle: false}))} basic color='green' inverted>
-            <Icon name='plus'/>
+            <Icon name='plus circle'/> Add
           </Button>
         </Modal.Actions>
       </Modal>
