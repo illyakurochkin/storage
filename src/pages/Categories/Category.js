@@ -7,6 +7,7 @@ import CreateModal from './CreateModal';
 import {connect} from 'react-redux';
 import {fetchCategoryProducts, fetchProducts} from '../../redux/actions/productsActions';
 import {fetchCategories} from '../../redux/actions/categoriesActions';
+import {setCurrentCategory} from '../../redux/actions/currenCategoryActions';
 
 const ActionsContainer = styled.div`
   display: flex;
@@ -190,4 +191,4 @@ const mapStateToProps = state => {
   });
 };
 
-export default connect(mapStateToProps, {fetchCategories, fetchCategoryProducts, fetchProducts})(Category);
+export default connect(mapStateToProps, {setCurrentCategory, fetchCategories, fetchCategoryProducts, fetchProducts})(Category);
