@@ -59,7 +59,7 @@ class Product extends Component {
   }
   
   get recycleModal() {
-    const {product, currentCategoryId} = this.props;
+    const {product, currentCategoryId, fetchCategories, fetchCategoryProducts, fetchProducts} = this.props;
     const {editAmount, recycle} = this.state;
     
     if(!recycle) {
