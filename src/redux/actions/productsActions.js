@@ -77,8 +77,8 @@ export const fetchProducts = () => async dispatch => {
 
 export const fetchCategoryProducts = categoryId => async dispatch => {
   // const products = (await fakeFetchProducts()).filter(product => product.category_id === categoryId);
-  const response = await api.get(`/categories/${categoryId}/products`);
-  const products = response.data;
+  const response = await api.get(`/products`); //await api.get(`/categories/${categoryId}/products`);
+  const products = response.data.filter(product => product.category_id === categoryId);
   
   dispatch({
     type: FETCH_PRODUCTS,
