@@ -81,13 +81,13 @@ class Product extends Component {
           <input placeholder="amount" value={editAmount} onChange={e => this.setState({editAmount: e.target.value})}/>
         </Modal.Content>
         <Modal.Actions>
-          <Button onClick={() => product.product_amount - editAmount >= 0 &&  updateProduct({...product, product_amount: product.product_amount - editAmount})
+          <Button onClick={() => +product.product_amount - +editAmount >= 0 &&  updateProduct({...product, product_amount: +product.product_amount - +editAmount})
           .then(() => currentCategoryId ? fetchCategoryProducts(currentCategoryId) : fetchProducts())
           .then(fetchCategories)
           .then(() => this.setState({edit: false}))} basic color='red' inverted>
             <Icon name='minus'/>
           </Button>
-          <Button onClick={() => product.product_amount + editAmount >= 0 &&  updateProduct({...product, product_amount: product.product_amount + editAmount})
+          <Button onClick={() => +product.product_amount + +editAmount >= 0 &&  updateProduct({...product, product_amount: +product.product_amount + +editAmount})
           .then(() => currentCategoryId ? fetchCategoryProducts(currentCategoryId) : fetchProducts())
           .then(fetchCategories)
           .then(() => this.setState({edit: false}))} basic color='green' inverted>
