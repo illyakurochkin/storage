@@ -92,7 +92,8 @@ const normalizeProduct = product => ({
   product_amount: +product.product_amount,
   product_name: product.product_name,
   product_description: product.product_description,
-  product_maker: product.product_maker
+  product_maker: product.product_maker,
+  category_id: product.category_id
 });
 
 export const createProduct = product => {
