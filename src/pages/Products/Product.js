@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 import {Button, Header, Icon, Input, Label, Modal, Table} from 'semantic-ui-react';
 import styled from 'styled-components';
 import {connect} from 'react-redux';
-import {updateProduct, deleteProduct} from '../../redux/actions/productsActions';
-import {fetchProducts, fetchCategoryProducts} from '../../redux/actions/productsActions';
+import {deleteProduct, fetchCategoryProducts, fetchProducts, updateProduct} from '../../redux/actions/productsActions';
 
 const ActionsContainer = styled.div`
   display: flex;
@@ -17,7 +16,7 @@ const StyledInput = styled(Input)`
 `;
 
 const validateProduct = product =>
-  !!(product && product.product_name && product.product_description && product.product_maker);
+  !!(product && product.product_name && product.product_maker && product.product_price >= 0 && product.product_amount >= 0);
 
 class Product extends Component {
   state = {
@@ -25,13 +24,45 @@ class Product extends Component {
     editProduct: {...this.props.product}
   };
   
+  get deleteModal() {
+    const {product} = this.props;
+    const {open} = this.state;
+    
+    return (
+      <Modal open={open} onClose={() => this.setState({open: false})} basic size='mini'>
+        <Header icon='archive' content={`Delete product '${product.product_name}'`}/>
+        <Modal.Content>
+          <p>
+            Are you sure you want to delete this product?
+          </p>
+          <ul>
+            <li>Name: {product.product_name}</li>
+            <li>Price: {product.product_price}</li>
+            <li>Amount: {product.product_amount}</li>
+            <li>Maker: {product.product_maker}</li>
+            <li>Description: {product.product_description}</li>
+          </ul>
+        </Modal.Content>
+        <Modal.Actions>
+          <Button onClick={() => this.setState({open: false})} basic color='red' inverted>
+            <Icon name='remove'/> No
+          </Button>
+          <Button onClick={this.onDelete} basic color='green' inverted>
+            <Icon name='checkmark'/> Yes
+          </Button>
+        </Modal.Actions>
+      </Modal>
+    );
+  }
+  
   onEdit = () => {
-    const {product, currentCategoryId, fetchProducts, fetchCategoryProducts} = this.props;
+    const {product, currentCategoryId, fetchProducts, fetchCategoryProducts, fetchCategories} = this.props;
     const {edit, editProduct} = this.state;
     
     if (edit && validateProduct(editProduct)) {
       updateProduct(editProduct)
       .then(() => currentCategoryId ? fetchCategoryProducts(currentCategoryId) : fetchProducts())
+      .then(fetchCategories)
       .then(() => this.setState({edit: false}))
     } else if (!edit) {
       this.setState({edit: true, editProduct: {...product}});
@@ -101,40 +132,9 @@ class Product extends Component {
     );
   }
   
-  get deleteModal() {
-    const {product} = this.props;
-    const {open} = this.state;
-    
-    return (
-      <Modal open={open} onClose={() => this.setState({open: false})} basic size='mini'>
-        <Header icon='archive' content={`Delete product '${product.product_name}'`}/>
-        <Modal.Content>
-          <p>
-            Are you sure you want to delete this product?
-          </p>
-          <ul>
-            <li>Name: {product.product_name}</li>
-            <li>Price: {product.product_price}</li>
-            <li>Amount: {product.product_amount}</li>
-            <li>Maker: {product.product_maker}</li>
-            <li>Description: {product.product_description}</li>
-          </ul>
-        </Modal.Content>
-        <Modal.Actions>
-          <Button onClick={() => this.setState({open: false})} basic color='red' inverted>
-            <Icon name='remove'/> No
-          </Button>
-          <Button onClick={this.onDelete} basic color='green' inverted>
-            <Icon name='checkmark'/> Yes
-          </Button>
-        </Modal.Actions>
-      </Modal>
-    );
-  }
-  
   render() {
     const {product} = this.props;
-    const {edit, open} = this.state;
+    const {edit} = this.state;
     
     return (
       <Fragment>
@@ -173,7 +173,10 @@ class Product extends Component {
 }
 
 Product.propTypes = {
-  product: PropTypes.object.isRequired
+  product: PropTypes.object.isRequired,
+  fetchProducts: PropTypes.func.isRequired,
+  fetchCategoryProducts: PropTypes.func.isRequired,
+  fetchCategories: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({

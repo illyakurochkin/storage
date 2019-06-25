@@ -92,7 +92,7 @@ class CreateModal extends Component {
           </List>
         </Modal.Content>
         <Modal.Actions>
-          <Button onClick={() => this.setState({open: false})} basic color='red' inverted>
+          <Button onClick={close} basic color='red' inverted>
             <Icon name='remove'/> No
           </Button>
           <Button onClick={this.onCreate} basic color='green' inverted>
@@ -107,7 +107,8 @@ class CreateModal extends Component {
 CreateModal.propTypes = {
   category: PropTypes.object.isRequired,
   opened: PropTypes.bool.isRequired,
-  close: PropTypes.func.isRequired
+  close: PropTypes.func.isRequired,
+  fetchCategoryProducts: PropTypes.func.isRequired
 };
 
 export default connect(null, {fetchCategoryProducts})(CreateModal);

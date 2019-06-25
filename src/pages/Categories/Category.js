@@ -19,7 +19,7 @@ const StyledInput = styled(Input)`
 `;
 
 const validateCategory = category =>
-  !!(category && category.category_name && category.category_description);
+  !!(category && category.category_name);
 
 class Category extends Component {
   state = {
