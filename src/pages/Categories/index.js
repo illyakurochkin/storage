@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import styled from 'styled-components';
-import {Header, Icon, Input, Menu, Table} from 'semantic-ui-react';
+import {Header, Icon, Input, Table} from 'semantic-ui-react';
 import {fetchCategoryProducts, fetchProducts} from '../../redux/actions/productsActions';
 import {fetchCategories} from '../../redux/actions/categoriesActions';
 import Category from './Category';
@@ -16,7 +16,7 @@ const Container = styled.div`
 `;
 
 const searchCategory = (category, query) => {
-  const string = `${category.category_name}\n${category.category_description}`;
+  const string = `${category.category_name}\n${category.category_description}\n${category.category_total_price}`;
   return !query || (category && string.toLowerCase().includes(query.toLowerCase()));
 };
 
