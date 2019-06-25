@@ -80,7 +80,7 @@ class Categories extends Component {
             basic
             color="green"
             size="medium"
-            style={{width: 24}}
+            style={{width: 32}}
             onClick={() => this.setState({create: true})}
           >
             <Icon name="add"/>

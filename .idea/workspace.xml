@@ -4,7 +4,6 @@
     <list default="true" id="4db4f656-bb8c-4df8-b440-70fdf49550e8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/Categories/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Categories/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Page.js" afterDir="false" />
     </list>
     <list id="34b93f37-f20f-42d6-9655-36c897e0170f" name="Lot's of fixes and improvements" comment="Lot's of fixes and improvements&#10;&#10;(cherry picked from commit a6b4c1f179eaba1e1e06936be5982b7daf96398c)">
       <changelist_data name="illyakurochkin" email="illya.kurochkin@gmail.com" date="1560540916000" />
@@ -92,8 +91,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/pages/Categories/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="12" column="10" selection-start-line="12" selection-start-column="10" selection-end-line="12" selection-end-column="10" />
+            <state relative-caret-position="267">
+              <caret line="82" column="29" selection-start-line="82" selection-start-column="29" selection-end-line="82" selection-end-column="29" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -476,21 +475,7 @@
       <workItem from="1561366711860" duration="514000" />
       <workItem from="1561367267449" duration="3428000" />
       <workItem from="1561451634634" duration="557000" />
-      <workItem from="1561454870599" duration="6618000" />
-    </task>
-    <task id="LOCAL-00139" summary="Fix some shit">
-      <created>1560812154948</created>
-      <option name="number" value="00139" />
-      <option name="presentableId" value="LOCAL-00139" />
-      <option name="project" value="LOCAL" />
-      <updated>1560812154948</updated>
-    </task>
-    <task id="LOCAL-00140" summary="Fix some shit">
-      <created>1560812409878</created>
-      <option name="number" value="00140" />
-      <option name="presentableId" value="LOCAL-00140" />
-      <option name="project" value="LOCAL" />
-      <updated>1560812409878</updated>
+      <workItem from="1561454870599" duration="6719000" />
     </task>
     <task id="LOCAL-00141" summary="Fix some shit">
       <created>1560812610358</created>
@@ -821,11 +806,25 @@
       <option name="project" value="LOCAL" />
       <updated>1561461925675</updated>
     </task>
-    <option name="localTasksCounter" value="188" />
+    <task id="LOCAL-00188" summary="Https">
+      <created>1561462160154</created>
+      <option name="number" value="00188" />
+      <option name="presentableId" value="LOCAL-00188" />
+      <option name="project" value="LOCAL" />
+      <updated>1561462160155</updated>
+    </task>
+    <task id="LOCAL-00189" summary="Https">
+      <created>1561462202015</created>
+      <option name="number" value="00189" />
+      <option name="presentableId" value="LOCAL-00189" />
+      <option name="project" value="LOCAL" />
+      <updated>1561462202015</updated>
+    </task>
+    <option name="localTasksCounter" value="190" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="161815000" />
+    <option name="totallyTimeSpent" value="161916000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="6" />
@@ -1148,8 +1147,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/Categories/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="10" selection-start-line="12" selection-start-column="10" selection-end-line="12" selection-end-column="10" />
+        <state relative-caret-position="267">
+          <caret line="82" column="29" selection-start-line="82" selection-start-column="29" selection-end-line="82" selection-end-column="29" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
