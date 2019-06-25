@@ -10,7 +10,7 @@ import {setCurrentCategory} from '../../redux/actions/currenCategoryActions';
 import CreateCategory from './CreateCategory';
 
 const Container = styled.div`
-  width: 400px;
+  width: 500px;
   display: flex;
   flex-direction: column;
   align-items: center;

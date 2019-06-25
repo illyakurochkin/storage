@@ -7,7 +7,7 @@ import {connect} from 'react-redux';
 import {signOut} from '../redux/actions/authActions';
 
 const Container = styled.div`
-  width: 1140px;
+  width: 1240px;
   margin: auto;
   padding-top: 50px;
   display: flex;
