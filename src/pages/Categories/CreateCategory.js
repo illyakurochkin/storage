@@ -58,7 +58,7 @@ class CreateCategory extends Component {
               />
             </li>
             <li>
-              {'Price:'}
+              {'Description:'}
               <Input
                 type="text"
                 value={category_description}
