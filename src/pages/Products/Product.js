@@ -58,9 +58,13 @@ class Product extends Component {
     );
   }
   
-  get recicleModal() {
+  get recycleModal() {
     const {product, currentCategoryId} = this.props;
     const {editAmount, recycle} = this.state;
+    
+    if(!recycle) {
+      return null;
+    }
     
     return (
       <Modal basic size="mini" open={recycle} onClose={() => this.setState({recycle: false})}>
@@ -207,6 +211,7 @@ class Product extends Component {
                 <Icon name="trash alternate"/>
               </Label>
               {this.deleteModal}
+              {this.recycleModal}
             </ActionsContainer>
           </Table.Cell>
         </Table.Row>
