@@ -2,11 +2,12 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import styled from 'styled-components';
-import {Header, Icon, Input, Table} from 'semantic-ui-react';
+import {Header, Icon, Input, Table, Button} from 'semantic-ui-react';
 import {fetchCategoryProducts, fetchProducts} from '../../redux/actions/productsActions';
 import {fetchCategories} from '../../redux/actions/categoriesActions';
 import Category from './Category';
 import {setCurrentCategory} from '../../redux/actions/currenCategoryActions';
+import CreateCategory from './CreateCategory';
 
 const Container = styled.div`
   width: 400px;
@@ -21,7 +22,7 @@ const searchCategory = (category, query) => {
 };
 
 class Categories extends Component {
-  state = {query: ''};
+  state = {query: '', create: false};
   
   componentDidMount() {
     this.props.fetchCategories();
@@ -50,12 +51,24 @@ class Categories extends Component {
     ));
   }
   
+  get createModal() {
+    const {create} = this.state;
+    
+    return (
+      <CreateCategory
+        opened={create}
+        close={() => this.setState({create: false})}
+      />
+    );
+  }
+  
   render() {
     const {query} = this.state;
     
     return (
       <Container>
         <Header>Categories</Header>
+        <Button onClick={() => this.setState({create: true})}>create category</Button>
         <Input style={{width: '100%'}} icon placeholder='Search...'>
           <input value={query} onChange={e => this.setState({query: e.target.value})}/>
           <Icon name='search'/>
@@ -74,6 +87,7 @@ class Categories extends Component {
             {this.renderCategories()}
           </Table.Body>
         </Table>
+        {this.createModal}
       </Container>
     )
   }
