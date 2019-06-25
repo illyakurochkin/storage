@@ -68,7 +68,7 @@ class Categories extends Component {
     return (
       <Container>
         <Header>Categories</Header>
-        <Button onClick={() => this.setState({create: true})} color="green">+</Button>
+        <Button onClick={() => this.setState({create: true})} basic color="green">+</Button>
         <Input style={{width: '100%'}} icon placeholder='Search...'>
           <input value={query} onChange={e => this.setState({query: e.target.value})}/>
           <Icon name='search'/>
