@@ -19,6 +19,11 @@ export const signIn = (login, password) => async dispatch => {
   }
 };
 
+export const setToken = token => ({
+  type: SET_TOKEN,
+  token
+});
+
 export const signOut = () => {
   localStorage.removeItem('Authorization');
   api.defaults.headers.common.Authorization = null;

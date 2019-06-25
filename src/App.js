@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import Page from './pages/Page';
 import Signin from './pages/SignIn';
 import api from './utils/api';
+import {setToken} from './redux/actions/authActions';
 
 const Container = styled.div`
   display: flex;
@@ -12,10 +13,11 @@ const Container = styled.div`
 
 class App extends Component {
   componentDidMount() {
-    const {token} = this.props;
+    const {token, setToken} = this.props;
     
     localStorage.setItem('Authorization', token);
     api.defaults.headers.common.Authorization = token;
+    setToken(token);
   }
   
   
@@ -38,4 +40,4 @@ const mapStateToProps = state => ({
   token: state.auth
 });
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps, {setToken})(App);
