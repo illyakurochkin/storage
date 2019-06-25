@@ -89,7 +89,10 @@ export const fetchCategoryProducts = categoryId => async dispatch => {
 const normalizeProduct = product => ({
   product_id: product.product_id ? +product.product_id : undefined,
   product_price: Number(product.product_price).toFixed(2),
-  product_amount: +product.product_amount
+  product_amount: +product.product_amount,
+  product_name: product.product_name,
+  product_description: product.product_description,
+  product_maker: product.product_maker
 });
 
 export const createProduct = product => {
