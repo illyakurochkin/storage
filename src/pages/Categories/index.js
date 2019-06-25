@@ -79,7 +79,7 @@ class Categories extends Component {
             as="a"
             basic
             color="green"
-            size="mini"
+            size="medium"
             style={{width: 24}}
             onClick={() => this.setState({create: true})}
           >
