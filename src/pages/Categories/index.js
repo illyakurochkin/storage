@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import styled from 'styled-components';
-import {Header, Icon, Input, Table, Label} from 'semantic-ui-react';
+import {Header, Icon, Input, Table, Label, Divider} from 'semantic-ui-react';
 import {fetchCategoryProducts, fetchProducts} from '../../redux/actions/productsActions';
 import {fetchCategories} from '../../redux/actions/categoriesActions';
 import Category from './Category';
@@ -15,6 +15,12 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   position: relative;
+`;
+
+const Sum = styled.h1`
+  font-width: 700;
+  font-size: 32px;
+  font-color: #CCC;
 `;
 
 const searchCategory = (category, query) => {
@@ -69,6 +75,7 @@ class Categories extends Component {
   }
   
   render() {
+    const {categories} = this.props;
     const {query} = this.state;
     
     return (
@@ -104,6 +111,8 @@ class Categories extends Component {
             {this.renderCategories()}
           </Table.Body>
         </Table>
+        <Divider/>
+        <Sum>{categories.map(category => category.category_total_price).reduce(0, (a, b) => a + b)}</Sum>
         {this.createModal}
       </Container>
     )
