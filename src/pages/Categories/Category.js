@@ -83,6 +83,7 @@ class Category extends Component {
         fetchCategoryProducts(currentCategoryId);
       } else {
         setCurrentCategory(null);
+        fetchProducts();
       }
     })
     .then(fetchCategories)
