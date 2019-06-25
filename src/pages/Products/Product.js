@@ -40,7 +40,7 @@ class Product extends Component {
           </p>
           <ul>
             <li>Name: {product.product_name}</li>
-            <li>Price: {product.product_price}</li>
+            <li>Price: ${product.product_price}</li>
             <li>Amount: {product.product_amount}</li>
             <li>Maker: {product.product_maker}</li>
             <li>Description: {product.product_description}</li>
@@ -163,7 +163,7 @@ class Product extends Component {
     return (
       <Fragment>
         <Table.Cell>{product.product_name}</Table.Cell>
-        <Table.Cell>{product.product_price}</Table.Cell>
+        <Table.Cell>${product.product_price}</Table.Cell>
         <Table.Cell>{product.product_amount}</Table.Cell>
         <Table.Cell>{product.product_maker}</Table.Cell>
         <Table.Cell>{product.product_description}</Table.Cell>

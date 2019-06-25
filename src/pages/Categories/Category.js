@@ -123,7 +123,7 @@ class Category extends Component {
       <Fragment>
         <Table.Cell onClick={() => !create && onClick()}
                     style={{cursor: 'pointer'}}>{category.category_name}</Table.Cell>
-        <Table.Cell>{category.category_total_price}</Table.Cell>
+        <Table.Cell>${category.category_total_price}</Table.Cell>
         <Table.Cell>{category.category_description}</Table.Cell>
       </Fragment>
     );
