@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import {Button, Header, Icon, List, Modal} from 'semantic-ui-react';
 import {createProduct, fetchCategoryProducts} from '../../redux/actions/productsActions';
+import {fetchCategories} from '../../redux/actions/categoriesActions';
 import {connect} from 'react-redux';
 
 const Input = styled.input`
@@ -26,12 +27,40 @@ class CreateModal extends Component {
   };
   
   onCreate = () => {
-    const {fetchCategoryProducts, category, close} = this.props;
+    const {fetchCategoryProducts, category, close, fetchCategories} = this.props;
+    const {product_name, product_price, product_amount, product_maker} = this.state;
+    
+    if (!product_name) {
+      return alert('product name is empty');
+    }
+    
+    if (product_price === null) {
+      return alert('product price is empty');
+    }
+    
+    if (product_amount === null) {
+      return alert('product amount is empty');
+    }
+    
+    if (product_price < 0) {
+      return alert('invalid product price');
+    }
+    
+    if (product_amount < 0) {
+      return alert('invalid product amount');
+    }
+    
+    if (!product_maker) {
+      return alert('product maker is empty');
+    }
     
     console.log('CREATE', this.state);
     
     createProduct({...this.state, product_amount: +this.state.product_amount, category_id: category.category_id})
-    .then(() => fetchCategoryProducts(category.category_id).then(() => close()));
+    .then(() => fetchCategoryProducts(category.category_id))
+    .then(() => fetchCategories())
+    .then(() => close())
+    .catch(() => alert('product name already used'));
   };
   
   render() {
@@ -110,7 +139,8 @@ CreateModal.propTypes = {
   category: PropTypes.object.isRequired,
   opened: PropTypes.bool.isRequired,
   close: PropTypes.func.isRequired,
-  fetchCategoryProducts: PropTypes.func.isRequired
+  fetchCategoryProducts: PropTypes.func.isRequired,
+  fetchCategories: PropTypes.func.isRequired
 };
 
-export default connect(null, {fetchCategoryProducts})(CreateModal);
+export default connect(null, {fetchCategoryProducts, fetchCategories})(CreateModal);
