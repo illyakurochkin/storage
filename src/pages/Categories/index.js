@@ -19,7 +19,7 @@ const Container = styled.div`
 
 const Sum = styled.h1`
   font-width: 700;
-  font-size: 32px;
+  font-size: 28px;
   font-color: #CCC;
   width: 100%;
 `;
@@ -113,7 +113,7 @@ class Categories extends Component {
           </Table.Body>
         </Table>
         <Divider/>
-        <Sum>TOTAL SUM: ${categories.map(category => category.category_total_price).reduce((a, b) => a + b, 0)}</Sum>
+        <Sum>Total Sum: ${categories.map(category => category.category_total_price).reduce((a, b) => a + b, 0)}</Sum>
         {this.createModal}
       </Container>
     )
