@@ -26,7 +26,7 @@ class CreateCategory extends Component {
     const {fetchCategories, close} = this.props;
     
     if(!this.state.category_name) {
-      alert('category name is empty');
+      return alert('category name is empty');
     }
     
     createCategory(this.state)
