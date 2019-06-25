@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import {connect} from 'react-redux';
 import Page from './pages/Page';
 import Signin from './pages/SignIn';
+import api from './utils/api';
 
 const Container = styled.div`
   display: flex;
@@ -10,6 +11,13 @@ const Container = styled.div`
 `;
 
 class App extends Component {
+  componentDidMount() {
+    const {token} = this.props;
+    
+    localStorage.setItem('Authorization', token);
+    api.defaults.headers.common.Authorization = token;
+  }
+  
   
   render() {
     const {token} = this.props;

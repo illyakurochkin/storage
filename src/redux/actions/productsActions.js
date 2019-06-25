@@ -86,16 +86,22 @@ export const fetchCategoryProducts = categoryId => async dispatch => {
   });
 };
 
+const normalizeProduct = product => ({
+  product_id: product.product_id ? +product.product_id : undefined,
+  product_price: Number(product.product_price).toFixed(2),
+  product_amount: +product.product_amount
+});
+
 export const createProduct = product => {
   //await api.put('/products', product);
   // products = [...products, product];
-  return api.put('/products', product).then(response => response.data); // Promise.resolve();
+  return api.put('/products', normalizeProduct(product)).then(response => response.data); // Promise.resolve();
 };
 
 export const updateProduct = product => {
   //await api.post('/products', product);
   // products = products.map(p => p.product_id === product.product_id ? product : p);
-  return api.post('/products', product); //Promise.resolve();
+  return api.post('/products', normalizeProduct(product)); //Promise.resolve();
 };
 
 export const deleteProduct = product_id => {
