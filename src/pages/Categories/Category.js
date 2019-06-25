@@ -2,11 +2,10 @@ import React, {Component, Fragment} from 'react';
 import PropTypes from 'prop-types';
 import {Button, Header, Icon, Input, Label, Modal, Table} from 'semantic-ui-react';
 import styled from 'styled-components';
-import {deleteCategory, updateCategory} from '../../redux/actions/categoriesActions';
+import {deleteCategory, fetchCategories, updateCategory} from '../../redux/actions/categoriesActions';
 import CreateModal from './CreateModal';
 import {connect} from 'react-redux';
 import {fetchCategoryProducts, fetchProducts} from '../../redux/actions/productsActions';
-import {fetchCategories} from '../../redux/actions/categoriesActions';
 import {setCurrentCategory} from '../../redux/actions/currenCategoryActions';
 
 const ActionsContainer = styled.div`
@@ -77,8 +76,15 @@ class Category extends Component {
     const {category, fetchCategories, currentCategoryId, fetchProducts, setCurrentCategory, fetchCategoryProducts} = this.props;
     
     deleteCategory(category.category_id)
-    .then(() => currentCategoryId === category.category_id && setCurrentCategory(null))
-    .then(() => currentCategoryId === category.category_id ? fetchCategoryProducts(currentCategoryId) : fetchProducts())
+    .then(() => {
+      if (!currentCategoryId) {
+        fetchProducts();
+      } else if (currentCategoryId !== category.category_id) {
+        fetchCategoryProducts(currentCategoryId);
+      } else {
+        setCurrentCategory(null);
+      }
+    })
     .then(fetchCategories)
     .then(() => this.setState({open: false}));
   };
@@ -191,4 +197,9 @@ const mapStateToProps = state => {
   });
 };
 
-export default connect(mapStateToProps, {setCurrentCategory, fetchCategories, fetchCategoryProducts, fetchProducts})(Category);
+export default connect(mapStateToProps, {
+  setCurrentCategory,
+  fetchCategories,
+  fetchCategoryProducts,
+  fetchProducts
+})(Category);
