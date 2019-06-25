@@ -108,10 +108,11 @@ class Product extends Component {
   };
   
   onDelete = () => {
-    const {product, currentCategoryId, fetchCategoryProducts, fetchProducts} = this.props;
+    const {product, currentCategoryId, fetchCategoryProducts, fetchProducts, fetchCategories} = this.props;
     
     deleteProduct(product.product_id)
     .then(() => currentCategoryId ? fetchCategoryProducts(currentCategoryId) : fetchProducts())
+    .then(fetchCategories)
     .then(() => this.setState({open: false}));
   };
   
