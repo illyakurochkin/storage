@@ -4,6 +4,7 @@ import {Button, Header, Icon, Input, Label, Modal, Table} from 'semantic-ui-reac
 import styled from 'styled-components';
 import {connect} from 'react-redux';
 import {deleteProduct, fetchCategoryProducts, fetchProducts, updateProduct} from '../../redux/actions/productsActions';
+import {fetchCategories} from '../../redux/actions/categoriesActions';
 
 const ActionsContainer = styled.div`
   display: flex;
@@ -21,7 +22,8 @@ const validateProduct = product =>
 class Product extends Component {
   state = {
     edit: false,
-    editProduct: {...this.props.product}
+    editProduct: {...this.props.product},
+    editAmount: 0
   };
   
   get deleteModal() {
@@ -53,6 +55,48 @@ class Product extends Component {
         </Modal.Actions>
       </Modal>
     );
+  }
+  
+  get recicleModal() {
+    const {product, currentCategoryId} = this.props;
+    const {editAmount} = this.state;
+    
+    return (
+      <Modal basic size="mini" trigger={(
+        <Label
+          as="a"
+          basic
+          color="green"
+          size="mini"
+          style={{width: 24}}
+          onClick={() => this.setState({open: true})}
+        >
+          <Icon name="recycle"/>
+        </Label>
+      )}>
+        <Header icon='archive' content={`Change product '${product.product_name}' amount?`}/>
+        <Modal.Content>
+          <p>
+            Enter product amount
+          </p>
+          <input placeholder="amount" value={editAmount} onChange={e => this.setState({editAmount: e.target.value})}/>
+        </Modal.Content>
+        <Modal.Actions>
+          <Button onClick={() => product.product_amount - editAmount >= 0 &&  updateProduct({...product, product_amount: product.product_amount - editAmount})
+          .then(() => currentCategoryId ? fetchCategoryProducts(currentCategoryId) : fetchProducts())
+          .then(fetchCategories)
+          .then(() => this.setState({edit: false}))} basic color='red' inverted>
+            <Icon name='minus'/>
+          </Button>
+          <Button onClick={() => product.product_amount + editAmount >= 0 &&  updateProduct({...product, product_amount: product.product_amount + editAmount})
+          .then(() => currentCategoryId ? fetchCategoryProducts(currentCategoryId) : fetchProducts())
+          .then(fetchCategories)
+          .then(() => this.setState({edit: false}))} basic color='green' inverted>
+            <Icon name='plus'/>
+          </Button>
+        </Modal.Actions>
+      </Modal>
+    )
   }
   
   onEdit = () => {
@@ -142,6 +186,9 @@ class Product extends Component {
           {edit ? this.renderEditCells() : this.renderStaticCells()}
           <Table.Cell>
             <ActionsContainer>
+              <Modal>
+              
+              </Modal>
               <Label
                 as="a"
                 basic={!edit}
@@ -162,7 +209,6 @@ class Product extends Component {
               >
                 <Icon name="trash alternate"/>
               </Label>
-              
               {this.deleteModal}
             </ActionsContainer>
           </Table.Cell>
@@ -176,11 +222,12 @@ Product.propTypes = {
   product: PropTypes.object.isRequired,
   fetchProducts: PropTypes.func.isRequired,
   fetchCategoryProducts: PropTypes.func.isRequired,
-  fetchCategories: PropTypes.func.isRequired
+  fetchCategories: PropTypes.func.isRequired,
+  currentCategoryId: PropTypes.any.isRequired
 };
 
 const mapStateToProps = state => ({
   currentCategoryId: state.currentCategory
 });
 
-export default connect(mapStateToProps, {fetchProducts, fetchCategoryProducts})(Product);
+export default connect(mapStateToProps, {fetchCategories, fetchProducts, fetchCategoryProducts})(Product);

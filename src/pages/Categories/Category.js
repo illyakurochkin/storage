@@ -73,9 +73,12 @@ class Category extends Component {
   };
   
   onDelete = () => {
-    const {category, fetchCategories} = this.props;
+    const {category, fetchCategories, currentCategoryId} = this.props;
     
-    deleteCategory(category.category_id).then(fetchCategories).then(() => this.setState({open: false}));
+    deleteCategory(category.category_id)
+    .then(fetchCategories)
+    .then(() => currentCategoryId === category.category_id ? fetchCategoryProducts(currentCategoryId) : fetchProducts())
+    .then(() => this.setState({open: false}));
   };
   
   renderEditCells() {
