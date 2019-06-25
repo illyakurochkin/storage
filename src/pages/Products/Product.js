@@ -69,7 +69,6 @@ class Product extends Component {
           color="green"
           size="mini"
           style={{width: 24}}
-          onClick={() => this.setState({open: true})}
         >
           <Icon name="recycle"/>
         </Label>
