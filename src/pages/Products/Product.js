@@ -186,9 +186,7 @@ class Product extends Component {
           {edit ? this.renderEditCells() : this.renderStaticCells()}
           <Table.Cell>
             <ActionsContainer>
-              <Modal>
-              
-              </Modal>
+              {this.recicleModal}
               <Label
                 as="a"
                 basic={!edit}
