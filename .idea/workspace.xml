@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4db4f656-bb8c-4df8-b440-70fdf49550e8" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/Categories/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Categories/index.js" afterDir="false" />
     </list>
     <list id="34b93f37-f20f-42d6-9655-36c897e0170f" name="Lot's of fixes and improvements" comment="Lot's of fixes and improvements&#10;&#10;(cherry picked from commit a6b4c1f179eaba1e1e06936be5982b7daf96398c)">
@@ -66,8 +67,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pages/Categories/CreateModal.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="26" column="2" lean-forward="true" selection-end-line="115" selection-end-column="67" />
+            <state relative-caret-position="330">
+              <caret line="139" column="52" selection-start-line="139" selection-start-column="52" selection-end-line="139" selection-end-column="52" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -90,8 +91,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/pages/Categories/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1095">
-              <caret line="9" column="21" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
+            <state relative-caret-position="282">
+              <caret line="70" column="77" selection-start-line="70" selection-start-column="77" selection-end-line="70" selection-end-column="77" />
+              <folding>
+                <element signature="e#0#39#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -217,13 +221,13 @@
         <option value="$PROJECT_DIR$/src/redux/reducers/authReducer.js" />
         <option value="$PROJECT_DIR$/src/redux/actions/authActions.js" />
         <option value="$PROJECT_DIR$/src/App.js" />
-        <option value="$PROJECT_DIR$/src/pages/Categories/CreateModal.js" />
         <option value="$PROJECT_DIR$/src/redux/actions/productsActions.js" />
         <option value="$PROJECT_DIR$/src/pages/Page.js" />
         <option value="$PROJECT_DIR$/src/pages/Categories/Category.js" />
         <option value="$PROJECT_DIR$/src/pages/Products/Product.js" />
         <option value="$PROJECT_DIR$/public/index.html" />
         <option value="$PROJECT_DIR$/src/pages/Categories/CreateCategory.js" />
+        <option value="$PROJECT_DIR$/src/pages/Categories/CreateModal.js" />
         <option value="$PROJECT_DIR$/src/pages/Categories/index.js" />
       </list>
     </option>
@@ -458,28 +462,7 @@
       <workItem from="1561366711860" duration="514000" />
       <workItem from="1561367267449" duration="3428000" />
       <workItem from="1561451634634" duration="557000" />
-      <workItem from="1561454870599" duration="5528000" />
-    </task>
-    <task id="LOCAL-00132" summary="Fix some shit">
-      <created>1560810743072</created>
-      <option name="number" value="00132" />
-      <option name="presentableId" value="LOCAL-00132" />
-      <option name="project" value="LOCAL" />
-      <updated>1560810743072</updated>
-    </task>
-    <task id="LOCAL-00133" summary="Fix some shit">
-      <created>1560810917208</created>
-      <option name="number" value="00133" />
-      <option name="presentableId" value="LOCAL-00133" />
-      <option name="project" value="LOCAL" />
-      <updated>1560810917208</updated>
-    </task>
-    <task id="LOCAL-00134" summary="Fix some shit">
-      <created>1560811101180</created>
-      <option name="number" value="00134" />
-      <option name="presentableId" value="LOCAL-00134" />
-      <option name="project" value="LOCAL" />
-      <updated>1560811101181</updated>
+      <workItem from="1561454870599" duration="6107000" />
     </task>
     <task id="LOCAL-00135" summary="Fix some shit">
       <created>1560811268255</created>
@@ -803,11 +786,32 @@
       <option name="project" value="LOCAL" />
       <updated>1561460113912</updated>
     </task>
-    <option name="localTasksCounter" value="181" />
+    <task id="LOCAL-00181" summary="Https">
+      <created>1561461068842</created>
+      <option name="number" value="00181" />
+      <option name="presentableId" value="LOCAL-00181" />
+      <option name="project" value="LOCAL" />
+      <updated>1561461068842</updated>
+    </task>
+    <task id="LOCAL-00182" summary="Https">
+      <created>1561461078622</created>
+      <option name="number" value="00182" />
+      <option name="presentableId" value="LOCAL-00182" />
+      <option name="project" value="LOCAL" />
+      <updated>1561461078623</updated>
+    </task>
+    <task id="LOCAL-00183" summary="Https">
+      <created>1561461599071</created>
+      <option name="number" value="00183" />
+      <option name="presentableId" value="LOCAL-00183" />
+      <option name="project" value="LOCAL" />
+      <updated>1561461599071</updated>
+    </task>
+    <option name="localTasksCounter" value="184" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="160725000" />
+    <option name="totallyTimeSpent" value="161304000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="6" />
@@ -1108,16 +1112,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/Categories/CreateModal.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="26" column="2" lean-forward="true" selection-end-line="115" selection-end-column="67" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/Categories/CreateCategory.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-570">
@@ -1128,10 +1122,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/Categories/CreateModal.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="139" column="52" selection-start-line="139" selection-start-column="52" selection-end-line="139" selection-end-column="52" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/Categories/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1095">
-          <caret line="9" column="21" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
+        <state relative-caret-position="282">
+          <caret line="70" column="77" selection-start-line="70" selection-start-column="77" selection-end-line="70" selection-end-column="77" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
