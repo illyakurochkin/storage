@@ -1,4 +1,4 @@
-import {SIGN_IN, SIGN_OUT} from './actionsTypes';
+import {SIGN_IN, SIGN_OUT, SET_TOKEN} from './actionsTypes';
 import api from '../../utils/api';
 import sha256 from '../../utils/sha256';
 
