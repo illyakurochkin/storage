@@ -13,9 +13,9 @@ const Container = styled.div`
 
 class App extends Component {
   componentDidMount() {
-    const {token, setToken} = this.props;
+    const {setToken} = this.props;
     
-    localStorage.setItem('Authorization', token);
+    const token = localStorage.getItem('Authorization');
     api.defaults.headers.common.Authorization = token;
     setToken(token);
   }
