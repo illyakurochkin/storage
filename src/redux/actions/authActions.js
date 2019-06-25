@@ -4,7 +4,8 @@ import sha256 from '../../utils/sha256';
 
 export const signIn = (login, password) => async dispatch => {
   try {
-    const hashedPassword = password; //sha256(password);
+    const hashedPassword = sha256(password);
+    console.log({hashedPassword});
     const response = await api.post('/login', {login, password: hashedPassword});
   
     localStorage.setItem('Authorization', response.data);
