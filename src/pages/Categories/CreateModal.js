@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import {Button, Header, Icon, List, Modal} from 'semantic-ui-react';
-import {createProduct, fetchCategoryProducts} from '../../redux/actions/productsActions';
+import {createProduct, fetchProducts, fetchCategoryProducts} from '../../redux/actions/productsActions';
 import {fetchCategories} from '../../redux/actions/categoriesActions';
 import {connect} from 'react-redux';
 
@@ -27,7 +27,7 @@ class CreateModal extends Component {
   };
   
   onCreate = () => {
-    const {fetchCategoryProducts, category, close, fetchCategories} = this.props;
+    const {currentCategoryId, fetchCategoryProducts, category, close, fetchCategories, fetchProducts} = this.props;
     const {product_name, product_price, product_amount, product_maker} = this.state;
     
     if (!product_name) {
@@ -57,7 +57,7 @@ class CreateModal extends Component {
     console.log('CREATE', this.state);
     
     createProduct({...this.state, product_amount: +this.state.product_amount, category_id: category.category_id})
-    .then(() => fetchCategoryProducts(category.category_id))
+    .then(() => currentCategoryId ? fetchCategoryProducts(currentCategoryId) : fetchProducts())
     .then(() => fetchCategories())
     .then(() => close())
     .catch(() => alert('product name already used'));
@@ -140,7 +140,13 @@ CreateModal.propTypes = {
   opened: PropTypes.bool.isRequired,
   close: PropTypes.func.isRequired,
   fetchCategoryProducts: PropTypes.func.isRequired,
-  fetchCategories: PropTypes.func.isRequired
+  fetchCategories: PropTypes.func.isRequired,
+  fetchProducts: PropTypes.func.isRequired,
+  currentCategoryId: PropTypes.number.isRequired
 };
 
-export default connect(null, {fetchCategoryProducts, fetchCategories})(CreateModal);
+const mapStateToProps = state => ({
+  currentCategoryId: state.currentCategory
+});
+
+export default connect(mapStateToProps, {fetchCategoryProducts, fetchCategories, fetchProducts})(CreateModal);
