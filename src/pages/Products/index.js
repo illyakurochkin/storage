@@ -13,7 +13,7 @@ const Container = styled.div`
 `;
 
 const searchProduct = (product, query) => {
-  const string = `${product.product_name}\n${product.product_price}\n${product.product_maker}\n${product.product_amount}\n${product.product_description}`;
+  const string = `${product.product_name}\n$${product.product_price}\n${product.product_maker}\n${product.product_amount}\n${product.product_description}`;
   return !query || (product && string.toLowerCase().includes(query.toLowerCase()));
 };
 

@@ -25,7 +25,7 @@ const Sum = styled.h1`
 `;
 
 const searchCategory = (category, query) => {
-  const string = `${category.category_name}\n${category.category_description}\n${category.category_total_price}`;
+  const string = `${category.category_name}\n${category.category_description}\n$${category.category_total_price}`;
   return !query || (category && string.toLowerCase().includes(query.toLowerCase()));
 };
 
